@@ -171,7 +171,7 @@ function outputTable(results: StrategyResult[], stats: any, config: StrategyConf
       console.log(chalk.cyan(`${index + 1}. ${p.base}`));
       console.log(`   Spot: ${p.spot.symbol} @ $${p.spot.price.toFixed(2)}`);
       console.log(`   Perp: ${p.perpetual.symbol} @ $${p.perpetual.price.toFixed(2)}`);
-      console.log(`   Basis: ${p.basis.toFixed(2)}% | Funding: ${p.fundingAPR.toFixed(2)}% APR`);
+      console.log(`   Basis: ${p.basis.toFixed(2)}% | Funding: ${(p.perpetual.fundingRate * 100).toFixed(4)}% (${p.fundingAPR.toFixed(2)}% APR)`);
       console.log(`   Net APR: ${p.netAPR.toFixed(2)}% | ROC: ${result.returnOnCapital.toFixed(2)}%`);
       console.log(`   Capital Required: $${result.positionSize.totalCapital.toFixed(2)}`);
       console.log(`   Expected Daily: $${result.expectedReturn.daily.toFixed(2)}`);

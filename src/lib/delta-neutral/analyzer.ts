@@ -27,20 +27,33 @@ export class DeltaNeutralAnalyzer {
    */
   async analyze(config: StrategyConfig = { type: StrategyType.LONG_SPOT_SHORT_PERP }): Promise<StrategyResult[]> {
     // Load data
-    const { tickers } = this.dataLoader.loadAllData();
+    const { tickers, timestamp } = this.dataLoader.loadAllData();
+    
+    console.log(`\nAnalyzing data from: ${new Date(timestamp).toLocaleString()}`);
     
     // Find matching pairs
     const pairs = this.dataLoader.findMatchingPairs(tickers);
+    console.log(`Found ${pairs.size} potential pairs`);
     
     // Convert to DeltaNeutralPair format
     const deltaNeutralPairs: DeltaNeutralPair[] = [];
+    const fundingRateCount = new Map<number, number>();
     
     for (const [base, { spot, perp }] of pairs) {
       const pair = this.createDeltaNeutralPair(base, spot, perp);
       if (pair) {
         deltaNeutralPairs.push(pair);
+        
+        // Track funding rate distribution
+        const rate = pair.perpetual.fundingRate;
+        fundingRateCount.set(rate, (fundingRateCount.get(rate) || 0) + 1);
       }
     }
+    
+    console.log(`Valid pairs with funding rates: ${deltaNeutralPairs.length}`);
+    
+    // Check for suspicious funding rate patterns
+    this.checkDataQuality(fundingRateCount, deltaNeutralPairs.length);
     
     // Apply strategy analysis
     const results: StrategyResult[] = [];
@@ -67,7 +80,22 @@ export class DeltaNeutralAnalyzer {
     try {
       const spotPrice = spot.last || spot.close;
       const perpPrice = perp.last || perp.close;
-      const fundingRate = parseFloat(perp.info?.fundingRate || '0');
+      
+      // More careful funding rate parsing
+      const fundingRateStr = perp.info?.fundingRate;
+      let fundingRate: number | null = null;
+      
+      if (fundingRateStr !== undefined && fundingRateStr !== '' && fundingRateStr !== null) {
+        fundingRate = parseFloat(fundingRateStr);
+        if (isNaN(fundingRate)) {
+          console.warn(`Invalid funding rate for ${perp.symbol}: "${fundingRateStr}"`);
+          return null;
+        }
+      } else {
+        // No funding rate - might be a futures contract, not perpetual
+        console.log(`No funding rate for ${perp.symbol} - skipping`);
+        return null;
+      }
       
       if (!spotPrice || !perpPrice) {
         return null;
@@ -285,6 +313,41 @@ export class DeltaNeutralAnalyzer {
     }
     
     return true;
+  }
+  
+  /**
+   * Check data quality and warn about suspicious patterns
+   */
+  private checkDataQuality(fundingRateCount: Map<number, number>, totalPairs: number): void {
+    // Find most common funding rate
+    let maxCount = 0;
+    let mostCommonRate = 0;
+    
+    for (const [rate, count] of fundingRateCount) {
+      if (count > maxCount) {
+        maxCount = count;
+        mostCommonRate = rate;
+      }
+    }
+    
+    const percentage = (maxCount / totalPairs) * 100;
+    
+    if (percentage > 50) {
+      console.warn(`⚠️  WARNING: ${percentage.toFixed(1)}% of pairs have identical funding rate of ${(mostCommonRate * 100).toFixed(4)}%`);
+      console.warn(`   This might indicate stale or default data. Consider refreshing market data.`);
+    }
+    
+    // Show funding rate distribution
+    console.log('\nFunding Rate Distribution:');
+    const sorted = Array.from(fundingRateCount.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5);
+    
+    for (const [rate, count] of sorted) {
+      const pct = (count / totalPairs * 100).toFixed(1);
+      console.log(`  ${(rate * 100).toFixed(4)}%: ${count} pairs (${pct}%)`);
+    }
+    console.log('');
   }
   
   /**

@@ -74,18 +74,28 @@ export class BybitDataFetcher {
     );
 
     const fundingRates = perpetualTickers.map(ticker => {
-      const rate = parseFloat(ticker.info.fundingRate || 0);
+      // Parse funding rate more carefully
+      const rateStr = ticker.info.fundingRate;
+      const rate = rateStr !== undefined && rateStr !== '' && rateStr !== null 
+        ? parseFloat(rateStr) 
+        : null;
+      
+      if (rate === null) {
+        return null; // Skip tickers without valid funding rates
+      }
+      
       const paymentsPerDay = 3; // Bybit pays 3x daily
       const annualizedRate = rate * paymentsPerDay * 365 * 100;
       
       return {
         symbol: ticker.symbol,
         fundingRate: rate,
+        fundingRatePercent: rate * 100, // Show as percentage
         annualizedAPR: annualizedRate,
         price: ticker.last,
         nextFundingTime: ticker.info.nextFundingTime
       };
-    });
+    }).filter(item => item !== null);
 
     const sortedRates = [...fundingRates].sort((a, b) => b.annualizedAPR - a.annualizedAPR);
     

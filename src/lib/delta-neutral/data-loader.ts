@@ -128,8 +128,22 @@ export class DataLoader {
       const existing = pairs.get(base) || {};
       
       if (ticker.symbol.includes(':')) {
-        // Perpetual
-        existing.perp = ticker;
+        // Check if it's a perpetual (no date) vs futures (has date)
+        const symbolParts = ticker.symbol.split(':');
+        if (symbolParts.length >= 2) {
+          const settlePart = symbolParts[1];
+          // Skip if it has a date (futures contract)
+          if (settlePart.includes('-') && /\d{6}/.test(settlePart)) {
+            continue;
+          }
+        }
+        
+        // Only use as perpetual if it has funding rate
+        if (ticker.info?.fundingRate !== undefined && 
+            ticker.info?.fundingRate !== '' && 
+            ticker.info?.fundingRate !== null) {
+          existing.perp = ticker;
+        }
       } else if (ticker.symbol.includes('/USDT')) {
         // Spot (prioritize USDT pairs)
         existing.spot = ticker;
