@@ -85,8 +85,8 @@ export class SimpleBacktestEngine {
         const currentFundingRate = fundingRates.rates.get(symbol) || 0;
         const currentAPR = currentFundingRate * 3 * 365 * 100;
         
-        // Exit if funding rate goes negative or too low
-        if (currentAPR < 0 || currentAPR < minAPR / 2) {
+        // Exit if funding rate goes negative
+        if (currentAPR < 0) {
           positionsToClose.push(symbol);
         }
       }
@@ -129,7 +129,7 @@ export class SimpleBacktestEngine {
       const opportunities: { symbol: string; apr: number }[] = [];
       for (const [symbol, rate] of fundingRates.rates) {
         const apr = rate * 3 * 365 * 100;
-        if (apr >= minAPR && !openPositions.has(symbol)) {
+        if (apr > 0.1 && !openPositions.has(symbol)) { // Any positive funding > 0.1% APR
           opportunities.push({ symbol, apr });
         }
       }

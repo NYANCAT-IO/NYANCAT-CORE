@@ -90,10 +90,6 @@ export class ComprehensiveBacktestEngine {
         // Exit if funding rate goes negative
         if (currentAPR < 0) {
           exitReason = `Funding turned negative: ${currentAPR.toFixed(1)}% APR`;
-        } 
-        // Exit if funding rate too low
-        else if (currentAPR < minAPR / 2) {
-          exitReason = `Funding too low: ${currentAPR.toFixed(1)}% APR (min: ${minAPR/2}%)`;
         }
         
         if (exitReason) {
@@ -164,7 +160,7 @@ export class ComprehensiveBacktestEngine {
       const opportunities: { symbol: string; apr: number; rate: number }[] = [];
       for (const [symbol, rate] of fundingRates.rates) {
         const apr = rate * 3 * 365 * 100;
-        if (apr >= minAPR && !openPositions.has(symbol)) {
+        if (apr > 0.1 && !openPositions.has(symbol)) { // Any positive funding > 0.1% APR
           opportunities.push({ symbol, apr, rate });
         }
       }

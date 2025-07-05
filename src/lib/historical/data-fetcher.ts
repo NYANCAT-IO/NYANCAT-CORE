@@ -7,6 +7,7 @@ export class HistoricalDataFetcher {
   private storage: DataStorage;
   private maxRetries = 3;
   private retryDelay = 1000; // ms
+  private validPairs: Set<string> | null = null;
 
   constructor() {
     this.exchange = new ccxt.bybit({
@@ -171,6 +172,12 @@ export class HistoricalDataFetcher {
     spotPrices: HistoricalOHLCV[];
     perpPrices: HistoricalOHLCV[];
   }> {
+    // Check if this is a valid pair
+    if (this.validPairs && this.validPairs.size > 0 && !this.validPairs.has(symbol)) {
+      console.log(`⏭️ Skipping ${symbol} - not a valid delta-neutral pair`);
+      throw new Error(`${symbol} is not a valid delta-neutral pair`);
+    }
+    
     // Extract base symbol for spot market
     const baseSymbol = symbol.replace(':USDT', ''); // e.g., "BTC/USDT:USDT" -> "BTC/USDT"
     
@@ -190,7 +197,11 @@ export class HistoricalDataFetcher {
       spotPrices = await this.fetchOHLCV(baseSymbol, '1h', startTime, endTime);
     } catch (error) {
       console.warn(`Failed to fetch spot prices for ${baseSymbol}:`, error);
-      // Use perpetual prices as fallback
+      // Don't use fallback if we're using valid pairs
+      if (this.validPairs && this.validPairs.size > 0) {
+        throw error;
+      }
+      // Use perpetual prices as fallback only if not using valid pairs
       spotPrices = perpPrices.map(p => ({ ...p }));
     } finally {
       // Switch back to futures
@@ -301,5 +312,37 @@ export class HistoricalDataFetcher {
       const end = new Date(cache.dataRange.end).toISOString().split('T')[0];
       console.log(`- ${start} to ${end}: ${cache.symbols.length} symbols, ${cache.recordCount.fundingRates} funding rates`);
     }
+  }
+
+  async loadValidPairs(): Promise<Set<string>> {
+    if (this.validPairs) return this.validPairs;
+    
+    try {
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      const validPairsPath = path.join(process.cwd(), 'data', 'valid-pairs.json');
+      
+      const data = await fs.readFile(validPairsPath, 'utf-8');
+      const parsed = JSON.parse(data);
+      this.validPairs = new Set(parsed.pairs);
+      
+      console.log(`✅ Loaded ${this.validPairs.size} valid pairs`);
+      return this.validPairs;
+    } catch (error) {
+      console.warn('⚠️ No valid pairs file found, using all pairs');
+      return new Set();
+    }
+  }
+
+  async fetchValidPairsOnly(options: Omit<FetchOptions, 'symbols'>): Promise<HistoricalData> {
+    // Use TOP_30_VALID_PAIRS from config
+    const { TOP_30_VALID_PAIRS } = await import('../../config/valid-pairs');
+    
+    console.log(`📊 Fetching data for ${TOP_30_VALID_PAIRS.length} valid delta-neutral pairs`);
+    
+    return this.fetchHistoricalData({
+      ...options,
+      symbols: TOP_30_VALID_PAIRS
+    });
   }
 }
