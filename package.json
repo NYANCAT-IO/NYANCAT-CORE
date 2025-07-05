@@ -11,7 +11,8 @@
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
     "fetch-bybit": "tsx src/cli/fetch-bybit-data.ts",
-    "analyze-delta": "tsx src/cli/analyze-delta-neutral.ts"
+    "analyze-delta": "tsx src/cli/analyze-delta-neutral.ts",
+    "fetch-historical": "tsx src/cli/fetch-historical.ts"
   },
   "keywords": [
     "ccxt",
