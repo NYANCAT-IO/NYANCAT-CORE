@@ -39,11 +39,13 @@ export interface ExchangeConfig {
     apiKey: string;
     apiSecret: string;
     testnet: boolean;
+    symbols: string[];
   };
   hyperliquid: {
     apiKey: string;
     apiSecret: string;
     testnet: boolean;
+    symbols: string[];
   };
 }
 

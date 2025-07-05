@@ -11,7 +11,7 @@ import { FundingService, ExchangeConfig, FundingRate, ComparisonResult } from '.
 dotenv.config();
 
 // Parse configuration from environment
-function loadConfig(): { config: ExchangeConfig; symbols: string[] } {
+function loadConfig(): ExchangeConfig {
   const requiredEnvVars = [
     'BYBIT_TESTNET_API_KEY',
     'BYBIT_TESTNET_API_SECRET',
@@ -27,22 +27,26 @@ function loadConfig(): { config: ExchangeConfig; symbols: string[] } {
     process.exit(1);
   }
 
+  // Parse exchange-specific symbols
+  const bybitSymbols = process.env.BYBIT_SYMBOLS?.split(',').map(s => s.trim()) || ['BTC/USDT:USDT', 'ETH/USDT:USDT'];
+  const hyperliquidSymbols = process.env.HYPERLIQUID_SYMBOLS?.split(',').map(s => s.trim()) || ['BTC/USDC:USDC', 'ETH/USDC:USDC'];
+
   const config: ExchangeConfig = {
     bybit: {
       apiKey: process.env.BYBIT_TESTNET_API_KEY!,
       apiSecret: process.env.BYBIT_TESTNET_API_SECRET!,
       testnet: true,
+      symbols: bybitSymbols,
     },
     hyperliquid: {
       apiKey: process.env.HYPERLIQUID_TESTNET_API_KEY!,
       apiSecret: process.env.HYPERLIQUID_TESTNET_API_SECRET!,
       testnet: true,
+      symbols: hyperliquidSymbols,
     },
   };
 
-  const symbols = process.env.SYMBOLS?.split(',').map(s => s.trim()) || ['BTC/USDT', 'ETH/USDT'];
-
-  return { config, symbols };
+  return config;
 }
 
 // Format funding rate for display
@@ -154,15 +158,15 @@ program
   .version('1.0.0');
 
 program
-  .option('-s, --symbol <symbol>', 'Filter by specific symbol (e.g., BTC/USDT)')
+  .option('-s, --symbol <symbol>', 'Filter by specific symbol or base asset (e.g., BTC, ETH)')
   .option('-c, --compare', 'Compare rates between exchanges')
   .option('-j, --json', 'Output as JSON')
   .action(async (options) => {
-    const { config, symbols } = loadConfig();
+    const config = loadConfig();
     const spinner = ora('Connecting to exchanges...').start();
 
     try {
-      const service = new FundingService(config, symbols);
+      const service = new FundingService(config);
       await service.connect();
       spinner.succeed('Connected to exchanges');
 
@@ -181,9 +185,21 @@ program
         }
       } else {
         spinner.start('Fetching funding rates...');
-        const rates = options.symbol
-          ? await service.fetchRatesForSymbol(options.symbol)
-          : await service.fetchRates();
+        let rates: FundingRate[];
+        
+        if (options.symbol) {
+          // Check if it's a full symbol or just a base asset
+          if (options.symbol.includes('/')) {
+            rates = await service.fetchRatesForSymbol(options.symbol);
+          } else {
+            // If it's just a base asset, fetch all rates and filter
+            const allRates = await service.fetchRates();
+            rates = allRates.filter(r => r.symbol.startsWith(options.symbol + '/'));
+          }
+        } else {
+          rates = await service.fetchRates();
+        }
+        
         spinner.succeed('Funding rates fetched');
 
         if (options.json) {

@@ -17,10 +17,7 @@ export class HyperliquidAdapter implements IExchangeAdapter {
 
     if (testnet) {
       // Set testnet URLs for Hyperliquid
-      this.exchange.urls.api = {
-        public: 'https://api.hyperliquid-testnet.xyz/info',
-        private: 'https://api.hyperliquid-testnet.xyz/exchange',
-      };
+      this.exchange.urls.api = this.exchange.urls.test;
     }
   }
 
