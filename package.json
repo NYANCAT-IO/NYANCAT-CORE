@@ -14,7 +14,8 @@
     "analyze-delta": "tsx src/cli/analyze-delta-neutral.ts",
     "fetch-historical": "tsx src/cli/fetch-historical.ts",
     "backtest": "tsx src/cli/backtest.ts",
-    "discover-pairs": "tsx src/cli/discover-pairs.ts"
+    "discover-pairs": "tsx src/cli/discover-pairs.ts",
+    "optimize-ml": "tsx src/cli/optimize-ml.ts"
   },
   "keywords": [
     "ccxt",

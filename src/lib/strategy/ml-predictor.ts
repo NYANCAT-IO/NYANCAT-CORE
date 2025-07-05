@@ -41,6 +41,12 @@ export interface MLPrediction {
   confidence: number;      // 0-1
   expectedReturn: number;  // Expected P&L if entering this position
   riskAdjustedScore: number; // Confidence adjusted for risk
+  
+  // Additional properties needed for optimization
+  riskScore: number;       // 0-1, risk level of this position
+  expectedAPR: number;     // Expected annual percentage return
+  volatilityScore: number; // 0-1, market volatility level
+  momentumScore: number;   // 0-1, funding rate momentum
 }
 
 export class MLFundingPredictor {
@@ -348,8 +354,13 @@ export class MLFundingPredictor {
   /**
    * Make ML prediction for a specific symbol and timestamp
    */
-  predict(symbol: string, timestamp: number): MLPrediction | null {
-    const features = this.extractFeatures(symbol, timestamp);
+  predict(dataPoint: { symbol: string; timestamp: number }): MLPrediction | null;
+  predict(symbol: string, timestamp: number): MLPrediction | null;
+  predict(arg1: string | { symbol: string; timestamp: number }, timestamp?: number): MLPrediction | null {
+    // Handle both call signatures for backward compatibility
+    const symbol = typeof arg1 === 'string' ? arg1 : arg1.symbol;
+    const ts = typeof arg1 === 'string' ? timestamp! : arg1.timestamp;
+    const features = this.extractFeatures(symbol, ts);
     if (!features || this.isTraining) {
       return null;
     }
@@ -396,11 +407,21 @@ export class MLFundingPredictor {
       // Risk-adjusted score
       const riskAdjustedScore = confidence * (1 - features.volatilityPercentile / 100);
 
+      // Calculate additional properties for optimization
+      const riskScore = features.volatilityPercentile / 100; // Higher volatility = higher risk
+      const expectedAPR = features.currentFundingAPR;
+      const volatilityScore = features.volatilityPercentile / 100;
+      const momentumScore = Math.max(0, Math.min(1, (features.fundingTrend + 1) / 2)); // Normalize to 0-1
+
       return {
         willDecline,
         confidence,
         expectedReturn,
-        riskAdjustedScore
+        riskAdjustedScore,
+        riskScore,
+        expectedAPR,
+        volatilityScore,
+        momentumScore
       };
 
     } catch (error) {
@@ -420,11 +441,21 @@ export class MLFundingPredictor {
     const expectedReturn = this.calculateExpectedReturn(features, willDecline, confidence);
     const riskAdjustedScore = confidence * (1 - features.volatilityPercentile / 100);
 
+    // Calculate additional properties for optimization
+    const riskScore = features.volatilityPercentile / 100; // Higher volatility = higher risk
+    const expectedAPR = features.currentFundingAPR;
+    const volatilityScore = features.volatilityPercentile / 100;
+    const momentumScore = Math.max(0, Math.min(1, (features.fundingTrend + 1) / 2)); // Normalize to 0-1
+
     return {
       willDecline,
       confidence,
       expectedReturn,
-      riskAdjustedScore
+      riskAdjustedScore,
+      riskScore,
+      expectedAPR,
+      volatilityScore,
+      momentumScore
     };
   }
 
