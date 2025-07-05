@@ -1,5 +1,25 @@
 # Development Rules for Claude
 
+## Development Philosophy
+
+### Agent-Driven Development
+- **No traditional test suites** - Focus on real-world functionality
+- **Rapid iteration** - Make changes and test immediately
+- **Manual verification** - Run actual commands to verify behavior
+- **Continuous improvement** - Refactor as needed based on usage
+
+### No-TODO Policy
+- **Complete implementations only** - No placeholder code
+- **No TODO comments** - Everything must be functional
+- **Working code only** - If it's not ready, don't commit it
+- **Immediate fixes** - Address issues as they arise
+
+### Library/CLI Architecture
+- **Reusable library** in `src/lib/` for integration into other projects
+- **CLI tools** in `src/cli/` built on top of the library
+- **Clear separation** between core logic and user interface
+- **Multiple tools** can share the same library components
+
 ## Git Workflow
 
 ### Commit Protocol
