@@ -10,7 +10,8 @@
     "dev": "tsc && node dist/cli/index.js",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit",
-    "fetch-bybit": "tsx src/cli/fetch-bybit-data.ts"
+    "fetch-bybit": "tsx src/cli/fetch-bybit-data.ts",
+    "analyze-delta": "tsx src/cli/analyze-delta-neutral.ts"
   },
   "keywords": [
     "ccxt",
@@ -31,7 +32,8 @@
     "cli-table3": "^0.6.5",
     "commander": "^14.0.0",
     "dotenv": "^17.0.1",
-    "ora": "^8.2.0"
+    "ora": "^8.2.0",
+    "table": "^6.9.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.10",
