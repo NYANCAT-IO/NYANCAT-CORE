@@ -104,3 +104,6 @@ yarn.lock
 .sass-cache/
 .parcel-cache/
 .turbo/
+
+# Data directory
+data/
