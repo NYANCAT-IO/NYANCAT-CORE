@@ -199,13 +199,30 @@ export class DeltaNeutralAnalyzer {
       notes.push(`Fees reduce APR by ${feeImpact.toFixed(2)}%`);
     }
     
-    // Calculate returns
-    const dailyReturn = (netAPR / 365) * positionSize.spotValue / 100;
+    // Calculate borrowing costs
+    const borrowingCostAPR = this.calculateBorrowingCost(positionSize, config.type);
+    
+    // Adjust net APR for borrowing costs
+    const netAPRAfterBorrowing = netAPR - borrowingCostAPR;
+    
+    // Calculate returns based on position value (not margin)
+    const dailyReturn = (netAPRAfterBorrowing / 365) * positionSize.notionalValue / 100;
     const monthlyReturn = dailyReturn * 30;
     const annualReturn = dailyReturn * 365;
     
-    // Calculate return on capital
-    const returnOnCapital = (annualReturn / positionSize.totalCapital) * 100;
+    // Calculate different ROC metrics
+    const leveragedROC = (annualReturn / positionSize.totalCapital) * 100;
+    const unleveragedROC = (annualReturn / positionSize.notionalValue) * 100;
+    
+    // Risk-adjusted ROC: penalize high leverage
+    const leveragePenalty = Math.log10(leverage) / 10; // 0.1 for 10x, 0.2 for 100x
+    const riskAdjustedROC = leveragedROC * (1 - leveragePenalty);
+    
+    // Calculate liquidation prices
+    const liquidationPrices = this.calculateLiquidationPrices(pair, positionSize, config.type);
+    
+    // Calculate maximum loss
+    const maxLoss = positionSize.totalCapital;
     
     // Add volume warnings
     if (pair.spot.volume24h && pair.spot.volume24h < 1000000) {
@@ -213,6 +230,24 @@ export class DeltaNeutralAnalyzer {
     }
     if (pair.perpetual.volume24h && pair.perpetual.volume24h < 5000000) {
       risks.push('Low perpetual volume (<$5M daily)');
+    }
+    
+    // Add leverage warnings
+    if (leverage > 5) {
+      risks.push(`High leverage (${leverage}x) increases liquidation risk`);
+    }
+    
+    // Add liquidation warnings
+    if (liquidationPrices.perp) {
+      const perpDistance = Math.abs(liquidationPrices.perp - pair.perpetual.price) / pair.perpetual.price * 100;
+      if (perpDistance < 10) {
+        risks.push(`Perp liquidation only ${perpDistance.toFixed(1)}% away`);
+      }
+    }
+    
+    // Add borrowing cost note if significant
+    if (borrowingCostAPR > 1) {
+      notes.push(`Borrowing costs: ${borrowingCostAPR.toFixed(2)}% APR`);
     }
     
     return {
@@ -224,7 +259,12 @@ export class DeltaNeutralAnalyzer {
         monthly: monthlyReturn,
         annual: annualReturn
       },
-      returnOnCapital,
+      returnOnCapital: leveragedROC,
+      unleveragedROC,
+      riskAdjustedROC,
+      borrowingCostAPR,
+      maxLoss,
+      liquidationPrice: liquidationPrices,
       risks,
       notes
     };
@@ -247,6 +287,7 @@ export class DeltaNeutralAnalyzer {
     const perpMargin = perpValue / leverage;
     
     let totalCapital: number;
+    let spotMargin: number | undefined;
     
     switch (strategy) {
       case StrategyType.LONG_SPOT_SHORT_PERP:
@@ -255,7 +296,7 @@ export class DeltaNeutralAnalyzer {
         
       case StrategyType.SHORT_SPOT_LONG_PERP:
         // Assume 3x leverage for spot short
-        const spotMargin = spotValue / 3;
+        spotMargin = spotValue / 3;
         totalCapital = spotMargin + perpMargin;
         break;
         
@@ -268,7 +309,10 @@ export class DeltaNeutralAnalyzer {
       perpQuantity,
       spotValue,
       perpMargin,
-      totalCapital
+      totalCapital,
+      leverage,
+      notionalValue,
+      spotMargin
     };
   }
   
@@ -290,6 +334,67 @@ export class DeltaNeutralAnalyzer {
     const totalFeePercentage = (annualSpotFees + annualPerpFees) * 100;
     
     return totalFeePercentage;
+  }
+  
+  /**
+   * Calculate borrowing cost for leveraged positions
+   */
+  private calculateBorrowingCost(position: PositionSize, strategy: StrategyType): number {
+    // Bybit borrowing rates (approximate)
+    const USDT_BORROW_RATE = 0.10; // 10% APR for USDT
+    const SPOT_MARGIN_RATE = 0.12; // 12% APR for spot margin
+    
+    let borrowingCostAPR = 0;
+    
+    // Perpetual borrowing cost
+    const perpBorrowed = position.spotValue - position.perpMargin;
+    const perpBorrowingCost = (perpBorrowed / position.notionalValue) * USDT_BORROW_RATE;
+    borrowingCostAPR += perpBorrowingCost;
+    
+    // Spot borrowing cost (for short positions)
+    if (strategy === StrategyType.SHORT_SPOT_LONG_PERP && position.spotMargin) {
+      const spotBorrowed = position.spotValue - position.spotMargin;
+      const spotBorrowingCost = (spotBorrowed / position.notionalValue) * SPOT_MARGIN_RATE;
+      borrowingCostAPR += spotBorrowingCost;
+    }
+    
+    return borrowingCostAPR * 100; // Convert to percentage
+  }
+  
+  /**
+   * Calculate liquidation prices
+   */
+  private calculateLiquidationPrices(
+    pair: DeltaNeutralPair, 
+    position: PositionSize, 
+    strategy: StrategyType
+  ): { spot?: number; perp?: number } {
+    const MAINTENANCE_MARGIN_RATE = 0.005; // 0.5% maintenance margin
+    
+    const liquidationPrices: { spot?: number; perp?: number } = {};
+    
+    // Perpetual liquidation price
+    const perpValue = position.perpQuantity * pair.perpetual.price;
+    const perpMaintenanceMargin = perpValue * MAINTENANCE_MARGIN_RATE;
+    const perpLiquidationBuffer = position.perpMargin - perpMaintenanceMargin;
+    
+    if (strategy === StrategyType.LONG_SPOT_SHORT_PERP) {
+      // Short perp: liquidates when price rises
+      liquidationPrices.perp = pair.perpetual.price * (1 + perpLiquidationBuffer / perpValue);
+    } else {
+      // Long perp: liquidates when price falls
+      liquidationPrices.perp = pair.perpetual.price * (1 - perpLiquidationBuffer / perpValue);
+    }
+    
+    // Spot liquidation price (only for short spot)
+    if (strategy === StrategyType.SHORT_SPOT_LONG_PERP && position.spotMargin) {
+      const spotMaintenanceMargin = position.spotValue * MAINTENANCE_MARGIN_RATE;
+      const spotLiquidationBuffer = position.spotMargin - spotMaintenanceMargin;
+      // Short spot: liquidates when price rises
+      liquidationPrices.spot = pair.spot.price * (1 + spotLiquidationBuffer / position.spotValue);
+    }
+    
+    return liquidationPrices;
   }
   
   /**

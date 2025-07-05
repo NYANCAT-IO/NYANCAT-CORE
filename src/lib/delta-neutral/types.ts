@@ -46,6 +46,9 @@ export interface PositionSize {
   spotValue: number;
   perpMargin: number;
   totalCapital: number;
+  leverage: number;
+  notionalValue: number;  // Total position value
+  spotMargin?: number;    // For short spot positions
 }
 
 export interface StrategyResult {
@@ -57,7 +60,15 @@ export interface StrategyResult {
     monthly: number;
     annual: number;
   };
-  returnOnCapital: number;  // ROC percentage
+  returnOnCapital: number;  // Leveraged ROC percentage
+  unleveragedROC: number;   // ROC without leverage
+  riskAdjustedROC: number;  // ROC adjusted for leverage risk
+  borrowingCostAPR?: number; // Annual borrowing cost %
+  maxLoss?: number;         // Maximum potential loss
+  liquidationPrice?: {      // Liquidation levels
+    spot?: number;
+    perp?: number;
+  };
   risks: string[];
   notes: string[];
 }
