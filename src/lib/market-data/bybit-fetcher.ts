@@ -26,10 +26,43 @@ export class BybitDataFetcher {
   }
 
   async fetchAllTickers(symbols?: string[]): Promise<any[]> {
-    if (symbols && symbols.length > 0) {
-      const tickers = await this.exchange.fetchTickers(symbols);
-      return Object.values(tickers);
-    } else {
+    try {
+      // Try to fetch all tickers at once
+      if (symbols && symbols.length > 0) {
+        const tickers = await this.exchange.fetchTickers(symbols);
+        return Object.values(tickers);
+      } else {
+        // For Bybit, we need to fetch spot and derivatives separately
+        const allTickers: any[] = [];
+        
+        // Save current type
+        const originalType = this.exchange.options.defaultType;
+        
+        try {
+          // Fetch spot tickers
+          this.exchange.options.defaultType = 'spot';
+          const spotTickers = await this.exchange.fetchTickers();
+          allTickers.push(...Object.values(spotTickers));
+        } catch (spotError: any) {
+          console.log('Note: Could not fetch spot tickers:', spotError.message);
+        }
+        
+        try {
+          // Fetch derivative tickers
+          this.exchange.options.defaultType = 'swap';
+          const swapTickers = await this.exchange.fetchTickers();
+          allTickers.push(...Object.values(swapTickers));
+        } catch (swapError: any) {
+          console.log('Note: Could not fetch swap tickers:', swapError.message);
+        }
+        
+        // Restore original type
+        this.exchange.options.defaultType = originalType;
+        
+        return allTickers;
+      }
+    } catch (error) {
+      // Fallback to simple fetch if the above fails
       const tickers = await this.exchange.fetchTickers();
       return Object.values(tickers);
     }
