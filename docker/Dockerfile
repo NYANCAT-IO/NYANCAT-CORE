@@ -66,4 +66,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
   CMD node -e "console.log('Health check OK')" || exit 1
 
 # Keep container running for testing
-CMD ["sh", "-c", "echo '🚀 ROFL Container Ready! Test with: node dist/cli/index.js --demo' && tail -f /dev/null"]
+CMD ["sh", "-c", "echo '🚀 ROFL Container Ready! Test with: node dist/cli/index.js --health-check' && tail -f /dev/null"]
