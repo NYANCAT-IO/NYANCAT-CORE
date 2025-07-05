@@ -108,3 +108,7 @@ yarn.lock
 # Data directory
 data/
 data_backup
+
+# Generated backtest results
+backtest-results.html
+backtest-results.json
