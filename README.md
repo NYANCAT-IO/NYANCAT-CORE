@@ -48,8 +48,12 @@ BYBIT_TESTNET_API_SECRET=your_secret_here
 HYPERLIQUID_TESTNET_API_KEY=your_key_here
 HYPERLIQUID_TESTNET_API_SECRET=your_secret_here
 
-# Trading pairs (comma-separated)
-SYMBOLS=BTC/USDT,ETH/USDT,SOL/USDT
+# Exchange-specific symbols (perpetual contracts)
+# Bybit uses USDT settlement
+BYBIT_SYMBOLS=BTC/USDT:USDT,ETH/USDT:USDT,SOL/USDT:USDT
+
+# Hyperliquid uses USDC settlement
+HYPERLIQUID_SYMBOLS=BTC/USDC:USDC,ETH/USDC:USDC,SOL/USDC:USDC
 ```
 
 ### Getting Testnet API Keys
@@ -64,9 +68,13 @@ SYMBOLS=BTC/USDT,ETH/USDT,SOL/USDT
 pnpm start
 ```
 
-### Filter by specific symbol
+### Filter by specific symbol or base asset
 ```bash
-pnpm start --symbol BTC/USDT
+# Filter by base asset (e.g., BTC)
+pnpm start --symbol BTC
+
+# Filter by full symbol (if configured)
+pnpm start --symbol BTC/USDT:USDT
 ```
 
 ### Compare rates between exchanges
@@ -123,11 +131,21 @@ The funding service can also be imported as a library:
 import { FundingService, ExchangeConfig } from './dist/lib/index.js';
 
 const config: ExchangeConfig = {
-  bybit: { apiKey: '...', apiSecret: '...', testnet: true },
-  hyperliquid: { apiKey: '...', apiSecret: '...', testnet: true }
+  bybit: { 
+    apiKey: '...', 
+    apiSecret: '...', 
+    testnet: true,
+    symbols: ['BTC/USDT:USDT', 'ETH/USDT:USDT']
+  },
+  hyperliquid: { 
+    apiKey: '...', 
+    apiSecret: '...', 
+    testnet: true,
+    symbols: ['BTC/USDC:USDC', 'ETH/USDC:USDC']
+  }
 };
 
-const service = new FundingService(config, ['BTC/USDT']);
+const service = new FundingService(config);
 await service.connect();
 
 const rates = await service.fetchRates();
@@ -145,7 +163,10 @@ If you see an error about missing environment variables, make sure you've create
 - Verify the exchanges' testnet services are operational
 
 ### Symbol Not Found
-Make sure the symbol format matches what the exchanges expect (e.g., `BTC/USDT` not `BTCUSDT`).
+- For perpetual contracts, use the format `BASE/QUOTE:SETTLE` (e.g., `BTC/USDT:USDT`)
+- Bybit uses USDT settlement for most pairs
+- Hyperliquid uses USDC settlement
+- When using `--compare`, just specify the base asset (e.g., `BTC`)
 
 ## License
 
