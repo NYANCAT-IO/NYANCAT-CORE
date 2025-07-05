@@ -136,13 +136,46 @@ pnpm start --mainnet --json
 pnpm start --help
 ```
 
+## Bybit Market Data Fetcher
+
+A separate tool for fetching comprehensive market data from Bybit mainnet:
+
+### Usage
+```bash
+# Fetch all data (markets + tickers + summary)
+pnpm fetch-bybit
+
+# Fetch only market specifications
+pnpm fetch-bybit --markets-only
+
+# Fetch only tickers (includes funding rates)
+pnpm fetch-bybit --tickers-only
+
+# Include inactive markets
+pnpm fetch-bybit --include-inactive
+```
+
+### Output
+Data is saved to timestamped JSON files in the `data/bybit/` directory:
+- `[timestamp]-markets.json` - All market specifications
+- `[timestamp]-tickers.json` - Current prices and funding rates
+- `[timestamp]-summary.json` - Analysis summary with funding rate statistics
+
+### Features
+- Fetches 2600+ markets from Bybit mainnet
+- Calculates annualized funding rates (APR)
+- Identifies top positive/negative funding opportunities
+- No database required - saves to JSON files
+
+**Note**: This tool requires BYBIT_MAINNET_API_KEY and BYBIT_MAINNET_API_SECRET in your .env file.
+
 ## Understanding Funding Rates
 
 - **Positive funding rate** (red): Longs pay shorts
 - **Negative funding rate** (green): Shorts pay longs
 - **Funding intervals**:
-  - Bybit: Every 8 hours
-  - Hyperliquid: Every 1 hour
+  - Bybit: Every 8 hours (3x daily)
+  - Hyperliquid: Every 1 hour (24x daily)
 
 ## Development
 
@@ -162,10 +195,11 @@ ccxt-funding/
 
 ### Scripts
 - `pnpm build` - Compile TypeScript
-- `pnpm start` - Run the CLI
+- `pnpm start` - Run the funding rate CLI
 - `pnpm dev` - Build and run
 - `pnpm typecheck` - Check types without building
 - `pnpm clean` - Remove build artifacts
+- `pnpm fetch-bybit` - Fetch comprehensive Bybit market data
 
 ### Using as a Library
 
