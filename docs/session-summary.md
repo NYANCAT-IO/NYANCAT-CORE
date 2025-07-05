@@ -4,8 +4,9 @@
 
 1. **Historical Data Fetcher** - Fetches funding rates and OHLCV data from Bybit using CCXT
 2. **Backtesting Engine** - Simulates delta-neutral funding arbitrage strategies
-3. **Report Generator** - Creates HTML (with Chart.js) and JSON outputs
-4. **CLI Tools** - User-friendly commands for all operations
+3. **Simple Report Generator** - Creates HTML (with Chart.js) and JSON outputs
+4. **Comprehensive Report System** - Detailed trade analysis with full transparency
+5. **CLI Tools** - User-friendly commands for all operations
 
 ## Key Commands
 
@@ -28,9 +29,14 @@ pnpm analyze-delta
 ### Plans
 - `/plans/backtest-engine-implementation.md` - Original comprehensive plan (1016 lines)
 - `/plans/hackathon-backtest-mvp.md` - Simplified hackathon-focused plan (396 lines)
+- `/plans/backtest-comprehensive-reports.md` - Comprehensive reporting system plan
+- `/plans/hackathon-realistic-reports.md` - Realistic implementation timeline
+- `/plans/realistic-performance-analysis.md` - Honest performance expectations
+- `/plans/valid-pairs-discovery-implementation.md` - Fix for delta-neutral validation
 
 ### Implementation Docs
 - `/docs/backtest-implementation-insights.md` - All technical insights and discoveries
+- `/docs/comprehensive-report-insights.md` - Insights from comprehensive reporting
 - `/docs/delta-neutral-analyzer-insights.md` - Analysis of funding rate patterns
 - `/docs/funding-rate-clustering-research.md` - Academic sources on market behavior
 
@@ -51,12 +57,45 @@ pnpm analyze-delta
 - `CLAUDE.md` - Development rules and practices
 - `.gitignore` - Updated to exclude backtest results
 
+## Latest Session Updates
+
+### What Was Built
+1. **Comprehensive Backtest Reports**
+   - Detailed position tracking with entry/exit context
+   - Monthly and symbol-level performance analysis
+   - Full P&L breakdown (spot, perp, funding, fees)
+   - Exit reasoning for every trade
+   - Dual report system: simple and comprehensive
+
+2. **Key Discoveries**
+   - Many perpetuals (meme coins) don't have spot markets
+   - Can't trade delta-neutral without both markets
+   - 30-day test showed -7.17% due to untradeable pairs
+   - Need to validate pairs before backtesting
+
+3. **Performance Reality**
+   - 90-day backtest: 5-15 seconds (not instant)
+   - 365-day backtest: 30-90 seconds (not < 30s)
+   - Default changed to 90 days for better balance
+
 ## Next Steps After Reset
 
-1. The backtesting engine is ready for hackathon demo
-2. Run `pnpm backtest --demo` for quick demonstration
-3. All insights are documented for future development
-4. Architecture is modular and extensible
+1. **PRIORITY: Implement Valid Pairs Discovery**
+   - Execute `/plans/valid-pairs-discovery-implementation.md`
+   - Filter for pairs with BOTH spot and perpetual markets
+   - Re-run backtests with only tradeable pairs
+   - Expected to significantly improve returns
+
+2. **Quick Path for Demo**
+   - Use hardcoded list of known valid pairs
+   - Run `pnpm backtest --demo --report comprehensive`
+   - Show detailed analysis capabilities
+   - Emphasize realistic, tradeable opportunities
+
+3. **All insights are documented**
+   - Check `/docs/comprehensive-report-insights.md` for discoveries
+   - Architecture is modular and extensible
+   - System ready for valid pairs integration
 
 ## Demo Success Factors
 
