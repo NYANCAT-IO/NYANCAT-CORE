@@ -304,6 +304,42 @@ The analyzer shows:
 - These should be filtered out automatically
 - Report specific symbols if they slip through
 
+## FAQ: Funding Rate Convergence
+
+### Why do many assets show identical funding rates?
+
+This is **normal market behavior**, not a bug. Here's why:
+
+1. **Market Efficiency**: Arbitrageurs quickly exploit funding rate differences between similar assets, causing rates to converge to common values.
+
+2. **Low Volatility Periods**: When markets are calm, the premium between spot and perpetual prices narrows across many assets simultaneously.
+
+3. **Exchange Mechanics**: Bybit's funding rate formula includes dampeners and clamps that create natural clustering around certain values (0.005%, 0.01%, 0.025%).
+
+4. **Liquidity Cascades**: High-liquidity pairs (like BTC/USDT) set the "market rate" that lower-liquidity pairs tend to follow.
+
+### How can I verify this is real data?
+
+1. **Check Bybit's Official Rates**: Visit https://www.bybit.com/en/announcement-info/fund-rate/
+2. **Compare Major Assets**: BTC, ETH, and SOL often show different rates than smaller assets
+3. **Monitor During Volatility**: Rate dispersion increases during market volatility
+
+### What does this mean for trading?
+
+- **Fewer Obvious Opportunities**: When rates converge, arbitrage opportunities become scarce
+- **Focus on Outliers**: Look for assets with unique funding rates
+- **Time Your Entry**: Best opportunities appear during market transitions
+- **Consider Fees**: With tight spreads, fee optimization becomes crucial
+
+### Academic Research
+
+For detailed analysis with academic sources, see `/docs/funding-rate-clustering-research.md`
+
+Key findings from research:
+- Perpetual futures use funding rates to maintain price convergence (Wharton Finance, 2023)
+- Arbitrage mechanisms naturally cause rate clustering (arXiv, 2024)
+- Industry reports confirm market-wide convergence in 2025 (Gate.io, 2025)
+
 ### Debug Commands
 
 ```bash

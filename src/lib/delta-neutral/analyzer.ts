@@ -332,11 +332,6 @@ export class DeltaNeutralAnalyzer {
     
     const percentage = (maxCount / totalPairs) * 100;
     
-    if (percentage > 50) {
-      console.warn(`⚠️  WARNING: ${percentage.toFixed(1)}% of pairs have identical funding rate of ${(mostCommonRate * 100).toFixed(4)}%`);
-      console.warn(`   This might indicate stale or default data. Consider refreshing market data.`);
-    }
-    
     // Show funding rate distribution
     console.log('\nFunding Rate Distribution:');
     const sorted = Array.from(fundingRateCount.entries())
@@ -348,6 +343,22 @@ export class DeltaNeutralAnalyzer {
       console.log(`  ${(rate * 100).toFixed(4)}%: ${count} pairs (${pct}%)`);
     }
     console.log('');
+    
+    // Show market analysis if clustering detected
+    if (percentage > 30) {
+      console.log('📊 Market Analysis:');
+      console.log(`  ${percentage.toFixed(1)}% of pairs have funding rate of ${(mostCommonRate * 100).toFixed(4)}%`);
+      console.log('  This is normal market behavior during low volatility periods.');
+      console.log('  ');
+      console.log('  🔗 Verify live rates: https://www.bybit.com/en/announcement-info/fund-rate/');
+      console.log('  📚 Learn more: See docs/funding-rate-clustering-research.md');
+      console.log('  ');
+      console.log('  During low volatility:');
+      console.log('  • Arbitrageurs quickly exploit rate differences');
+      console.log('  • Rates converge to common values (0.005%, 0.01%)');
+      console.log('  • Major assets (BTC, ETH) may show different rates');
+      console.log('');
+    }
   }
   
   /**

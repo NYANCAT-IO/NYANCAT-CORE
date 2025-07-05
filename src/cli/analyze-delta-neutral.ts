@@ -56,6 +56,7 @@ program
       
       // Run analysis
       console.log(chalk.yellow('Loading market data...'));
+      const startTime = new Date();
       let results = await analyzer.analyze(config);
       
       // Filter by asset if specified
@@ -73,7 +74,7 @@ program
       } else if (options.csv) {
         outputCsv(results);
       } else {
-        outputTable(results, stats, config);
+        outputTable(results, stats, config, startTime);
       }
       
     } catch (error: any) {
@@ -82,7 +83,7 @@ program
     }
   });
 
-function outputTable(results: StrategyResult[], stats: any, config: StrategyConfig) {
+function outputTable(results: StrategyResult[], stats: any, config: StrategyConfig, startTime: Date) {
   // Summary
   console.log(chalk.green('📈 Summary:'));
   console.log(`  Total Opportunities: ${stats.totalPairs}`);
@@ -185,6 +186,14 @@ function outputTable(results: StrategyResult[], stats: any, config: StrategyConf
       console.log();
     });
   }
+  
+  // Footer with data source info
+  console.log(chalk.gray('─'.repeat(80)));
+  console.log(chalk.gray(`Data fetched at: ${startTime.toLocaleString()}`));
+  console.log(chalk.gray('Data source: Bybit Mainnet API'));
+  console.log(chalk.gray(''));
+  console.log(chalk.gray('🔗 Verify rates: https://www.bybit.com/en/announcement-info/fund-rate/'));
+  console.log(chalk.gray('📚 About clustering: docs/funding-rate-clustering-research.md'));
 }
 
 function outputCsv(results: StrategyResult[]) {
