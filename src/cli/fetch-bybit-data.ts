@@ -68,16 +68,8 @@ program
       if (!options.marketsOnly) {
         spinner.start('Fetching tickers (prices + funding rates)...');
         
-        // If we have markets, use only active perpetuals and spot for efficiency
-        let symbolsToFetch: string[] | undefined;
-        if (markets.length > 0 && !options.includeInactive) {
-          symbolsToFetch = markets
-            .filter(m => m.active && (m.swap || m.spot))
-            .map(m => m.symbol);
-          console.log(chalk.gray(`  Fetching ${symbolsToFetch.length} active symbols...`));
-        }
-        
-        tickers = await fetcher.fetchAllTickers(symbolsToFetch);
+        // Fetch all tickers without filtering to avoid type mixing issues
+        tickers = await fetcher.fetchAllTickers();
         spinner.succeed(`Fetched ${tickers.length} tickers`);
         
         const tickerFile = storage.saveTickers(tickers);
@@ -109,14 +101,14 @@ program
         if (summary.fundingRateStats.topPositive.length > 0) {
           console.log(chalk.cyan('\n🔥 Top Positive Funding (APR):'));
           summary.fundingRateStats.topPositive.slice(0, 5).forEach(item => {
-            console.log(`  ${item.symbol}: ${item.apr.toFixed(2)}%`);
+            console.log(`  ${item.symbol}: ${item.annualizedAPR.toFixed(2)}%`);
           });
         }
         
         if (summary.fundingRateStats.topNegative.length > 0) {
           console.log(chalk.cyan('\n❄️  Top Negative Funding (APR):'));
           summary.fundingRateStats.topNegative.slice(0, 5).forEach(item => {
-            console.log(`  ${item.symbol}: ${item.apr.toFixed(2)}%`);
+            console.log(`  ${item.symbol}: ${item.annualizedAPR.toFixed(2)}%`);
           });
         }
       }

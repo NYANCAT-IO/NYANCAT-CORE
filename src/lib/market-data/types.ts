@@ -23,8 +23,8 @@ export interface MarketSummary {
     positive: number;
     negative: number;
     averageAPR: number;
-    topPositive: Array<{symbol: string; apr: number}>;
-    topNegative: Array<{symbol: string; apr: number}>;
+    topPositive: Array<{symbol: string; annualizedAPR: number}>;
+    topNegative: Array<{symbol: string; annualizedAPR: number}>;
   };
 }
 

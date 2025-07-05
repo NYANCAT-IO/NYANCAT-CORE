@@ -4,7 +4,7 @@ import { MarketSummary, FetchOptions } from './types';
 export class BybitDataFetcher {
   private exchange: any;
   
-  constructor(options: FetchOptions = {}) {
+  constructor(_options: FetchOptions = {}) {
     // Get mainnet credentials from env
     const apiKey = process.env.BYBIT_MAINNET_API_KEY;
     const apiSecret = process.env.BYBIT_MAINNET_API_SECRET;
