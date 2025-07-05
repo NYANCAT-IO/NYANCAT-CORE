@@ -3,7 +3,7 @@ import { FundingRate, IExchangeAdapter, FundingError } from '../types.js';
 
 export class BybitAdapter implements IExchangeAdapter {
   readonly name = 'bybit' as const;
-  private exchange: ccxt.bybit;
+  private exchange: any; // CCXT doesn't have TypeScript types
 
   constructor(apiKey: string, apiSecret: string, testnet: boolean = true) {
     this.exchange = new ccxt.bybit({

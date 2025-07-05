@@ -3,7 +3,7 @@ import { FundingRate, IExchangeAdapter, FundingError } from '../types.js';
 
 export class HyperliquidAdapter implements IExchangeAdapter {
   readonly name = 'hyperliquid' as const;
-  private exchange: ccxt.hyperliquid;
+  private exchange: any; // CCXT doesn't have TypeScript types
 
   constructor(apiKey: string, apiSecret: string, testnet: boolean = true) {
     this.exchange = new ccxt.hyperliquid({
