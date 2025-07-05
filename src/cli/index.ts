@@ -5,43 +5,47 @@ import chalk from 'chalk';
 import Table from 'cli-table3';
 import ora from 'ora';
 import dotenv from 'dotenv';
-import { FundingService, ExchangeConfig, FundingRate, ComparisonResult } from '../lib/index.js';
+import { FundingService, ExchangeConfig, FundingRate, ComparisonResult, Network } from '../lib/index.js';
 
 // Load environment variables
 dotenv.config();
 
 // Parse configuration from environment
-function loadConfig(): ExchangeConfig {
+function loadConfig(network: Network = 'testnet'): ExchangeConfig {
+  const envPrefix = network.toUpperCase();
+  
   const requiredEnvVars = [
-    'BYBIT_TESTNET_API_KEY',
-    'BYBIT_TESTNET_API_SECRET',
-    'HYPERLIQUID_TESTNET_API_KEY',
-    'HYPERLIQUID_TESTNET_API_SECRET',
+    `BYBIT_${envPrefix}_API_KEY`,
+    `BYBIT_${envPrefix}_API_SECRET`,
+    `HYPERLIQUID_${envPrefix}_API_KEY`,
+    `HYPERLIQUID_${envPrefix}_API_SECRET`,
   ];
 
   const missing = requiredEnvVars.filter(key => !process.env[key]);
   if (missing.length > 0) {
-    console.error(chalk.red('❌ Missing required environment variables:'));
+    console.error(chalk.red(`❌ Missing ${network} environment variables:`));
     missing.forEach(key => console.error(chalk.red(`   - ${key}`)));
-    console.error(chalk.yellow('\n💡 Please create a .env file based on .env.example'));
+    console.error(chalk.yellow(`\n💡 Please add ${network} credentials to your .env file`));
+    console.error(chalk.gray('   See .env.example for the required format'));
     process.exit(1);
   }
 
-  // Parse exchange-specific symbols
+  // Parse exchange-specific symbols (same for both networks)
   const bybitSymbols = process.env.BYBIT_SYMBOLS?.split(',').map(s => s.trim()) || ['BTC/USDT:USDT', 'ETH/USDT:USDT'];
   const hyperliquidSymbols = process.env.HYPERLIQUID_SYMBOLS?.split(',').map(s => s.trim()) || ['BTC/USDC:USDC', 'ETH/USDC:USDC'];
 
   const config: ExchangeConfig = {
+    network,
     bybit: {
-      apiKey: process.env.BYBIT_TESTNET_API_KEY!,
-      apiSecret: process.env.BYBIT_TESTNET_API_SECRET!,
-      testnet: true,
+      apiKey: process.env[`BYBIT_${envPrefix}_API_KEY`]!,
+      apiSecret: process.env[`BYBIT_${envPrefix}_API_SECRET`]!,
+      testnet: network === 'testnet',
       symbols: bybitSymbols,
     },
     hyperliquid: {
-      apiKey: process.env.HYPERLIQUID_TESTNET_API_KEY!,
-      apiSecret: process.env.HYPERLIQUID_TESTNET_API_SECRET!,
-      testnet: true,
+      apiKey: process.env[`HYPERLIQUID_${envPrefix}_API_KEY`]!,
+      apiSecret: process.env[`HYPERLIQUID_${envPrefix}_API_SECRET`]!,
+      testnet: network === 'testnet',
       symbols: hyperliquidSymbols,
     },
   };
@@ -80,7 +84,7 @@ function formatTime(timestamp: number): string {
 }
 
 // Display funding rates in a table
-function displayRatesTable(rates: FundingRate[]) {
+function displayRatesTable(rates: FundingRate[], _network: Network) {
   const table = new Table({
     head: [
       chalk.cyan('Exchange'),
@@ -108,7 +112,7 @@ function displayRatesTable(rates: FundingRate[]) {
 }
 
 // Display comparison results
-function displayComparisonTable(comparisons: ComparisonResult[]) {
+function displayComparisonTable(comparisons: ComparisonResult[], _network: Network) {
   const table = new Table({
     head: [
       chalk.cyan('Symbol'),
@@ -161,9 +165,19 @@ program
   .option('-s, --symbol <symbol>', 'Filter by specific symbol or base asset (e.g., BTC, ETH)')
   .option('-c, --compare', 'Compare rates between exchanges')
   .option('-j, --json', 'Output as JSON')
+  .option('--testnet', 'Use testnet (default)')
+  .option('--mainnet', 'Use mainnet (requires mainnet API keys)')
   .action(async (options) => {
-    const config = loadConfig();
-    const spinner = ora('Connecting to exchanges...').start();
+    // Determine network - default to testnet for safety
+    const network: Network = options.mainnet ? 'mainnet' : 'testnet';
+    
+    // Show network warning for mainnet
+    if (network === 'mainnet') {
+      console.log(chalk.yellow('⚠️  Using MAINNET - Real funding rates\n'));
+    }
+    
+    const config = loadConfig(network);
+    const spinner = ora(`Connecting to exchanges (${network.toUpperCase()})...`).start();
 
     try {
       const service = new FundingService(config);
@@ -180,8 +194,8 @@ program
         if (options.json) {
           displayJson(comparisons);
         } else {
-          console.log('\n' + chalk.bold('📊 Funding Rate Comparison\n'));
-          displayComparisonTable(comparisons);
+          console.log('\n' + chalk.bold(`📊 Funding Rate Comparison (${network.toUpperCase()})\n`));
+          displayComparisonTable(comparisons, network);
         }
       } else {
         spinner.start('Fetching funding rates...');
@@ -205,8 +219,8 @@ program
         if (options.json) {
           displayJson(rates);
         } else {
-          console.log('\n' + chalk.bold('📊 Current Funding Rates\n'));
-          displayRatesTable(rates);
+          console.log('\n' + chalk.bold(`📊 Current Funding Rates (${network.toUpperCase()})\n`));
+          displayRatesTable(rates, network);
         }
       }
 

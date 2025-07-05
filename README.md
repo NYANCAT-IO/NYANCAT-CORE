@@ -37,18 +37,29 @@ cp .env.example .env
 
 ## Configuration
 
-Create a `.env` file with your testnet API credentials:
+Create a `.env` file with your API credentials. The tool supports both testnet and mainnet:
 
 ```env
+# ========== TESTNET CONFIGURATION ==========
 # Bybit Testnet
-BYBIT_TESTNET_API_KEY=your_key_here
-BYBIT_TESTNET_API_SECRET=your_secret_here
+BYBIT_TESTNET_API_KEY=your_testnet_key_here
+BYBIT_TESTNET_API_SECRET=your_testnet_secret_here
 
 # Hyperliquid Testnet
-HYPERLIQUID_TESTNET_API_KEY=your_key_here
-HYPERLIQUID_TESTNET_API_SECRET=your_secret_here
+HYPERLIQUID_TESTNET_API_KEY=your_testnet_key_here
+HYPERLIQUID_TESTNET_API_SECRET=your_testnet_secret_here
 
-# Exchange-specific symbols (perpetual contracts)
+# ========== MAINNET CONFIGURATION ==========
+# Bybit Mainnet
+BYBIT_MAINNET_API_KEY=your_mainnet_key_here
+BYBIT_MAINNET_API_SECRET=your_mainnet_secret_here
+
+# Hyperliquid Mainnet
+HYPERLIQUID_MAINNET_API_KEY=your_mainnet_key_here
+HYPERLIQUID_MAINNET_API_SECRET=your_mainnet_secret_here
+
+# ========== SYMBOL CONFIGURATION ==========
+# Exchange-specific symbols (same for testnet/mainnet)
 # Bybit uses USDT settlement
 BYBIT_SYMBOLS=BTC/USDT:USDT,ETH/USDT:USDT,SOL/USDT:USDT
 
@@ -56,22 +67,47 @@ BYBIT_SYMBOLS=BTC/USDT:USDT,ETH/USDT:USDT,SOL/USDT:USDT
 HYPERLIQUID_SYMBOLS=BTC/USDC:USDC,ETH/USDC:USDC,SOL/USDC:USDC
 ```
 
-### Getting Testnet API Keys
+### Getting API Keys
 
+#### Testnet (for testing)
 - **Bybit Testnet**: https://testnet.bybit.com/
 - **Hyperliquid Testnet**: https://app.hyperliquid-testnet.xyz/
 
+#### Mainnet (real trading)
+- **Bybit**: https://www.bybit.com/
+- **Hyperliquid**: https://app.hyperliquid.xyz/
+
 ## Usage
+
+### Network Selection
+
+By default, the tool uses **testnet** for safety. To use mainnet, add the `--mainnet` flag:
+
+```bash
+# Default (testnet)
+pnpm start
+
+# Explicit testnet
+pnpm start --testnet
+
+# Mainnet (requires mainnet credentials)
+pnpm start --mainnet
+```
 
 ### Show all funding rates
 ```bash
+# Testnet rates
 pnpm start
+
+# Mainnet rates
+pnpm start --mainnet
 ```
 
 ### Filter by specific symbol or base asset
 ```bash
 # Filter by base asset (e.g., BTC)
 pnpm start --symbol BTC
+pnpm start --mainnet --symbol BTC
 
 # Filter by full symbol (if configured)
 pnpm start --symbol BTC/USDT:USDT
@@ -79,12 +115,20 @@ pnpm start --symbol BTC/USDT:USDT
 
 ### Compare rates between exchanges
 ```bash
+# Testnet comparison
 pnpm start --compare
+
+# Mainnet comparison
+pnpm start --mainnet --compare
+
+# Compare specific asset
+pnpm start --mainnet --compare --symbol BTC
 ```
 
 ### Output as JSON
 ```bash
 pnpm start --json
+pnpm start --mainnet --json
 ```
 
 ### Get help

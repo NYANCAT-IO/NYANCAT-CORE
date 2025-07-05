@@ -8,6 +8,11 @@
 export type Exchange = 'bybit' | 'hyperliquid';
 
 /**
+ * Network types
+ */
+export type Network = 'testnet' | 'mainnet';
+
+/**
  * Funding rate data from an exchange
  */
 export interface FundingRate {
@@ -35,6 +40,7 @@ export interface ComparisonResult {
  * Configuration for exchange connections
  */
 export interface ExchangeConfig {
+  network: Network;
   bybit: {
     apiKey: string;
     apiSecret: string;
