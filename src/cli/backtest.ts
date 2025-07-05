@@ -8,7 +8,9 @@ import {
   ReportGenerator, 
   BacktestConfig,
   ComprehensiveBacktestEngine,
-  ComprehensiveReportGenerator
+  ComprehensiveReportGenerator,
+  OptimizedBacktestEngine,
+  OptimizedBacktestConfig
 } from '../lib/backtest';
 
 const program = new Command();
@@ -18,10 +20,15 @@ program
   .description('Run a backtest on delta-neutral funding arbitrage strategy')
   .option('-d, --days <number>', 'Number of days to backtest', '90')
   .option('-o, --output <format>', 'Output format: html, json, or both', 'both')
-  .option('-r, --report <type>', 'Report type: simple, comprehensive, or both', 'simple')
+  .option('-r, --report <type>', 'Report type: simple, comprehensive, optimized, or both', 'simple')
   .option('--demo', 'Quick demo mode (7 days, lower threshold)')
+  .option('--valid-only', 'Only use validated delta-neutral pairs (default: true)', true)
   .option('-c, --capital <amount>', 'Initial capital', '10000')
   .option('-m, --min-apr <percent>', 'Minimum funding APR threshold', '8')
+  .option('--ml', 'Use ML-optimized strategy (predictive signals and smart filtering)')
+  .option('--risk-threshold <number>', 'ML risk threshold (0-1, only enter positions below this risk)', '0.6')
+  .option('--volatility-filter', 'Only trade during low volatility periods')
+  .option('--momentum-filter', 'Avoid positions when funding momentum is declining')
   .action(async (options) => {
     const spinner = ora('Running backtest...').start();
     
@@ -30,6 +37,7 @@ program
       const days = options.demo ? 7 : parseInt(options.days);
       const capital = parseFloat(options.capital);
       const minAPR = options.demo ? 5 : parseFloat(options.minApr);
+      const riskThreshold = parseFloat(options.riskThreshold);
       
       if (isNaN(days) || days <= 0) {
         spinner.fail('Invalid number of days');
@@ -45,28 +53,74 @@ program
       const endDate = new Date();
       const startDate = new Date(endDate.getTime() - days * 24 * 60 * 60 * 1000);
       
-      const config: BacktestConfig = {
+      // Determine if we should use ML optimization
+      const useML = options.ml || options.report === 'optimized';
+      
+      const config: OptimizedBacktestConfig = {
         startDate,
         endDate,
         initialCapital: capital,
-        minAPR: minAPR
+        minAPR: useML ? Math.max(minAPR - 2, 3) : minAPR, // Lower threshold for ML
+        useML,
+        riskThreshold: isNaN(riskThreshold) ? 0.6 : riskThreshold,
+        volatilityFilter: options.volatilityFilter,
+        momentumFilter: options.momentumFilter
       };
       
-      spinner.text = `Running backtest from ${startDate.toISOString().split('T')[0]} to ${endDate.toISOString().split('T')[0]}...`;
-      
-      // Run backtest based on report type
-      const useComprehensive = options.report === 'comprehensive' || options.report === 'both';
-      
-      let result;
-      if (useComprehensive) {
-        const engine = new ComprehensiveBacktestEngine();
-        result = await engine.runBacktest(config);
+      if (useML) {
+        spinner.text = `Running ML-OPTIMIZED backtest from ${startDate.toISOString().split('T')[0]} to ${endDate.toISOString().split('T')[0]}...`;
       } else {
-        const engine = new SimpleBacktestEngine();
-        result = await engine.runBacktest(config);
+        spinner.text = `Running backtest from ${startDate.toISOString().split('T')[0]} to ${endDate.toISOString().split('T')[0]}...`;
       }
       
-      spinner.succeed('Backtest complete!');
+      // Run backtest based on report type and ML options
+      const useComprehensive = options.report === 'comprehensive' || options.report === 'both';
+      const useOptimized = options.report === 'optimized' || useML;
+      
+      let result;
+      if (useOptimized) {
+        const engine = new OptimizedBacktestEngine();
+        result = await engine.runOptimizedBacktest(config);
+      } else if (useComprehensive) {
+        const engine = new ComprehensiveBacktestEngine();
+        result = await engine.runBacktest(config as BacktestConfig);
+      } else {
+        const engine = new SimpleBacktestEngine();
+        result = await engine.runBacktest(config as BacktestConfig);
+      }
+      
+      if (useOptimized) {
+        spinner.succeed('🚀 ML-Optimized backtest complete!');
+      } else {
+        spinner.succeed('Backtest complete!');
+      }
+      
+      // Generate optimized report if using ML
+      if (useOptimized) {
+        if (options.output === 'json' || options.output === 'both') {
+          const jsonOutput = JSON.stringify(result, null, 2);
+          await fs.writeFile('backtest-optimized.json', jsonOutput, 'utf-8');
+          console.log('🚀 ML-Optimized JSON results saved to backtest-optimized.json');
+        }
+        
+        if (options.output === 'html' || options.output === 'both') {
+          // Use comprehensive report generator for now (could create optimized HTML later)
+          const generator = new ComprehensiveReportGenerator();
+          const htmlOutput = generator.generateHTML(result as any);
+          await fs.writeFile('backtest-optimized.html', htmlOutput, 'utf-8');
+          console.log('📈 ML-Optimized HTML report saved to backtest-optimized.html');
+          
+          // Open in browser if demo mode
+          if (options.demo || options.days <= 7) {
+            try {
+              const open = (await import('open')).default;
+              await open('backtest-optimized.html');
+            } catch {
+              // Ignore if open package is not available
+            }
+          }
+        }
+      }
       
       // Generate simple report if needed
       if (options.report === 'simple' || options.report === 'both') {
@@ -121,7 +175,11 @@ program
       }
       
       // Display summary
-      console.log('\n✨ Backtest Summary:');
+      if (useOptimized) {
+        console.log('\n🚀 ML-Optimized Backtest Summary:');
+      } else {
+        console.log('\n✨ Backtest Summary:');
+      }
       console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
       console.log(`Initial Capital:  $${config.initialCapital.toLocaleString()}`);
       console.log(`Final Capital:    $${result.summary.finalCapital.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
@@ -132,10 +190,29 @@ program
       console.log(`Win Rate:         ${result.summary.winRate.toFixed(1)}%`);
       console.log(`Max Drawdown:     ${result.summary.maxDrawdown.toFixed(1)}%`);
       console.log(`Test Period:      ${result.summary.totalDays} days`);
+      
+      // Show ML-specific metrics if available
+      if (useOptimized && (result as any).signalAccuracy) {
+        const mlResult = result as any;
+        console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+        console.log(`🤖 ML Performance:`);
+        console.log(`Prediction Accuracy: ${mlResult.signalAccuracy.accuracy.toFixed(1)}%`);
+        console.log(`Avg Confidence:     ${mlResult.signalAccuracy.avgConfidence.toFixed(1)}%`);
+        console.log(`Risk Threshold:     ${((config.riskThreshold || 0.6) * 100).toFixed(0)}%`);
+        if (config.volatilityFilter) console.log(`Volatility Filter:   ✓ Enabled`);
+        if (config.momentumFilter) console.log(`Momentum Filter:     ✓ Enabled`);
+      }
+      
       console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
       
       if (result.summary.totalReturn > 0) {
-        console.log('\n🎉 Strategy was profitable!');
+        if (useOptimized) {
+          console.log('\n🎉 ML-optimized strategy was profitable!');
+        } else {
+          console.log('\n🎉 Strategy was profitable!');
+        }
+      } else if (useOptimized) {
+        console.log('\n💡 Consider adjusting ML parameters for better performance');
       }
       
     } catch (error: any) {

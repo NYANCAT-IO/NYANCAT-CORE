@@ -12,6 +12,7 @@ program
   .option('--from <date>', 'Start date (YYYY-MM-DD)')
   .option('--to <date>', 'End date (YYYY-MM-DD)')
   .option('-s, --symbols <symbols>', 'Comma-separated symbols (e.g., BTC/USDT:USDT,ETH/USDT:USDT)')
+  .option('--valid-only', 'Only fetch data for validated delta-neutral pairs')
   .option('--fresh', 'Force refresh, ignore cache')
   .option('--list-cache', 'List available cached data')
   .option('--clear-cache', 'Clear all cached data')
@@ -62,16 +63,23 @@ program
     console.log(`\nFetching historical data:`);
     console.log(`- From: ${new Date(startTime).toISOString()}`);
     console.log(`- To: ${new Date(endTime).toISOString()}`);
-    console.log(`- Symbols: ${symbols ? symbols.join(', ') : 'Top 20 by volume'}`);
-    console.log(`- Use cache: ${!options.fresh}\n`);
+    console.log(`- Symbols: ${symbols ? symbols.join(', ') : (options.validOnly ? 'All valid pairs' : 'Top 20 by volume')}`);
+    console.log(`- Use cache: ${!options.fresh}`);
+    console.log(`- Valid pairs only: ${options.validOnly || false}\n`);
 
     try {
-      const data = await fetcher.fetchHistoricalData({
-        startTime,
-        endTime,
-        symbols,
-        useCache: !options.fresh,
-      });
+      const data = options.validOnly 
+        ? await fetcher.fetchValidPairsOnly({
+            startTime,
+            endTime,
+            useCache: !options.fresh,
+          })
+        : await fetcher.fetchHistoricalData({
+            startTime,
+            endTime,
+            symbols,
+            useCache: !options.fresh,
+          });
 
       console.log('\n✅ Historical data fetch complete!');
       console.log(`- Symbols fetched: ${data.metadata.symbols.length}`);
