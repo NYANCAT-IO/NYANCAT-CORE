@@ -1,14 +1,23 @@
 import { 
   BacktestConfig, 
   BacktestResult, 
-  Position, 
-  OpenPosition,
+  Position,
   FundingSnapshot,
   PriceSnapshot,
   BacktestSummary,
   EquityPoint
 } from './types';
 import { HistoricalData, DataStorage } from '../historical';
+
+// Simple open position type for basic backtest
+interface SimpleOpenPosition {
+  symbol: string;
+  entryTime: number;
+  entrySpotPrice: number;
+  entryPerpPrice: number;
+  quantity: number;
+  fundingPayments: number[];
+}
 
 export class SimpleBacktestEngine {
   private storage: DataStorage;
@@ -39,7 +48,7 @@ export class SimpleBacktestEngine {
     
     // Initialize state
     let cash = initialCapital;
-    const openPositions = new Map<string, OpenPosition>();
+    const openPositions = new Map<string, SimpleOpenPosition>();
     const closedPositions: Position[] = [];
     const equityCurve: EquityPoint[] = [];
     

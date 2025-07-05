@@ -3,15 +3,22 @@
 import { Command } from 'commander';
 import ora from 'ora';
 import fs from 'fs/promises';
-import { SimpleBacktestEngine, ReportGenerator, BacktestConfig } from '../lib/backtest';
+import { 
+  SimpleBacktestEngine, 
+  ReportGenerator, 
+  BacktestConfig,
+  ComprehensiveBacktestEngine,
+  ComprehensiveReportGenerator
+} from '../lib/backtest';
 
 const program = new Command();
 
 program
   .name('backtest')
   .description('Run a backtest on delta-neutral funding arbitrage strategy')
-  .option('-d, --days <number>', 'Number of days to backtest', '30')
+  .option('-d, --days <number>', 'Number of days to backtest', '90')
   .option('-o, --output <format>', 'Output format: html, json, or both', 'both')
+  .option('-r, --report <type>', 'Report type: simple, comprehensive, or both', 'simple')
   .option('--demo', 'Quick demo mode (7 days, lower threshold)')
   .option('-c, --capital <amount>', 'Initial capital', '10000')
   .option('-m, --min-apr <percent>', 'Minimum funding APR threshold', '8')
@@ -47,32 +54,69 @@ program
       
       spinner.text = `Running backtest from ${startDate.toISOString().split('T')[0]} to ${endDate.toISOString().split('T')[0]}...`;
       
-      // Run backtest
-      const engine = new SimpleBacktestEngine();
-      const result = await engine.runBacktest(config);
+      // Run backtest based on report type
+      const useComprehensive = options.report === 'comprehensive' || options.report === 'both';
+      
+      let result;
+      if (useComprehensive) {
+        const engine = new ComprehensiveBacktestEngine();
+        result = await engine.runBacktest(config);
+      } else {
+        const engine = new SimpleBacktestEngine();
+        result = await engine.runBacktest(config);
+      }
       
       spinner.succeed('Backtest complete!');
       
-      // Generate reports
-      const generator = new ReportGenerator();
-      
-      if (options.output === 'json' || options.output === 'both') {
-        const jsonOutput = generator.generateJSON(result);
-        await fs.writeFile('backtest-results.json', jsonOutput, 'utf-8');
-        console.log('📊 JSON results saved to backtest-results.json');
+      // Generate simple report if needed
+      if (options.report === 'simple' || options.report === 'both') {
+        const generator = new ReportGenerator();
+        
+        if (options.output === 'json' || options.output === 'both') {
+          const jsonOutput = generator.generateJSON(result);
+          await fs.writeFile('backtest-results.json', jsonOutput, 'utf-8');
+          console.log('📊 JSON results saved to backtest-results.json');
+        }
+        
+        if (options.output === 'html' || options.output === 'both') {
+          const htmlOutput = generator.generateHTML(result);
+          await fs.writeFile('backtest-results.html', htmlOutput, 'utf-8');
+          console.log('📈 HTML report saved to backtest-results.html');
+          
+          // Try to open in browser
+          try {
+            const open = (await import('open')).default;
+            await open('backtest-results.html');
+          } catch {
+            // Ignore if open package is not available
+          }
+        }
       }
       
-      if (options.output === 'html' || options.output === 'both') {
-        const htmlOutput = generator.generateHTML(result);
-        await fs.writeFile('backtest-results.html', htmlOutput, 'utf-8');
-        console.log('📈 HTML report saved to backtest-results.html');
+      // Generate comprehensive report if needed
+      if (options.report === 'comprehensive' || options.report === 'both') {
+        const comprehensiveGenerator = new ComprehensiveReportGenerator();
         
-        // Try to open in browser
-        try {
-          const open = (await import('open')).default;
-          await open('backtest-results.html');
-        } catch {
-          // Ignore if open package is not available
+        if (options.output === 'json' || options.output === 'both') {
+          const jsonOutput = comprehensiveGenerator.generateJSON(result as any);
+          await fs.writeFile('backtest-comprehensive.json', jsonOutput, 'utf-8');
+          console.log('📊 Comprehensive JSON results saved to backtest-comprehensive.json');
+        }
+        
+        if (options.output === 'html' || options.output === 'both') {
+          const htmlOutput = comprehensiveGenerator.generateHTML(result as any);
+          await fs.writeFile('backtest-comprehensive.html', htmlOutput, 'utf-8');
+          console.log('📈 Comprehensive HTML report saved to backtest-comprehensive.html');
+          
+          // Try to open in browser if demo mode
+          if (options.demo) {
+            try {
+              const open = (await import('open')).default;
+              await open('backtest-comprehensive.html');
+            } catch {
+              // Ignore if open package is not available
+            }
+          }
         }
       }
       

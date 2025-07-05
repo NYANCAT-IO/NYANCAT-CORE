@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comprehensive Backtest Analysis</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    h1, h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5em;
+    }
+    
+    h2 {
+      margin-top: 40px;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 10px;
+    }
+    
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .stat-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    
+    .stat-value {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      color: #7f8c8d;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .positive { color: #27ae60; }
+    .negative { color: #e74c3c; }
+    .neutral { color: #3498db; }
+    
+    .chart-container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+    }
+    
+    .chart-container canvas {
+      max-height: 400px;
+    }
+    
+    .table-section {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      margin-bottom: 40px;
+      overflow-x: auto;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th {
+      background: #34495e;
+      color: white;
+      padding: 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    
+    tr:hover {
+      background: #f8f9fa;
+    }
+    
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .detail-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+    
+    .info-box {
+      background: #ecf0f1;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #95a5a6;
+      font-size: 0.9em;
+    }
+    
+    @media print {
+      body {
+        background: white;
+      }
+      .chart-container, .table-section, .detail-card {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Comprehensive Delta-Neutral Backtest Analysis</h1>
+    
+    <!-- Executive Summary -->
+    <div class="summary">
+      <div class="stat-card">
+        <div class="stat-value negative">
+          -7.2%
+        </div>
+        <div class="stat-label">Total Return</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-value positive">
+          -87.2%
+        </div>
+        <div class="stat-label">Annualized</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-value neutral">
+          7
+        </div>
+        <div class="stat-label">Total Trades</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-value neutral">
+          71%
+        </div>
+        <div class="stat-label">Win Rate</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-value negative">
+          -20.5%
+        </div>
+        <div class="stat-label">Max Drawdown</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-value positive">
+          $54
+        </div>
+        <div class="stat-label">Funding Collected</div>
+      </div>
+    </div>
+    
+    <!-- Performance Charts -->
+    <h2>📈 Performance Analysis</h2>
+    
+    <div class="chart-container">
+      <h3>Equity Curve</h3>
+      <canvas id="equityChart"></canvas>
+    </div>
+    
+    <div class="chart-container">
+      <h3>Monthly Performance</h3>
+      <canvas id="monthlyChart"></canvas>
+    </div>
+    
+    <!-- Monthly Breakdown -->
+    <h2>📅 Monthly Breakdown</h2>
+    <div class="table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Trades</th>
+            <th>Profit</th>
+            <th>Return</th>
+            <th>Win Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+      <tr>
+        <td>2025-06</td>
+        <td>2</td>
+        <td class="negative">$-7.47</td>
+        <td class="negative">-4.5%</td>
+        <td>0%</td>
+      </tr>
+    
+      <tr>
+        <td>2025-07</td>
+        <td>5</td>
+        <td class="positive">$44.93</td>
+        <td class="negative">-2.1%</td>
+        <td>100%</td>
+      </tr>
+    
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Symbol Performance -->
+    <h2>💎 Performance by Symbol</h2>
+    <div class="table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Trades</th>
+            <th>Total P&L</th>
+            <th>Avg P&L</th>
+            <th>Win Rate</th>
+            <th>Avg Entry APR</th>
+            <th>Funding Collected</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td>1000APU/USDT:USDT</td>
+          <td>1</td>
+          <td class="positive">$16.50</td>
+          <td class="positive">$16.50</td>
+          <td>100%</td>
+          <td>73.3%</td>
+          <td>$20.46</td>
+        </tr>
+      
+        <tr>
+          <td>10000QUBIC/USDT:USDT</td>
+          <td>1</td>
+          <td class="positive">$14.04</td>
+          <td class="positive">$14.04</td>
+          <td>100%</td>
+          <td>11.0%</td>
+          <td>$15.80</td>
+        </tr>
+      
+        <tr>
+          <td>10000COQ/USDT:USDT</td>
+          <td>1</td>
+          <td class="positive">$6.17</td>
+          <td class="positive">$6.17</td>
+          <td>100%</td>
+          <td>11.0%</td>
+          <td>$7.97</td>
+        </tr>
+      
+        <tr>
+          <td>10000WHY/USDT:USDT</td>
+          <td>1</td>
+          <td class="positive">$4.51</td>
+          <td class="positive">$4.51</td>
+          <td>100%</td>
+          <td>27.3%</td>
+          <td>$7.24</td>
+        </tr>
+      
+        <tr>
+          <td>1000000PEIPEI/USDT:USDT</td>
+          <td>2</td>
+          <td class="positive">$1.16</td>
+          <td class="positive">$0.58</td>
+          <td>50%</td>
+          <td>11.0%</td>
+          <td>$5.50</td>
+        </tr>
+      
+        <tr>
+          <td>10000LADYS/USDT:USDT</td>
+          <td>1</td>
+          <td class="negative">$-4.92</td>
+          <td class="negative">$-4.92</td>
+          <td>0%</td>
+          <td>11.0%</td>
+          <td>$-3.19</td>
+        </tr>
+      
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- P&L Breakdown -->
+    <h2>💰 P&L Analysis</h2>
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>Revenue Sources</h3>
+        <div class="detail-row">
+          <span>Funding Collected</span>
+          <span class="positive">+$53.78</span>
+        </div>
+        <div class="detail-row">
+          <span>Spot P&L</span>
+          <span>$-770.38</span>
+        </div>
+        <div class="detail-row">
+          <span>Perp P&L</span>
+          <span>$770.38</span>
+        </div>
+      </div>
+      
+      <div class="detail-card">
+        <h3>Costs</h3>
+        <div class="detail-row">
+          <span>Trading Fees</span>
+          <span class="negative">-$16.31</span>
+        </div>
+        <div class="detail-row">
+          <span>Average Fee per Trade</span>
+          <span class="negative">-$2.33</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Top Trades -->
+    <h2>🏆 Best & Worst Trades</h2>
+    <div class="detail-grid">
+      <div class="detail-card">
+        <h3>Top 5 Best Trades</h3>
+        
+          <div class="detail-row">
+            <span>1000APU/USDT:USDT (718h)</span>
+            <span class="positive">+$16.50</span>
+          </div>
+        
+          <div class="detail-row">
+            <span>10000QUBIC/USDT:USDT (702h)</span>
+            <span class="positive">+$14.04</span>
+          </div>
+        
+          <div class="detail-row">
+            <span>10000COQ/USDT:USDT (718h)</span>
+            <span class="positive">+$6.17</span>
+          </div>
+        
+          <div class="detail-row">
+            <span>10000WHY/USDT:USDT (718h)</span>
+            <span class="positive">+$4.51</span>
+          </div>
+        
+          <div class="detail-row">
+            <span>1000000PEIPEI/USDT:USDT (502h)</span>
+            <span class="positive">+$3.72</span>
+          </div>
+        
+      </div>
+      
+      <div class="detail-card">
+        <h3>Top 5 Worst Trades</h3>
+        
+          <div class="detail-row">
+            <span>10000LADYS/USDT:USDT (216h)</span>
+            <span class="negative">$-4.92</span>
+          </div>
+        
+          <div class="detail-row">
+            <span>1000000PEIPEI/USDT:USDT (16h)</span>
+            <span class="negative">$-2.55</span>
+          </div>
+        
+          <div class="detail-row">
+            <span>1000000PEIPEI/USDT:USDT (502h)</span>
+            <span class="negative">$3.72</span>
+          </div>
+        
+          <div class="detail-row">
+            <span>10000WHY/USDT:USDT (718h)</span>
+            <span class="negative">$4.51</span>
+          </div>
+        
+          <div class="detail-row">
+            <span>10000COQ/USDT:USDT (718h)</span>
+            <span class="negative">$6.17</span>
+          </div>
+        
+      </div>
+    </div>
+    
+    <!-- All Trades Table -->
+    <h2>📊 All Trades (7)</h2>
+    <div class="table-section">
+      <table id="tradesTable">
+        <thead>
+          <tr>
+            <th>Entry Date</th>
+            <th>Symbol</th>
+            <th>Entry APR</th>
+            <th>Exit APR</th>
+            <th>Hours Held</th>
+            <th>Funding Periods</th>
+            <th>Funding Collected</th>
+            <th>Net P&L</th>
+            <th>Exit Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td>6/5/2025</td>
+          <td>1000000PEIPEI/USDT:USDT</td>
+          <td>11.0%</td>
+          <td>-11.6%</td>
+          <td>16.0</td>
+          <td>2</td>
+          <td class="negative">$-0.01</td>
+          <td class="negative">$-2.55</td>
+          <td>Funding turned negative: -11.6% APR</td>
+        </tr>
+      
+        <tr>
+          <td>6/5/2025</td>
+          <td>10000LADYS/USDT:USDT</td>
+          <td>11.0%</td>
+          <td>-649.3%</td>
+          <td>216.0</td>
+          <td>27</td>
+          <td class="negative">$-3.19</td>
+          <td class="negative">$-4.92</td>
+          <td>Funding turned negative: -649.3% APR</td>
+        </tr>
+      
+        <tr>
+          <td>6/5/2025</td>
+          <td>1000APU/USDT:USDT</td>
+          <td>73.3%</td>
+          <td>11.0%</td>
+          <td>717.8</td>
+          <td>89</td>
+          <td class="positive">$20.46</td>
+          <td class="positive">$16.50</td>
+          <td>Backtest ended</td>
+        </tr>
+      
+        <tr>
+          <td>6/5/2025</td>
+          <td>10000WHY/USDT:USDT</td>
+          <td>27.3%</td>
+          <td>5.5%</td>
+          <td>717.8</td>
+          <td>89</td>
+          <td class="positive">$7.24</td>
+          <td class="positive">$4.51</td>
+          <td>Backtest ended</td>
+        </tr>
+      
+        <tr>
+          <td>6/5/2025</td>
+          <td>10000COQ/USDT:USDT</td>
+          <td>11.0%</td>
+          <td>11.0%</td>
+          <td>717.8</td>
+          <td>89</td>
+          <td class="positive">$7.97</td>
+          <td class="positive">$6.17</td>
+          <td>Backtest ended</td>
+        </tr>
+      
+        <tr>
+          <td>6/6/2025</td>
+          <td>10000QUBIC/USDT:USDT</td>
+          <td>11.0%</td>
+          <td>24.9%</td>
+          <td>701.8</td>
+          <td>87</td>
+          <td class="positive">$15.80</td>
+          <td class="positive">$14.04</td>
+          <td>Backtest ended</td>
+        </tr>
+      
+        <tr>
+          <td>6/14/2025</td>
+          <td>1000000PEIPEI/USDT:USDT</td>
+          <td>11.0%</td>
+          <td>11.0%</td>
+          <td>501.8</td>
+          <td>62</td>
+          <td class="positive">$5.51</td>
+          <td class="positive">$3.72</td>
+          <td>Backtest ended</td>
+        </tr>
+      
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Strategy Information -->
+    <div class="info-box">
+      <h3>Strategy Configuration</h3>
+      <p><strong>Initial Capital:</strong> $10,000</p>
+      <p><strong>Minimum Funding APR:</strong> 8%</p>
+      <p><strong>Backtest Period:</strong> 30 days</p>
+      <p><strong>Start Date:</strong> 6/5/2025</p>
+      <p><strong>End Date:</strong> 7/5/2025</p>
+    </div>
+    
+    <div class="footer">
+      <p>Generated on 7/5/2025, 3:47:28 PM</p>
+      <p>Delta-Neutral Funding Arbitrage Strategy | Comprehensive Backtest Report</p>
+    </div>
+  </div>
+  
+  <script>
+    // Equity Chart
+    const ctx1 = document.getElementById('equityChart').getContext('2d');
+    const gradient = ctx1.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, 'rgba(46, 204, 113, 0.2)');
+    gradient.addColorStop(1, 'rgba(46, 204, 113, 0.01)');
+    
+    new Chart(ctx1, {
+      type: 'line',
+      data: {
+        labels: ["6/5","6/6","6/6","6/6","6/7","6/7","6/7","6/8","6/8","6/8","6/9","6/9","6/9","6/10","6/10","6/10","6/11","6/11","6/11","6/12","6/12","6/12","6/13","6/13","6/13","6/14","6/14","6/14","6/15","6/15","6/15","6/16","6/16","6/16","6/17","6/17","6/17","6/18","6/18","6/18","6/19","6/19","6/19","6/20","6/20","6/20","6/21","6/21","6/21","6/22","6/22","6/22","6/23","6/23","6/23","6/24","6/24","6/24","6/25","6/25","6/25","6/26","6/26","6/26","6/27","6/27","6/27","6/28","6/28","6/28","6/29","6/29","6/29","6/30","6/30","6/30","7/1","7/1","7/1","7/2","7/2","7/2","7/3","7/3","7/3","7/4","7/4","7/4","7/5","7/5"],
+        datasets: [{
+          label: 'Portfolio Value ($)',
+          data: ["10000.00","9635.83","9726.96","9751.96","9706.34","9776.16","9767.46","9796.90","9804.49","9905.23","9989.89","9990.97","10221.98","10636.58","10422.61","10534.87","10628.52","10504.66","10726.56","10328.08","10176.54","10033.10","9508.52","9584.32","9803.27","9881.41","9821.92","9752.38","9870.47","9895.20","9941.96","9877.92","10305.98","10327.91","10079.70","9825.26","9418.68","9550.14","9501.98","9284.45","9532.27","9341.38","9303.00","9431.43","9417.06","9307.02","9174.18","9199.06","9026.01","8923.64","8858.52","8532.13","8756.71","8775.00","8616.44","9169.78","9252.64","9434.31","9382.98","9503.41","9358.97","9346.28","9447.87","9163.24","9074.30","9397.16","9533.95","9457.33","9519.09","9568.92","9590.31","9629.66","9512.81","9778.04","9527.78","9553.20","9479.09","9350.12","9324.32","9258.55","9413.58","9695.94","9581.80","9690.42","9528.74","9563.36","9371.48","9201.14","9314.87","9279.85"],
+          borderColor: '#2ecc71',
+          backgroundColor: gradient,
+          borderWidth: 3,
+          fill: true,
+          tension: 0.1,
+          pointRadius: 0,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#2ecc71'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        interaction: {
+          intersect: false,
+          mode: 'index'
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+            padding: 12,
+            cornerRadius: 8,
+            callbacks: {
+              label: function(context) {
+                return '$' + context.formattedValue;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              maxRotation: 0,
+              autoSkip: true,
+              maxTicksLimit: 10
+            }
+          },
+          y: {
+            beginAtZero: false,
+            grid: {
+              color: '#f0f0f0'
+            },
+            ticks: {
+              callback: function(value) {
+                return '$' + value.toLocaleString();
+              }
+            }
+          }
+        }
+      }
+    });
+    
+    // Monthly Chart
+    const ctx2 = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ["2025-06","2025-07"],
+        datasets: [{
+          label: 'Monthly Profit ($)',
+          data: ["-7.47","44.93"],
+          backgroundColor: function(context) {
+            const value = context.parsed.y;
+            return value >= 0 ? 'rgba(46, 204, 113, 0.8)' : 'rgba(231, 76, 60, 0.8)';
+          },
+          borderColor: function(context) {
+            const value = context.parsed.y;
+            return value >= 0 ? '#27ae60' : '#e74c3c';
+          },
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return '$' + context.formattedValue;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: '#f0f0f0'
+            },
+            ticks: {
+              callback: function(value) {
+                return '$' + value.toLocaleString();
+              }
+            }
+          }
+        }
+      }
+    });
+    
+    // Initialize DataTable
+    $(document).ready(function() {
+      $('#tradesTable').DataTable({
+        pageLength: 25,
+        order: [[0, 'desc']],
+        columnDefs: [
+          { targets: [2, 3, 4, 5, 6, 7], className: 'dt-right' }
+        ]
+      });
+    });
+  </script>
+</body>
+</html>

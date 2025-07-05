@@ -20,6 +20,30 @@ export interface Position {
   totalPnL: number;       // Final P&L including all costs
 }
 
+// Extended position with detailed information for comprehensive reports
+export interface DetailedPosition extends Position {
+  // Entry context
+  entryFundingRate: number;
+  entryFundingAPR: number;
+  concurrentPositions: number;
+  
+  // Exit context
+  exitFundingRate: number;
+  exitFundingAPR: number;
+  exitReason: string;
+  
+  // Time metrics
+  holdingPeriodHours: number;
+  fundingPeriodsHeld: number;
+  
+  // P&L breakdown
+  spotPnL: number;
+  perpPnL: number;
+  totalFunding: number;
+  entryFees: number;
+  exitFees: number;
+}
+
 export interface BacktestSummary {
   initialCapital: number;
   finalCapital: number;
@@ -44,6 +68,32 @@ export interface BacktestResult {
   config: BacktestConfig;
 }
 
+// Extended result for comprehensive reports
+export interface ComprehensiveBacktestResult extends BacktestResult {
+  detailedPositions: DetailedPosition[];
+  monthlyStats: MonthlyStats[];
+  symbolStats: Map<string, SymbolStats>;
+}
+
+export interface MonthlyStats {
+  month: string; // "2024-01"
+  trades: number;
+  profit: number;
+  return: number; // percentage
+  winRate: number;
+}
+
+export interface SymbolStats {
+  symbol: string;
+  trades: number;
+  totalPnL: number;
+  avgPnL: number;
+  winRate: number;
+  avgFundingAPR: number;
+  avgHoldingHours: number;
+  totalFunding: number;
+}
+
 // Helper types for internal use
 export interface FundingSnapshot {
   timestamp: number;
@@ -63,4 +113,9 @@ export interface OpenPosition {
   entryPerpPrice: number;
   quantity: number;
   fundingPayments: number[];
+  // Additional context for comprehensive reporting
+  entryFundingRate: number;
+  entryFundingAPR: number;
+  concurrentPositions: number;
+  fundingPeriodsHeld: number;
 }
