@@ -285,6 +285,43 @@ The analyzer shows:
 - Capital requirements
 - Risk warnings
 
+## Troubleshooting
+
+### Delta-Neutral Analyzer Issues
+
+**Problem**: Many assets show identical funding rates (0.005% or 0.01%)
+- This might be legitimate market data or a parsing issue
+- Check `/docs/delta-neutral-analyzer-debugging.md` for detailed debugging steps
+- Verify rates against Bybit website
+
+**Problem**: No opportunities when including fees
+- Current fee model (0.1% maker/taker) might be too conservative
+- Try without fees first: `pnpm analyze-delta`
+- Real opportunities might require VIP fee tiers
+
+**Problem**: Futures contracts appearing in results
+- Check for symbols with dates (e.g., -250829)
+- These should be filtered out automatically
+- Report specific symbols if they slip through
+
+### Debug Commands
+
+```bash
+# Check raw data quality
+cat data/bybit/*-tickers.json | jq '.tickers[0]'
+
+# Verify funding rate distribution
+pnpm analyze-delta --json | jq '.stats'
+
+# Test specific asset
+pnpm analyze-delta --asset BTC
+```
+
+For detailed debugging information, see:
+- `/docs/delta-neutral-analyzer-debugging.md` - Comprehensive debugging guide
+- `/docs/funding-rate-analysis.md` - Funding rate patterns analysis
+- `/docs/context-reset-summary.md` - Quick reference after context reset
+
 ## License
 
 MIT

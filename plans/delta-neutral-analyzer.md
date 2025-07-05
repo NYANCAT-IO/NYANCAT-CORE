@@ -1,5 +1,7 @@
 # Delta-Neutral Strategy Analyzer Implementation Plan
 
+## Status: COMPLETED but BUGGY (needs debugging)
+
 ## Overview
 Create a CLI tool that analyzes Bybit market data to identify delta-neutral arbitrage opportunities between spot and derivative markets.
 
@@ -146,6 +148,41 @@ Symbol: BTC
 - Output is clear and actionable
 - Performance is fast (<1 second analysis)
 - No API calls required (pure data analysis)
+
+## Known Issues (As of July 5, 2025)
+
+### 1. Funding Rate Clustering
+- Many assets show identical funding rates (0.005% and 0.01%)
+- Over 50% of pairs have just two funding rate values
+- This could be legitimate market data or a parsing issue
+
+### 2. Data Quality Concerns
+- Funding rates appear too uniform across different assets
+- Need to verify against exchange website
+- Possible CCXT or API limitations
+
+### 3. Fee Impact
+- When fees are included, very few opportunities remain profitable
+- Current fee model might be too conservative
+
+## Debugging Steps
+
+1. **Verify Raw Data**
+   - Check ticker.info.fundingRate field directly
+   - Compare with Bybit website values
+   - Test CCXT's fetchFundingRate() method
+
+2. **Add Logging**
+   - Log raw ticker data before parsing
+   - Track funding rate distribution
+   - Monitor excluded pairs
+
+3. **Test Alternatives**
+   - Try different CCXT methods
+   - Test at different times (rates update every 8h)
+   - Compare with other exchanges
+
+See `/docs/delta-neutral-analyzer-debugging.md` for detailed debugging guide.
 
 ## Technical Notes
 
