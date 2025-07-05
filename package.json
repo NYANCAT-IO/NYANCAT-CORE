@@ -13,7 +13,8 @@
     "fetch-bybit": "tsx src/cli/fetch-bybit-data.ts",
     "analyze-delta": "tsx src/cli/analyze-delta-neutral.ts",
     "fetch-historical": "tsx src/cli/fetch-historical.ts",
-    "backtest": "tsx src/cli/backtest.ts"
+    "backtest": "tsx src/cli/backtest.ts",
+    "discover-pairs": "tsx src/cli/discover-pairs.ts"
   },
   "keywords": [
     "ccxt",
@@ -34,6 +35,8 @@
     "cli-table3": "^0.6.5",
     "commander": "^14.0.0",
     "dotenv": "^17.0.1",
+    "ml-random-forest": "^2.1.0",
+    "ml-regression": "^6.3.0",
     "open": "^10.1.2",
     "ora": "^8.2.0",
     "table": "^6.9.0"
