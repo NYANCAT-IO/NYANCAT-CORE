@@ -1,0 +1,120 @@
+# ROFL Manifest - Delta-Neutral Funding Arbitrage
+# Oasis Protocol TEE Deployment Configuration
+
+name: funding-arbitrage
+version: "1.0.0"
+description: "ML-optimized delta-neutral funding arbitrage in TEE"
+
+# Resource requirements (optimized for 150 TEST budget)
+resources:
+  memory: "512Mi"
+  cpu: "1000m"
+  storage: "2Gi"
+  
+# TEE configuration
+tee:
+  type: "intel-tdx"
+  attestation: true
+  secure_boot: true
+  
+# Application configuration
+app:
+  runtime: "docker"
+  image: "funding-arbitrage:latest"
+  command: ["node", "dist/cli/index.js"]
+  
+  # Environment variables
+  env:
+    - name: "NODE_ENV"
+      value: "production"
+    - name: "ROFL_MODE"
+      value: "true"
+    - name: "DATA_DIR"
+      value: "/app/data"
+  
+  # Port configuration
+  ports:
+    - name: "health"
+      port: 3000
+      protocol: "tcp"
+
+# Persistent storage configuration
+storage:
+  - name: "historical-cache"
+    type: "disk-persistent"
+    size: "1Gi"
+    mount_path: "/app/data/historical"
+    
+  - name: "rofl-results"
+    type: "disk-persistent"
+    size: "512Mi"
+    mount_path: "/app/data/rofl"
+    
+  - name: "config"
+    type: "disk-persistent"
+    size: "128Mi"
+    mount_path: "/app/config"
+
+# Secrets configuration (encrypted key-value pairs)
+secrets:
+  - name: "BYBIT_TESTNET_API_KEY"
+    description: "Bybit testnet API key"
+    type: "string"
+    
+  - name: "BYBIT_TESTNET_API_SECRET"
+    description: "Bybit testnet API secret"
+    type: "string"
+    
+  - name: "HYPERLIQUID_TESTNET_API_KEY"
+    description: "Hyperliquid testnet API key"
+    type: "string"
+    
+  - name: "HYPERLIQUID_TESTNET_API_SECRET"
+    description: "Hyperliquid testnet API secret"
+    type: "string"
+
+# Network configuration
+network:
+  ingress:
+    - name: "health-check"
+      port: 3000
+      protocol: "tcp"
+      access: "internal"
+  
+  egress:
+    - name: "exchange-apis"
+      hosts:
+        - "api-testnet.bybit.com"
+        - "api.hyperliquid-testnet.xyz"
+      ports: [443]
+      protocol: "https"
+
+# Oracle integration
+oracle:
+  enabled: true
+  contract_address: "0x..." # To be filled after contract deployment
+  update_interval: "8h"
+  
+# Monitoring and logging
+monitoring:
+  health_check:
+    path: "/health"
+    interval: "30s"
+    timeout: "10s"
+    
+  logs:
+    level: "info"
+    format: "json"
+    
+  metrics:
+    enabled: true
+    port: 3001
+
+# Cost optimization settings
+optimization:
+  budget: "150TEST"
+  auto_scale: false
+  shutdown_on_idle: false
+  resource_limits:
+    memory_threshold: 80
+    cpu_threshold: 80

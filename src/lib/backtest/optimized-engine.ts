@@ -139,7 +139,6 @@ export class OptimizedBacktestEngine {
       }> = [];
       
       for (const [symbol] of openPositions) {
-        const position = openPositions.get(symbol)!;
         const currentFundingRate = fundingRates.rates.get(symbol) || 0;
         const currentAPR = currentFundingRate * 3 * 365 * 100;
         

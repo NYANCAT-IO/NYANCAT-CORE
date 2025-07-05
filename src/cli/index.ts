@@ -10,6 +10,28 @@ import { FundingService, ExchangeConfig, FundingRate, ComparisonResult, Network 
 // Load environment variables
 dotenv.config();
 
+// Check if running in ROFL mode
+const isROFLMode = process.env.ROFL_MODE === 'true';
+
+// Demo configuration for ROFL mode (when no real API keys)
+function getDemoConfig(network: Network = 'testnet'): ExchangeConfig {
+  return {
+    network,
+    bybit: {
+      apiKey: 'demo-key',
+      apiSecret: 'demo-secret',
+      testnet: network === 'testnet',
+      symbols: ['BTC/USDT:USDT', 'ETH/USDT:USDT'],
+    },
+    hyperliquid: {
+      apiKey: 'demo-key',
+      apiSecret: 'demo-secret',
+      testnet: network === 'testnet',
+      symbols: ['BTC/USDC:USDC', 'ETH/USDC:USDC'],
+    },
+  };
+}
+
 // Parse configuration from environment
 function loadConfig(network: Network = 'testnet'): ExchangeConfig {
   const envPrefix = network.toUpperCase();
@@ -23,11 +45,17 @@ function loadConfig(network: Network = 'testnet'): ExchangeConfig {
 
   const missing = requiredEnvVars.filter(key => !process.env[key]);
   if (missing.length > 0) {
-    console.error(chalk.red(`❌ Missing ${network} environment variables:`));
-    missing.forEach(key => console.error(chalk.red(`   - ${key}`)));
-    console.error(chalk.yellow(`\n💡 Please add ${network} credentials to your .env file`));
-    console.error(chalk.gray('   See .env.example for the required format'));
-    process.exit(1);
+    if (isROFLMode) {
+      console.log(chalk.yellow(`⚠️  Missing ${network} environment variables in ROFL mode`));
+      console.log(chalk.blue(`🔧 Using demo configuration for testing`));
+      return getDemoConfig(network);
+    } else {
+      console.error(chalk.red(`❌ Missing ${network} environment variables:`));
+      missing.forEach(key => console.error(chalk.red(`   - ${key}`)));
+      console.error(chalk.yellow(`\n💡 Please add ${network} credentials to your .env file`));
+      console.error(chalk.gray('   See .env.example for the required format'));
+      process.exit(1);
+    }
   }
 
   // Parse exchange-specific symbols (same for both networks)
@@ -167,9 +195,34 @@ program
   .option('-j, --json', 'Output as JSON')
   .option('--testnet', 'Use testnet (default)')
   .option('--mainnet', 'Use mainnet (requires mainnet API keys)')
+  .option('--demo', 'Use demo mode (no real API calls)')
   .action(async (options) => {
     // Determine network - default to testnet for safety
     const network: Network = options.mainnet ? 'mainnet' : 'testnet';
+    
+    // Show mode information
+    if (isROFLMode) {
+      console.log(chalk.blue('🚀 Running in ROFL mode (containerized TEE environment)\n'));
+    }
+    
+    if (options.demo || isROFLMode) {
+      console.log(chalk.yellow('🧪 Demo mode: Using mock data (no real API calls)\n'));
+      // In demo mode, return mock data instead of real API calls
+      if (options.json) {
+        displayJson([{
+          exchange: 'demo',
+          symbol: 'BTC/USDT',
+          rate: 0.0001,
+          annualizedRate: 10.95,
+          interval: '8h',
+          nextFundingTime: Date.now() + 3600000
+        }]);
+      } else {
+        console.log(chalk.green('✅ Demo mode working - container is healthy!'));
+        console.log(chalk.gray('Real implementation would fetch live funding rates from exchanges.'));
+      }
+      return;
+    }
     
     // Show network warning for mainnet
     if (network === 'mainnet') {

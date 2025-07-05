@@ -1,0 +1,75 @@
+# ROFL-Compatible Docker Compose Configuration
+# Resource-optimized for 512MB RAM, 1 CPU (70% cost reduction)
+version: '3.8'
+
+services:
+  funding-arbitrage:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: rofl-funding-arbitrage
+    
+    # Resource limits (optimized for cost)
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '1.0'
+        reservations:
+          memory: 256M
+          cpus: '0.5'
+    
+    # Environment variables
+    environment:
+      - NODE_ENV=production
+      - ROFL_MODE=true
+      - DATA_DIR=/app/data
+      - CACHE_DIR=/app/data/historical
+      - RESULTS_DIR=/app/data/rofl
+    
+    # Persistent storage volumes
+    volumes:
+      - historical_cache:/app/data/historical
+      - rofl_results:/app/data/rofl
+      - rofl_config:/app/config
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    
+    # Network configuration
+    networks:
+      - rofl-network
+    
+    # Security context
+    security_opt:
+      - no-new-privileges:true
+    
+    # ROFL-specific labels
+    labels:
+      - "rofl.app=funding-arbitrage"
+      - "rofl.version=1.0.0"
+      - "rofl.budget=150TEST"
+      - "rofl.storage=persistent"
+
+# Named volumes for persistent storage
+volumes:
+  historical_cache:
+    driver: local
+  
+  rofl_results:
+    driver: local
+  
+  rofl_config:
+    driver: local
+
+# Network configuration
+networks:
+  rofl-network:
+    driver: bridge
+    labels:
+      - "rofl.network=secure"

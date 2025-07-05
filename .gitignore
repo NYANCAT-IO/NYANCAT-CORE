@@ -112,3 +112,19 @@ data_backup
 # Generated backtest results
 backtest-results.html
 backtest-results.json
+
+# ROFL and containerization
+rofl/data/
+rofl/logs/
+rofl/runtime/
+docker/volumes/
+*.pid
+.rofl/
+rofl-*.log
+container-*.log
+
+# Podman/Docker runtime
+.podman/
+.docker/
+docker-compose.override.yml
+compose.override.yml

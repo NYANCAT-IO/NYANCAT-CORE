@@ -1,0 +1,81 @@
+# Docker ignore file for ROFL container optimization
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# Development files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+docs/
+plans/
+
+# Backup and temporary files
+data_backup/
+*.log
+*.tmp
+*.temp
+
+# Test files
+test/
+tests/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Backtest results (large files)
+backtest-*.html
+backtest-*.json
+
+# Development tools
+.eslintrc*
+.prettierrc*
+jest.config*
+webpack.config*
+
+# Docker files (avoid recursion)
+docker/
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# ROFL files (will be mounted)
+rofl/
+contracts/

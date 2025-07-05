@@ -1,0 +1,129 @@
+{
+  "rofl": {
+    "version": "1.0.0",
+    "app_name": "funding-arbitrage",
+    "description": "ML-optimized delta-neutral funding arbitrage in TEE",
+    "budget": "150TEST",
+    "deployment_mode": "simulation"
+  },
+  
+  "tee": {
+    "environment": "intel-tdx",
+    "attestation_required": true,
+    "secure_storage": true,
+    "encrypted_secrets": true
+  },
+  
+  "application": {
+    "runtime": {
+      "node_env": "production",
+      "data_dir": "/app/data",
+      "cache_dir": "/app/data/historical",
+      "results_dir": "/app/data/rofl"
+    },
+    
+    "strategy": {
+      "mode": "ml-optimized",
+      "min_funding_apr": 3.0,
+      "risk_threshold": 0.6,
+      "enable_volatility_filter": true,
+      "enable_momentum_filter": true,
+      "backtest_days": 7,
+      "auto_execute": false
+    },
+    
+    "exchanges": {
+      "bybit": {
+        "testnet": true,
+        "rate_limit": 100,
+        "timeout": 30000
+      },
+      "hyperliquid": {
+        "testnet": true,
+        "rate_limit": 50,
+        "timeout": 30000
+      }
+    }
+  },
+  
+  "storage": {
+    "historical_cache": {
+      "path": "/app/data/historical",
+      "max_size": "1GB",
+      "retention_days": 30
+    },
+    
+    "results": {
+      "path": "/app/data/rofl",
+      "max_size": "512MB",
+      "format": "json",
+      "encrypt": true
+    },
+    
+    "backup": {
+      "enabled": true,
+      "frequency": "daily",
+      "retention": 7
+    }
+  },
+  
+  "oracle": {
+    "enabled": true,
+    "update_frequency": "8h",
+    "contract_address": null,
+    "gas_limit": 100000,
+    "data_fields": [
+      "total_return",
+      "win_rate",
+      "max_drawdown",
+      "trades_count",
+      "funding_collected",
+      "ml_accuracy"
+    ]
+  },
+  
+  "monitoring": {
+    "health_check": {
+      "enabled": true,
+      "port": 3000,
+      "interval": 30,
+      "timeout": 10
+    },
+    
+    "logging": {
+      "level": "info",
+      "format": "json",
+      "file": "/app/data/rofl/app.log",
+      "max_size": "50MB",
+      "max_files": 5
+    },
+    
+    "metrics": {
+      "enabled": true,
+      "port": 3001,
+      "collection_interval": 60
+    }
+  },
+  
+  "security": {
+    "secrets_encryption": true,
+    "secure_communication": true,
+    "audit_logging": true,
+    "no_external_access": true
+  },
+  
+  "optimization": {
+    "memory_limit": "512MB",
+    "cpu_limit": "1000m",
+    "storage_limit": "2GB",
+    "network_bandwidth": "10MB/s",
+    "cost_tracking": true
+  },
+  
+  "simulation": {
+    "local_testing": true,
+    "podman_compose": true,
+    "mock_secrets": false,
+    "test_data": "/app/data/historical/cache_2025-06-05_to_2025-07-05.json"
+  }
+}

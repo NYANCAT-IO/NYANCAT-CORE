@@ -1,9 +1,9 @@
 {
   "summary": {
     "initialCapital": 10000,
-    "finalCapital": 10014.838172925049,
-    "totalReturn": 0.14838172925048637,
-    "totalReturnDollars": 14.838172925048639,
+    "finalCapital": 10074.624806544118,
+    "totalReturn": 0.7462480654411774,
+    "totalReturnDollars": 74.62480654411775,
     "numberOfTrades": 10,
     "winningTrades": 1,
     "winRate": 10,
@@ -57,43 +57,43 @@
     },
     {
       "timestamp": 1751472000000,
-      "value": 10178.213636965756
+      "value": 10178.213636965755
     },
     {
       "timestamp": 1751500800000,
-      "value": 10138.259269910754
+      "value": 10146.900552303407
     },
     {
       "timestamp": 1751529600000,
-      "value": 10276.654127644622
+      "value": 10257.31269052196
     },
     {
       "timestamp": 1751558400000,
-      "value": 10168.97265838233
+      "value": 10168.064637416841
     },
     {
       "timestamp": 1751587200000,
-      "value": 10205.677432616141
+      "value": 10200.689812773708
     },
     {
       "timestamp": 1751616000000,
-      "value": 10080.645515452188
+      "value": 10088.276459311775
     },
     {
       "timestamp": 1751644800000,
-      "value": 10020.071643649431
+      "value": 10061.929233076677
     },
     {
       "timestamp": 1751673600000,
-      "value": 10033.363243507727
+      "value": 10075.220832934972
     },
     {
       "timestamp": 1751702400000,
-      "value": 10029.550165114111
+      "value": 10071.407754541357
     },
     {
       "timestamp": 1751731200000,
-      "value": 10014.838172925049
+      "value": 10074.624806544118
     }
   ],
   "positions": [
@@ -139,9 +139,9 @@
         },
         "volatility": {
           "symbol": "DOGE/USDT:USDT",
-          "currentVol": 0.33235791802112474,
-          "avgVol": 0.6625124031377321,
-          "volPercentile": 2.857142857142857,
+          "currentVol": 0.2737668315748104,
+          "avgVol": 0.6677056402384984,
+          "volPercentile": 0.7246376811594203,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -165,8 +165,8 @@
         "volatility": {
           "symbol": "DOGE/USDT:USDT",
           "currentVol": 0.7651499569081497,
-          "avgVol": 0.6625124031377321,
-          "volPercentile": 72.14285714285714,
+          "avgVol": 0.6677056402384984,
+          "volPercentile": 71.73913043478261,
           "isLowVol": true
         },
         "riskScore": 0.300823875,
@@ -218,9 +218,9 @@
         },
         "volatility": {
           "symbol": "BLUR/USDT:USDT",
-          "currentVol": 0.5921349855847786,
-          "avgVol": 0.7224588672000257,
-          "volPercentile": 14.285714285714285,
+          "currentVol": 0.6289537930442877,
+          "avgVol": 0.7251006091272352,
+          "volPercentile": 21.014492753623188,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -244,11 +244,11 @@
         "volatility": {
           "symbol": "BLUR/USDT:USDT",
           "currentVol": 0.8706187403581095,
-          "avgVol": 0.7224588672000257,
-          "volPercentile": 81.42857142857143,
+          "avgVol": 0.7251006091272352,
+          "volPercentile": 81.15942028985508,
           "isLowVol": false
         },
-        "riskScore": 0.24428571428571427,
+        "riskScore": 0.24347826086956523,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -297,8 +297,8 @@
         },
         "volatility": {
           "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.3077024119846315,
-          "avgVol": 0.7262302728520829,
+          "currentVol": 0.2760632347646879,
+          "avgVol": 0.731779420479538,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -323,11 +323,11 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.9258489359561936,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 97.14285714285714,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 97.10144927536231,
           "isLowVol": false
         },
-        "riskScore": 0.5601415714285715,
+        "riskScore": 0.560017347826087,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_now"
       },
@@ -378,9 +378,9 @@
         },
         "volatility": {
           "symbol": "AVAX/USDT:USDT",
-          "currentVol": 0.33925080609363034,
-          "avgVol": 0.6628760856594713,
-          "volPercentile": 2.857142857142857,
+          "currentVol": 0.31484693026400556,
+          "avgVol": 0.6677969749048803,
+          "volPercentile": 0.7246376811594203,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -404,8 +404,8 @@
         "volatility": {
           "symbol": "AVAX/USDT:USDT",
           "currentVol": 0.6075981994942363,
-          "avgVol": 0.6628760856594713,
-          "volPercentile": 39.285714285714285,
+          "avgVol": 0.6677969749048803,
+          "volPercentile": 38.405797101449274,
           "isLowVol": true
         },
         "riskScore": 0.445090125,
@@ -459,8 +459,8 @@
         },
         "volatility": {
           "symbol": "DOT/USDT:USDT",
-          "currentVol": 0.2644600451672236,
-          "avgVol": 0.6405819343667623,
+          "currentVol": 0.27387094723235555,
+          "avgVol": 0.645762561655242,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -485,8 +485,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5863843453304518,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 46.42857142857143,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 45.65217391304348,
           "isLowVol": true
         },
         "riskScore": 0.349441875,
@@ -539,8 +539,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.6891124858141384,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 70.71428571428572,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 70.28985507246377,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -564,8 +564,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.6478351004729883,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 51.42857142857142,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 50.72463768115942,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -576,7 +576,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.4551724137931034
+        "riskAdjustedScore": 0.4888888888888888
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -589,27 +589,27 @@
       "entryPerpPrice": 0.5944,
       "exitSpotPrice": 0.6006,
       "exitPerpPrice": 0.6001,
-      "quantity": 1732.8637008319974,
+      "quantity": 1299.6477756239979,
       "fundingPayments": [
-        0.10168444196482161,
-        0.1048035966263192,
-        0.07220021663972738,
-        -0.02541494842788524
+        0.07626333147361619,
+        0.0786026974697394,
+        0.05415016247979554,
+        -0.01906121132091393
       ],
-      "totalPnL": -1.124526621728421,
+      "totalPnL": -0.8433949662963166,
       "entryFundingRate": 0.00007797,
       "entryFundingAPR": 8.537715,
-      "concurrentPositions": 4,
+      "concurrentPositions": 5,
       "exitFundingRate": -0.00002444,
       "exitFundingAPR": -2.67618,
       "exitReason": "ML Signal: Exit soon + Low APR (-2.7%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": 10.570468575075175,
-      "perpPnL": -9.877323094742259,
-      "totalFunding": 0.253273306802983,
-      "entryFees": 1.0301874701446225,
-      "exitFees": 1.0407579387196977,
+      "spotPnL": 7.9278514313063795,
+      "perpPnL": -7.407992321056693,
+      "totalFunding": 0.18995498010223721,
+      "entryFees": 0.7726406026084668,
+      "exitFees": 0.7805684540397732,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "ADA/USDT:USDT",
@@ -627,8 +627,8 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.759270932390768,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 50.71428571428571,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 50,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -652,8 +652,8 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.7422880222441897,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 48.57142857142857,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 47.82608695652174,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -664,7 +664,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.05122629,
-        "riskAdjustedScore": 0.34782608695652173
+        "riskAdjustedScore": 0.3582089552238806
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -717,8 +717,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.4881640534588826,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 25.71428571428571,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 24.637681159420293,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -742,8 +742,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.528031528553782,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 36.42857142857142,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 35.507246376811594,
           "isLowVol": true
         },
         "riskScore": 0.24421237500000004,
@@ -754,7 +754,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04663386,
-        "riskAdjustedScore": 0.43278688524590164
+        "riskAdjustedScore": 0.44745762711864406
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -807,8 +807,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.4017938071030853,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 7.142857142857142,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 5.797101449275362,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -832,8 +832,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5908185759784993,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 48.57142857142857,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 47.82608695652174,
           "isLowVol": true
         },
         "riskScore": 0.36140475000000005,
@@ -844,60 +844,60 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04458402,
-        "riskAdjustedScore": 0.5508196721311476
+        "riskAdjustedScore": 0.5694915254237288
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "OP/USDT:USDT",
-      "entryTime": 1751500800000,
-      "exitTime": 1751644800000,
-      "entrySpotPrice": 0.5649,
-      "entryPerpPrice": 0.5647,
-      "exitSpotPrice": 0.5301,
-      "exitPerpPrice": 0.5298,
-      "quantity": 1443.9840777214283,
+      "symbol": "ETH/USDT:USDT",
+      "entryTime": 1751472000000,
+      "exitTime": 1751616000000,
+      "entrySpotPrice": 2560.63,
+      "entryPerpPrice": 2560.21,
+      "exitSpotPrice": 2547.14,
+      "exitPerpPrice": 2545.87,
+      "quantity": 0.4190812214444551,
       "fundingPayments": [
-        0.08416983189038206,
-        0.08220601354468092,
-        0.08295688526509606,
-        0.07992451870188107,
-        -0.0042229256593600065
+        0.10782498838422241,
+        0.10841631198768054,
+        0.03930894264982895,
+        0.02218677909768226,
+        0.013581971916609857
       ],
-      "totalPnL": -1.1117298335901542,
+      "totalPnL": -1.4930324581935719,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00000552,
-      "exitFundingAPR": -0.60444,
-      "exitReason": "ML Signal: Exit soon + Low APR (-0.6%)",
+      "concurrentPositions": 4,
+      "exitFundingRate": 0.00001273,
+      "exitFundingAPR": 1.393935,
+      "exitReason": "ML Signal: Exit soon + Low APR (1.4%)",
       "holdingPeriodHours": 40,
       "fundingPeriodsHeld": 5,
-      "spotPnL": -50.25064590470562,
-      "perpPnL": 50.39504431247775,
-      "totalFunding": 0.3250343237426801,
-      "entryFees": 0.8157066055048348,
-      "exitFees": 0.7654559596001292,
+      "spotPnL": -5.653405677285798,
+      "perpPnL": 6.009624715513547,
+      "totalFunding": 0.291318994036024,
+      "entryFees": 1.073111948067315,
+      "exitFees": 1.0674585423900294,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "OP/USDT:USDT",
+          "symbol": "ETH/USDT:USDT",
           "trend": "rising",
-          "strength": 1,
+          "strength": 0.719853,
           "lastRates": [
-            -11.167905000000001,
-            -5.703855,
-            1.7968950000000001,
-            6.78681,
+            -3.4470599999999996,
+            -5.125695,
+            -3.21054,
+            3.79965,
             10.950000000000001
           ],
-          "avgDecline": -5.52947625
+          "avgDecline": -3.599265
         },
         "volatility": {
-          "symbol": "OP/USDT:USDT",
-          "currentVol": 0.911519507352932,
-          "avgVol": 0.8081053722638808,
-          "volPercentile": 74.28571428571429,
+          "symbol": "ETH/USDT:USDT",
+          "currentVol": 0.6521760854002713,
+          "avgVol": 0.5438187086734179,
+          "volPercentile": 74.63768115942028,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -906,26 +906,26 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "OP/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
+          "symbol": "ETH/USDT:USDT",
+          "trend": "declining",
+          "strength": 0.47780325,
           "lastRates": [
             10.950000000000001,
             10.950000000000001,
-            10.950000000000001,
-            10.950000000000001,
-            -0.60444
+            3.995655,
+            2.24037,
+            1.393935
           ],
-          "avgDecline": 2.8886100000000003
+          "avgDecline": 2.38901625
         },
         "volatility": {
-          "symbol": "OP/USDT:USDT",
-          "currentVol": 0.6058821202386642,
-          "avgVol": 0.8081053722638808,
-          "volPercentile": 18.571428571428573,
+          "symbol": "ETH/USDT:USDT",
+          "currentVol": 0.5163199082481952,
+          "avgVol": 0.5438187086734179,
+          "volPercentile": 42.7536231884058,
           "isLowVol": true
         },
-        "riskScore": 0,
+        "riskScore": 0.238901625,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -933,15 +933,15 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.21818181818181817
+        "riskAdjustedScore": 0.20597014925373133
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     }
   ],
   "config": {
-    "startDate": "2025-06-28T18:25:30.001Z",
-    "endDate": "2025-07-05T18:25:30.001Z",
+    "startDate": "2025-06-28T20:34:25.025Z",
+    "endDate": "2025-07-05T20:34:25.025Z",
     "initialCapital": 10000,
     "minAPR": 3,
     "useML": true,
@@ -990,9 +990,9 @@
         },
         "volatility": {
           "symbol": "DOGE/USDT:USDT",
-          "currentVol": 0.33235791802112474,
-          "avgVol": 0.6625124031377321,
-          "volPercentile": 2.857142857142857,
+          "currentVol": 0.2737668315748104,
+          "avgVol": 0.6677056402384984,
+          "volPercentile": 0.7246376811594203,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1016,8 +1016,8 @@
         "volatility": {
           "symbol": "DOGE/USDT:USDT",
           "currentVol": 0.7651499569081497,
-          "avgVol": 0.6625124031377321,
-          "volPercentile": 72.14285714285714,
+          "avgVol": 0.6677056402384984,
+          "volPercentile": 71.73913043478261,
           "isLowVol": true
         },
         "riskScore": 0.300823875,
@@ -1069,9 +1069,9 @@
         },
         "volatility": {
           "symbol": "BLUR/USDT:USDT",
-          "currentVol": 0.5921349855847786,
-          "avgVol": 0.7224588672000257,
-          "volPercentile": 14.285714285714285,
+          "currentVol": 0.6289537930442877,
+          "avgVol": 0.7251006091272352,
+          "volPercentile": 21.014492753623188,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1095,11 +1095,11 @@
         "volatility": {
           "symbol": "BLUR/USDT:USDT",
           "currentVol": 0.8706187403581095,
-          "avgVol": 0.7224588672000257,
-          "volPercentile": 81.42857142857143,
+          "avgVol": 0.7251006091272352,
+          "volPercentile": 81.15942028985508,
           "isLowVol": false
         },
-        "riskScore": 0.24428571428571427,
+        "riskScore": 0.24347826086956523,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -1148,8 +1148,8 @@
         },
         "volatility": {
           "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.3077024119846315,
-          "avgVol": 0.7262302728520829,
+          "currentVol": 0.2760632347646879,
+          "avgVol": 0.731779420479538,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -1174,11 +1174,11 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.9258489359561936,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 97.14285714285714,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 97.10144927536231,
           "isLowVol": false
         },
-        "riskScore": 0.5601415714285715,
+        "riskScore": 0.560017347826087,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_now"
       },
@@ -1229,9 +1229,9 @@
         },
         "volatility": {
           "symbol": "AVAX/USDT:USDT",
-          "currentVol": 0.33925080609363034,
-          "avgVol": 0.6628760856594713,
-          "volPercentile": 2.857142857142857,
+          "currentVol": 0.31484693026400556,
+          "avgVol": 0.6677969749048803,
+          "volPercentile": 0.7246376811594203,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1255,8 +1255,8 @@
         "volatility": {
           "symbol": "AVAX/USDT:USDT",
           "currentVol": 0.6075981994942363,
-          "avgVol": 0.6628760856594713,
-          "volPercentile": 39.285714285714285,
+          "avgVol": 0.6677969749048803,
+          "volPercentile": 38.405797101449274,
           "isLowVol": true
         },
         "riskScore": 0.445090125,
@@ -1310,8 +1310,8 @@
         },
         "volatility": {
           "symbol": "DOT/USDT:USDT",
-          "currentVol": 0.2644600451672236,
-          "avgVol": 0.6405819343667623,
+          "currentVol": 0.27387094723235555,
+          "avgVol": 0.645762561655242,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -1336,8 +1336,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5863843453304518,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 46.42857142857143,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 45.65217391304348,
           "isLowVol": true
         },
         "riskScore": 0.349441875,
@@ -1390,8 +1390,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.6891124858141384,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 70.71428571428572,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 70.28985507246377,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1415,8 +1415,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.6478351004729883,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 51.42857142857142,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 50.72463768115942,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1427,7 +1427,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.4551724137931034
+        "riskAdjustedScore": 0.4888888888888888
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -1440,27 +1440,27 @@
       "entryPerpPrice": 0.5944,
       "exitSpotPrice": 0.6006,
       "exitPerpPrice": 0.6001,
-      "quantity": 1732.8637008319974,
+      "quantity": 1299.6477756239979,
       "fundingPayments": [
-        0.10168444196482161,
-        0.1048035966263192,
-        0.07220021663972738,
-        -0.02541494842788524
+        0.07626333147361619,
+        0.0786026974697394,
+        0.05415016247979554,
+        -0.01906121132091393
       ],
-      "totalPnL": -1.124526621728421,
+      "totalPnL": -0.8433949662963166,
       "entryFundingRate": 0.00007797,
       "entryFundingAPR": 8.537715,
-      "concurrentPositions": 4,
+      "concurrentPositions": 5,
       "exitFundingRate": -0.00002444,
       "exitFundingAPR": -2.67618,
       "exitReason": "ML Signal: Exit soon + Low APR (-2.7%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": 10.570468575075175,
-      "perpPnL": -9.877323094742259,
-      "totalFunding": 0.253273306802983,
-      "entryFees": 1.0301874701446225,
-      "exitFees": 1.0407579387196977,
+      "spotPnL": 7.9278514313063795,
+      "perpPnL": -7.407992321056693,
+      "totalFunding": 0.18995498010223721,
+      "entryFees": 0.7726406026084668,
+      "exitFees": 0.7805684540397732,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "ADA/USDT:USDT",
@@ -1478,8 +1478,8 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.759270932390768,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 50.71428571428571,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 50,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1503,8 +1503,8 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.7422880222441897,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 48.57142857142857,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 47.82608695652174,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1515,7 +1515,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.05122629,
-        "riskAdjustedScore": 0.34782608695652173
+        "riskAdjustedScore": 0.3582089552238806
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -1568,8 +1568,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.4881640534588826,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 25.71428571428571,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 24.637681159420293,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1593,8 +1593,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.528031528553782,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 36.42857142857142,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 35.507246376811594,
           "isLowVol": true
         },
         "riskScore": 0.24421237500000004,
@@ -1605,7 +1605,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04663386,
-        "riskAdjustedScore": 0.43278688524590164
+        "riskAdjustedScore": 0.44745762711864406
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -1658,8 +1658,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.4017938071030853,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 7.142857142857142,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 5.797101449275362,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1683,8 +1683,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5908185759784993,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 48.57142857142857,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 47.82608695652174,
           "isLowVol": true
         },
         "riskScore": 0.36140475000000005,
@@ -1695,60 +1695,60 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04458402,
-        "riskAdjustedScore": 0.5508196721311476
+        "riskAdjustedScore": 0.5694915254237288
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "OP/USDT:USDT",
-      "entryTime": 1751500800000,
-      "exitTime": 1751644800000,
-      "entrySpotPrice": 0.5649,
-      "entryPerpPrice": 0.5647,
-      "exitSpotPrice": 0.5301,
-      "exitPerpPrice": 0.5298,
-      "quantity": 1443.9840777214283,
+      "symbol": "ETH/USDT:USDT",
+      "entryTime": 1751472000000,
+      "exitTime": 1751616000000,
+      "entrySpotPrice": 2560.63,
+      "entryPerpPrice": 2560.21,
+      "exitSpotPrice": 2547.14,
+      "exitPerpPrice": 2545.87,
+      "quantity": 0.4190812214444551,
       "fundingPayments": [
-        0.08416983189038206,
-        0.08220601354468092,
-        0.08295688526509606,
-        0.07992451870188107,
-        -0.0042229256593600065
+        0.10782498838422241,
+        0.10841631198768054,
+        0.03930894264982895,
+        0.02218677909768226,
+        0.013581971916609857
       ],
-      "totalPnL": -1.1117298335901542,
+      "totalPnL": -1.4930324581935719,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00000552,
-      "exitFundingAPR": -0.60444,
-      "exitReason": "ML Signal: Exit soon + Low APR (-0.6%)",
+      "concurrentPositions": 4,
+      "exitFundingRate": 0.00001273,
+      "exitFundingAPR": 1.393935,
+      "exitReason": "ML Signal: Exit soon + Low APR (1.4%)",
       "holdingPeriodHours": 40,
       "fundingPeriodsHeld": 5,
-      "spotPnL": -50.25064590470562,
-      "perpPnL": 50.39504431247775,
-      "totalFunding": 0.3250343237426801,
-      "entryFees": 0.8157066055048348,
-      "exitFees": 0.7654559596001292,
+      "spotPnL": -5.653405677285798,
+      "perpPnL": 6.009624715513547,
+      "totalFunding": 0.291318994036024,
+      "entryFees": 1.073111948067315,
+      "exitFees": 1.0674585423900294,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "OP/USDT:USDT",
+          "symbol": "ETH/USDT:USDT",
           "trend": "rising",
-          "strength": 1,
+          "strength": 0.719853,
           "lastRates": [
-            -11.167905000000001,
-            -5.703855,
-            1.7968950000000001,
-            6.78681,
+            -3.4470599999999996,
+            -5.125695,
+            -3.21054,
+            3.79965,
             10.950000000000001
           ],
-          "avgDecline": -5.52947625
+          "avgDecline": -3.599265
         },
         "volatility": {
-          "symbol": "OP/USDT:USDT",
-          "currentVol": 0.911519507352932,
-          "avgVol": 0.8081053722638808,
-          "volPercentile": 74.28571428571429,
+          "symbol": "ETH/USDT:USDT",
+          "currentVol": 0.6521760854002713,
+          "avgVol": 0.5438187086734179,
+          "volPercentile": 74.63768115942028,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1757,26 +1757,26 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "OP/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
+          "symbol": "ETH/USDT:USDT",
+          "trend": "declining",
+          "strength": 0.47780325,
           "lastRates": [
             10.950000000000001,
             10.950000000000001,
-            10.950000000000001,
-            10.950000000000001,
-            -0.60444
+            3.995655,
+            2.24037,
+            1.393935
           ],
-          "avgDecline": 2.8886100000000003
+          "avgDecline": 2.38901625
         },
         "volatility": {
-          "symbol": "OP/USDT:USDT",
-          "currentVol": 0.6058821202386642,
-          "avgVol": 0.8081053722638808,
-          "volPercentile": 18.571428571428573,
+          "symbol": "ETH/USDT:USDT",
+          "currentVol": 0.5163199082481952,
+          "avgVol": 0.5438187086734179,
+          "volPercentile": 42.7536231884058,
           "isLowVol": true
         },
-        "riskScore": 0,
+        "riskScore": 0.238901625,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -1784,7 +1784,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.21818181818181817
+        "riskAdjustedScore": 0.20597014925373133
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -1833,9 +1833,9 @@
         },
         "volatility": {
           "symbol": "DOGE/USDT:USDT",
-          "currentVol": 0.33235791802112474,
-          "avgVol": 0.6625124031377321,
-          "volPercentile": 2.857142857142857,
+          "currentVol": 0.2737668315748104,
+          "avgVol": 0.6677056402384984,
+          "volPercentile": 0.7246376811594203,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1859,8 +1859,8 @@
         "volatility": {
           "symbol": "DOGE/USDT:USDT",
           "currentVol": 0.7651499569081497,
-          "avgVol": 0.6625124031377321,
-          "volPercentile": 72.14285714285714,
+          "avgVol": 0.6677056402384984,
+          "volPercentile": 71.73913043478261,
           "isLowVol": true
         },
         "riskScore": 0.300823875,
@@ -1912,9 +1912,9 @@
         },
         "volatility": {
           "symbol": "BLUR/USDT:USDT",
-          "currentVol": 0.5921349855847786,
-          "avgVol": 0.7224588672000257,
-          "volPercentile": 14.285714285714285,
+          "currentVol": 0.6289537930442877,
+          "avgVol": 0.7251006091272352,
+          "volPercentile": 21.014492753623188,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1938,11 +1938,11 @@
         "volatility": {
           "symbol": "BLUR/USDT:USDT",
           "currentVol": 0.8706187403581095,
-          "avgVol": 0.7224588672000257,
-          "volPercentile": 81.42857142857143,
+          "avgVol": 0.7251006091272352,
+          "volPercentile": 81.15942028985508,
           "isLowVol": false
         },
-        "riskScore": 0.24428571428571427,
+        "riskScore": 0.24347826086956523,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -1991,8 +1991,8 @@
         },
         "volatility": {
           "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.3077024119846315,
-          "avgVol": 0.7262302728520829,
+          "currentVol": 0.2760632347646879,
+          "avgVol": 0.731779420479538,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -2017,11 +2017,11 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.9258489359561936,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 97.14285714285714,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 97.10144927536231,
           "isLowVol": false
         },
-        "riskScore": 0.5601415714285715,
+        "riskScore": 0.560017347826087,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_now"
       },
@@ -2072,9 +2072,9 @@
         },
         "volatility": {
           "symbol": "AVAX/USDT:USDT",
-          "currentVol": 0.33925080609363034,
-          "avgVol": 0.6628760856594713,
-          "volPercentile": 2.857142857142857,
+          "currentVol": 0.31484693026400556,
+          "avgVol": 0.6677969749048803,
+          "volPercentile": 0.7246376811594203,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2098,8 +2098,8 @@
         "volatility": {
           "symbol": "AVAX/USDT:USDT",
           "currentVol": 0.6075981994942363,
-          "avgVol": 0.6628760856594713,
-          "volPercentile": 39.285714285714285,
+          "avgVol": 0.6677969749048803,
+          "volPercentile": 38.405797101449274,
           "isLowVol": true
         },
         "riskScore": 0.445090125,
@@ -2153,8 +2153,8 @@
         },
         "volatility": {
           "symbol": "DOT/USDT:USDT",
-          "currentVol": 0.2644600451672236,
-          "avgVol": 0.6405819343667623,
+          "currentVol": 0.27387094723235555,
+          "avgVol": 0.645762561655242,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -2179,8 +2179,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5863843453304518,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 46.42857142857143,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 45.65217391304348,
           "isLowVol": true
         },
         "riskScore": 0.349441875,
@@ -2233,8 +2233,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.6891124858141384,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 70.71428571428572,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 70.28985507246377,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2258,8 +2258,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.6478351004729883,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 51.42857142857142,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 50.72463768115942,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2270,7 +2270,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.4551724137931034
+        "riskAdjustedScore": 0.4888888888888888
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -2283,27 +2283,27 @@
       "entryPerpPrice": 0.5944,
       "exitSpotPrice": 0.6006,
       "exitPerpPrice": 0.6001,
-      "quantity": 1732.8637008319974,
+      "quantity": 1299.6477756239979,
       "fundingPayments": [
-        0.10168444196482161,
-        0.1048035966263192,
-        0.07220021663972738,
-        -0.02541494842788524
+        0.07626333147361619,
+        0.0786026974697394,
+        0.05415016247979554,
+        -0.01906121132091393
       ],
-      "totalPnL": -1.124526621728421,
+      "totalPnL": -0.8433949662963166,
       "entryFundingRate": 0.00007797,
       "entryFundingAPR": 8.537715,
-      "concurrentPositions": 4,
+      "concurrentPositions": 5,
       "exitFundingRate": -0.00002444,
       "exitFundingAPR": -2.67618,
       "exitReason": "ML Signal: Exit soon + Low APR (-2.7%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": 10.570468575075175,
-      "perpPnL": -9.877323094742259,
-      "totalFunding": 0.253273306802983,
-      "entryFees": 1.0301874701446225,
-      "exitFees": 1.0407579387196977,
+      "spotPnL": 7.9278514313063795,
+      "perpPnL": -7.407992321056693,
+      "totalFunding": 0.18995498010223721,
+      "entryFees": 0.7726406026084668,
+      "exitFees": 0.7805684540397732,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "ADA/USDT:USDT",
@@ -2321,8 +2321,8 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.759270932390768,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 50.71428571428571,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 50,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2346,8 +2346,8 @@
         "volatility": {
           "symbol": "ADA/USDT:USDT",
           "currentVol": 0.7422880222441897,
-          "avgVol": 0.7262302728520829,
-          "volPercentile": 48.57142857142857,
+          "avgVol": 0.731779420479538,
+          "volPercentile": 47.82608695652174,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2358,7 +2358,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.05122629,
-        "riskAdjustedScore": 0.34782608695652173
+        "riskAdjustedScore": 0.3582089552238806
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -2411,8 +2411,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.4881640534588826,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 25.71428571428571,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 24.637681159420293,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2436,8 +2436,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.528031528553782,
-          "avgVol": 0.5991576236334036,
-          "volPercentile": 36.42857142857142,
+          "avgVol": 0.6034024404592503,
+          "volPercentile": 35.507246376811594,
           "isLowVol": true
         },
         "riskScore": 0.24421237500000004,
@@ -2448,7 +2448,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04663386,
-        "riskAdjustedScore": 0.43278688524590164
+        "riskAdjustedScore": 0.44745762711864406
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -2501,8 +2501,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.4017938071030853,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 7.142857142857142,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 5.797101449275362,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2526,8 +2526,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5908185759784993,
-          "avgVol": 0.6405819343667623,
-          "volPercentile": 48.57142857142857,
+          "avgVol": 0.645762561655242,
+          "volPercentile": 47.82608695652174,
           "isLowVol": true
         },
         "riskScore": 0.36140475000000005,
@@ -2538,60 +2538,60 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04458402,
-        "riskAdjustedScore": 0.5508196721311476
+        "riskAdjustedScore": 0.5694915254237288
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "OP/USDT:USDT",
-      "entryTime": 1751500800000,
-      "exitTime": 1751644800000,
-      "entrySpotPrice": 0.5649,
-      "entryPerpPrice": 0.5647,
-      "exitSpotPrice": 0.5301,
-      "exitPerpPrice": 0.5298,
-      "quantity": 1443.9840777214283,
+      "symbol": "ETH/USDT:USDT",
+      "entryTime": 1751472000000,
+      "exitTime": 1751616000000,
+      "entrySpotPrice": 2560.63,
+      "entryPerpPrice": 2560.21,
+      "exitSpotPrice": 2547.14,
+      "exitPerpPrice": 2545.87,
+      "quantity": 0.4190812214444551,
       "fundingPayments": [
-        0.08416983189038206,
-        0.08220601354468092,
-        0.08295688526509606,
-        0.07992451870188107,
-        -0.0042229256593600065
+        0.10782498838422241,
+        0.10841631198768054,
+        0.03930894264982895,
+        0.02218677909768226,
+        0.013581971916609857
       ],
-      "totalPnL": -1.1117298335901542,
+      "totalPnL": -1.4930324581935719,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00000552,
-      "exitFundingAPR": -0.60444,
-      "exitReason": "ML Signal: Exit soon + Low APR (-0.6%)",
+      "concurrentPositions": 4,
+      "exitFundingRate": 0.00001273,
+      "exitFundingAPR": 1.393935,
+      "exitReason": "ML Signal: Exit soon + Low APR (1.4%)",
       "holdingPeriodHours": 40,
       "fundingPeriodsHeld": 5,
-      "spotPnL": -50.25064590470562,
-      "perpPnL": 50.39504431247775,
-      "totalFunding": 0.3250343237426801,
-      "entryFees": 0.8157066055048348,
-      "exitFees": 0.7654559596001292,
+      "spotPnL": -5.653405677285798,
+      "perpPnL": 6.009624715513547,
+      "totalFunding": 0.291318994036024,
+      "entryFees": 1.073111948067315,
+      "exitFees": 1.0674585423900294,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "OP/USDT:USDT",
+          "symbol": "ETH/USDT:USDT",
           "trend": "rising",
-          "strength": 1,
+          "strength": 0.719853,
           "lastRates": [
-            -11.167905000000001,
-            -5.703855,
-            1.7968950000000001,
-            6.78681,
+            -3.4470599999999996,
+            -5.125695,
+            -3.21054,
+            3.79965,
             10.950000000000001
           ],
-          "avgDecline": -5.52947625
+          "avgDecline": -3.599265
         },
         "volatility": {
-          "symbol": "OP/USDT:USDT",
-          "currentVol": 0.911519507352932,
-          "avgVol": 0.8081053722638808,
-          "volPercentile": 74.28571428571429,
+          "symbol": "ETH/USDT:USDT",
+          "currentVol": 0.6521760854002713,
+          "avgVol": 0.5438187086734179,
+          "volPercentile": 74.63768115942028,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2600,26 +2600,26 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "OP/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
+          "symbol": "ETH/USDT:USDT",
+          "trend": "declining",
+          "strength": 0.47780325,
           "lastRates": [
             10.950000000000001,
             10.950000000000001,
-            10.950000000000001,
-            10.950000000000001,
-            -0.60444
+            3.995655,
+            2.24037,
+            1.393935
           ],
-          "avgDecline": 2.8886100000000003
+          "avgDecline": 2.38901625
         },
         "volatility": {
-          "symbol": "OP/USDT:USDT",
-          "currentVol": 0.6058821202386642,
-          "avgVol": 0.8081053722638808,
-          "volPercentile": 18.571428571428573,
+          "symbol": "ETH/USDT:USDT",
+          "currentVol": 0.5163199082481952,
+          "avgVol": 0.5438187086734179,
+          "volPercentile": 42.7536231884058,
           "isLowVol": true
         },
-        "riskScore": 0,
+        "riskScore": 0.238901625,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -2627,7 +2627,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.21818181818181817
+        "riskAdjustedScore": 0.20597014925373133
       },
       "predictedOutcome": "win",
       "confidence": 0.6
