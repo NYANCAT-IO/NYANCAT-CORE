@@ -117,7 +117,7 @@ RUN pnpm build
 RUN rm -rf src/ node_modules/.cache/
 EXPOSE 3000
 
-CMD ["node", "dist/cli/index.js", "--demo", "--ml"]
+CMD ["node", "dist/cli/index.js", "--health-check"]
 ```
 
 #### **ROFL-Compatible Compose Configuration**
@@ -141,7 +141,7 @@ services:
       # ROFL daemon communication
       - /run/rofl-appd.sock:/run/rofl-appd.sock
     restart: on-failure
-    command: ["node", "dist/cli/backtest.js", "--demo-30", "--ml"]
+    command: ["node", "dist/cli/backtest.js", "--demo", "--ml"]
 ```
 
 #### **Local Testing Validation**
@@ -598,6 +598,32 @@ oasis rofl update
 oasis rofl deploy
 oasis rofl machine stop
 ```
+
+---
+
+## 📋 **Implementation Status**
+
+### **Phase 2.3: CLI Interface Consistency** ✅ **COMPLETED**
+
+**Problem Identified:** Conflicting `--demo` flags between main CLI and backtest CLI causing user confusion and inconsistent behavior.
+
+**Solution Implemented:**
+- **Main CLI:** Renamed `--demo` → `--health-check` for infrastructure testing
+- **Backtest CLI:** Preserved `--demo` for quick 7-day backtests (as documented in `ml-commands-quick-reference.md`)
+- **Updated all documentation and Docker configurations** to use correct flags
+
+**Verification Results:**
+- ✅ Main CLI `--health-check` works locally and in container (text/JSON output)
+- ✅ Backtest CLI `--demo` works locally as before (7 days, 5% threshold)
+- ✅ No flag conflicts between commands
+- ✅ Clear separation: `--health-check` = infrastructure testing, `--demo` = quick backtest
+
+**Container Issues Identified:**
+- ❌ ES module import error when running backtest in container
+- ❌ Missing historical data in container for backtest functionality
+- 📋 Documented in separate troubleshooting guide for future resolution
+
+**Commits:** `78bb5b8`, `4425ae0`, `3c169d1`
 
 ---
 

@@ -109,6 +109,27 @@ pnpm backtest --days 7 --ml --risk-threshold 0.3 --volatility-filter --momentum-
 pnpm backtest --days 30 --ml --volatility-filter --output both
 ```
 
+## 🐳 **Container & Infrastructure Testing**
+
+### **Health Check (Infrastructure Testing)**
+```bash
+# Local health check
+pnpm start --health-check
+
+# Container health check (text output)
+docker-compose exec funding-arbitrage node dist/cli/index.js --health-check
+
+# Container health check (JSON output)  
+docker-compose exec funding-arbitrage node dist/cli/index.js --health-check --json
+```
+
+**Purpose:** Test TypeScript compilation, dependencies, and CLI functionality in containerized environment.
+**Note:** This does NOT run trading logic - it's purely for infrastructure verification.
+
+### **CLI Command Distinction**
+- **`--health-check`**: Infrastructure testing (main CLI) - No API calls, tests container setup
+- **`--demo`**: Quick backtest (backtest CLI) - Real trading logic, 7 days, lower thresholds
+
 ## 🔧 **Troubleshooting**
 
 ### **If Commands Fail**

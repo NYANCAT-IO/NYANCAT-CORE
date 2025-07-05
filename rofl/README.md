@@ -24,12 +24,18 @@ Runtime configuration for the application:
 
 ### Local Simulation (Current Phase)
 ```bash
-# Test with podman-compose
+# Test with docker-compose or podman-compose
 cd docker/
-podman-compose up --build
+./test-local.sh
 
-# Verify container health
-podman-compose ps
+# Or manually:
+docker-compose up --build -d
+
+# Test container health
+docker-compose exec funding-arbitrage node dist/cli/index.js --health-check
+
+# Test with JSON output
+docker-compose exec funding-arbitrage node dist/cli/index.js --health-check --json
 ```
 
 ### ROFL Deployment (Future Phase)
@@ -65,3 +71,24 @@ rofl logs funding-arbitrage
 - **Escrow**: Automatic recovery on failure
 - **Monitoring**: Real-time cost tracking
 - **Alerts**: Budget threshold warnings
+
+## Troubleshooting
+
+### Known Issues
+- **Container backtest functionality**: ES module import error (see troubleshooting guide)
+- **Missing historical data**: Container lacks historical cache for backtests
+
+### Working Functionality
+- ✅ Container health checks with `--health-check` flag
+- ✅ Infrastructure verification and testing
+- ✅ Local development with all CLI commands
+
+### Detailed Troubleshooting
+See comprehensive troubleshooting guide: `docs/rofl-container-troubleshooting.md`
+
+### Quick Health Check
+```bash
+# Verify container is working
+docker-compose exec funding-arbitrage node dist/cli/index.js --health-check
+# Expected: "✅ Container health check passed - infrastructure working!"
+```
