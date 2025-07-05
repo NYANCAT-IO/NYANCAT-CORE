@@ -246,6 +246,45 @@ If you see an error about missing environment variables, make sure you've create
 - Hyperliquid uses USDC settlement
 - When using `--compare`, just specify the base asset (e.g., `BTC`)
 
+## Delta-Neutral Analyzer
+
+A tool for identifying delta-neutral arbitrage opportunities using spot and perpetual markets:
+
+### Usage
+```bash
+# Analyze all opportunities
+pnpm analyze-delta
+
+# Filter by strategy
+pnpm analyze-delta --strategy short-spot-long-perp
+
+# Filter by minimum APR
+pnpm analyze-delta --min-apr 10
+
+# Filter by specific asset
+pnpm analyze-delta --asset BTC
+
+# Include fee calculations
+pnpm analyze-delta --include-fees
+
+# Output as JSON or CSV
+pnpm analyze-delta --json
+pnpm analyze-delta --csv
+```
+
+### Strategies
+- **Long Spot + Short Perpetual**: Classic cash-and-carry trade
+- **Short Spot + Long Perpetual**: Reverse arbitrage (requires margin)
+
+### Example Output
+The analyzer shows:
+- Spot and perpetual prices
+- Basis (price difference)
+- Funding rate APR
+- Net expected returns
+- Capital requirements
+- Risk warnings
+
 ## License
 
 MIT
