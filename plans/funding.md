@@ -10,7 +10,7 @@ A simplified CLI tool to fetch and compare funding rates from Bybit and Hyperliq
 
 1. **Library Layer** (`src/lib/`)
    - Exchange adapters for Bybit and Hyperliquid
-   - Unified funding service
+   - Unified funding service with exchange-specific symbol support
    - Type definitions
 
 2. **CLI Layer** (`src/cli/`)
@@ -32,37 +32,37 @@ A simplified CLI tool to fetch and compare funding rates from Bybit and Hyperliq
 
 ## Implementation Phases
 
-### Phase 1: Project Setup
+### Phase 1: Project Setup ✅
 - [x] Create directory structure
 - [x] Create implementation plan
-- [ ] Create development rules (claude.md)
-- [ ] Set up .gitignore
-- [ ] Initialize pnpm project
-- [ ] Configure TypeScript
-- [ ] Install dependencies
-- [ ] Create .env.example
+- [x] Create development rules (claude.md)
+- [x] Set up .gitignore
+- [x] Initialize pnpm project
+- [x] Configure TypeScript
+- [x] Install dependencies
+- [x] Create .env.example
 
-### Phase 2: Library Development
-- [ ] Define TypeScript interfaces
-- [ ] Implement Bybit testnet adapter
-- [ ] Implement Hyperliquid testnet adapter
-- [ ] Create unified funding service
-- [ ] Add error handling
+### Phase 2: Library Development ✅
+- [x] Define TypeScript interfaces
+- [x] Implement Bybit testnet adapter
+- [x] Implement Hyperliquid testnet adapter
+- [x] Create unified funding service with exchange-specific symbols
+- [x] Add error handling
 
-### Phase 3: CLI Implementation
-- [ ] Set up commander.js structure
-- [ ] Implement default command (show all rates)
-- [ ] Add --symbol filter
-- [ ] Add --compare mode
-- [ ] Add --json output
-- [ ] Format output with colors and tables
+### Phase 3: CLI Implementation ✅
+- [x] Set up commander.js structure
+- [x] Implement default command (show all rates)
+- [x] Add --symbol filter (supports base asset or full symbol)
+- [x] Add --compare mode
+- [x] Add --json output
+- [x] Format output with colors and tables
 
-### Phase 4: Testing & Polish
-- [ ] Test TypeScript compilation
-- [ ] Test with real testnet credentials
-- [ ] Handle edge cases
-- [ ] Add helpful error messages
-- [ ] Final documentation
+### Phase 4: Testing & Polish ✅
+- [x] Test TypeScript compilation
+- [x] Test with real testnet credentials
+- [x] Handle edge cases (different settlement currencies)
+- [x] Add helpful error messages
+- [x] Final documentation
 
 ## API Design
 
@@ -83,7 +83,22 @@ interface ComparisonResult {
   bybit: FundingRate | null;
   hyperliquid: FundingRate | null;
   spread: number;
-  favorableExchange: string;
+  favorableExchange: Exchange | 'none';
+}
+
+interface ExchangeConfig {
+  bybit: {
+    apiKey: string;
+    apiSecret: string;
+    testnet: boolean;
+    symbols: string[];  // Exchange-specific symbols
+  };
+  hyperliquid: {
+    apiKey: string;
+    apiSecret: string;
+    testnet: boolean;
+    symbols: string[];  // Exchange-specific symbols
+  };
 }
 ```
 
@@ -91,8 +106,11 @@ interface ComparisonResult {
 ```typescript
 class FundingService {
   constructor(config: ExchangeConfig)
-  async fetchRates(symbols: string[]): Promise<FundingRate[]>
-  async compareRates(symbol: string): Promise<ComparisonResult>
+  async fetchRates(): Promise<FundingRate[]>
+  async fetchRatesForSymbol(symbol: string): Promise<FundingRate[]>
+  async compareRates(baseAsset: string): Promise<ComparisonResult>
+  async compareAllRates(): Promise<ComparisonResult[]>
+  getConfiguredSymbols(): Record<string, string[]>
 }
 ```
 
@@ -102,11 +120,17 @@ class FundingService {
 # Show all funding rates
 pnpm start
 
-# Filter by symbol
-pnpm start --symbol BTC/USDT
+# Filter by base asset (e.g., BTC)
+pnpm start --symbol BTC
+
+# Filter by full symbol (if configured)
+pnpm start --symbol BTC/USDT:USDT
 
 # Compare rates between exchanges
 pnpm start --compare
+
+# Compare specific asset
+pnpm start --compare --symbol BTC
 
 # JSON output
 pnpm start --json
@@ -119,24 +143,60 @@ pnpm start --help
 
 Environment variables via `.env`:
 ```
+# Bybit Testnet
 BYBIT_TESTNET_API_KEY=your_key
 BYBIT_TESTNET_API_SECRET=your_secret
+
+# Hyperliquid Testnet
 HYPERLIQUID_TESTNET_API_KEY=your_key
 HYPERLIQUID_TESTNET_API_SECRET=your_secret
-SYMBOLS=BTC/USDT,ETH/USDT
+
+# Exchange-specific symbols (perpetual contracts)
+# Bybit uses USDT settlement
+BYBIT_SYMBOLS=BTC/USDT:USDT,ETH/USDT:USDT,SOL/USDT:USDT
+
+# Hyperliquid uses USDC settlement
+HYPERLIQUID_SYMBOLS=BTC/USDC:USDC,ETH/USDC:USDC,SOL/USDC:USDC
 ```
+
+## Key Implementation Details
+
+### Exchange Differences Handled
+- **Symbol Format**: Perpetual contracts use `BASE/QUOTE:SETTLE` format
+- **Settlement Currency**: Bybit uses USDT, Hyperliquid uses USDC
+- **Funding Intervals**: Bybit 8h, Hyperliquid 1h
+- **API URLs**: Testnet URLs properly configured for each exchange
+
+### Comparison Logic
+- Maps between different quote currencies (USDT vs USDC)
+- Compares by base asset (BTC, ETH, etc.)
+- Calculates spread in annualized percentage points
+- Identifies favorable exchange for long positions
 
 ## Error Handling
 
-- Missing API credentials → Clear error message
-- Network failures → Retry with backoff
-- Invalid symbols → List valid options
-- Exchange errors → Show user-friendly message
+- Missing API credentials → Clear error message with setup instructions
+- Invalid symbols → Exchange reports specific error
+- Network failures → Error logged, continues with other exchanges
+- Missing .env → Helpful message to create from .env.example
+
+## Completed Features
+
+✅ Real-time funding rate fetching from both exchanges
+✅ Exchange-specific symbol configuration
+✅ Side-by-side rate comparison with spread calculation
+✅ Color-coded output (green = favorable, red = unfavorable)
+✅ Annualized rate calculations
+✅ Table and JSON output formats
+✅ Base asset filtering (e.g., filter all BTC pairs)
+✅ Proper testnet configuration
 
 ## Future Enhancements
 
 - WebSocket support for real-time updates
 - Historical funding rate tracking
-- APY calculations with fee considerations
+- Database storage for rate history
 - Position size recommendations
 - Alert system for rate changes
+- Delta neutral strategy automation
+- More exchanges (Binance, OKX, etc.)
