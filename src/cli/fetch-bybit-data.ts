@@ -92,6 +92,13 @@ program
         console.log(`    - Linear: ${summary.marketBreakdown.linearPerpetuals}`);
         console.log(`    - Inverse: ${summary.marketBreakdown.inversePerpetuals}`);
         
+        if (summary.tickerCounts) {
+          console.log(chalk.cyan('\n📈 Ticker Data:'));
+          console.log(`  Total Tickers: ${summary.tickerCounts.total}`);
+          console.log(`  Spot Tickers: ${summary.tickerCounts.spot}`);
+          console.log(`  Perpetual Tickers: ${summary.tickerCounts.perpetual}`);
+        }
+        
         console.log(chalk.cyan('\n💰 Funding Rate Analysis:'));
         console.log(`  Perpetuals with funding: ${summary.fundingRateStats.count}`);
         console.log(`  Average APR: ${summary.fundingRateStats.averageAPR.toFixed(2)}%`);

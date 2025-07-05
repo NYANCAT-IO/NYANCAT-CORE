@@ -17,9 +17,6 @@ export class BybitDataFetcher {
       apiKey,
       secret: apiSecret,
       enableRateLimit: true,
-      options: {
-        defaultType: 'swap',
-      },
     });
   }
 
@@ -85,6 +82,10 @@ export class BybitDataFetcher {
     const linearPerps = perpetualMarkets.filter(m => m.linear);
     const inversePerps = perpetualMarkets.filter(m => m.inverse);
     
+    // Count tickers by type
+    const spotTickers = tickers.filter(t => !t.symbol.includes(':'));
+    const perpTickers = tickers.filter(t => t.symbol.includes(':'));
+    
     const settlementCurrencies: {[key: string]: number} = {};
     perpetualMarkets.forEach(m => {
       const settle = m.settle || 'unknown';
@@ -104,7 +105,12 @@ export class BybitDataFetcher {
         inversePerpetuals: inversePerps.length,
       },
       settlementCurrencies,
-      fundingRateStats
+      fundingRateStats,
+      tickerCounts: {
+        total: tickers.length,
+        spot: spotTickers.length,
+        perpetual: perpTickers.length
+      }
     };
   }
 }

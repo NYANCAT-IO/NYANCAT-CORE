@@ -26,6 +26,11 @@ export interface MarketSummary {
     topPositive: Array<{symbol: string; annualizedAPR: number}>;
     topNegative: Array<{symbol: string; annualizedAPR: number}>;
   };
+  tickerCounts?: {
+    total: number;
+    spot: number;
+    perpetual: number;
+  };
 }
 
 export interface FetchOptions {
