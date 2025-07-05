@@ -1,8 +1,8 @@
-# ML-Optimized Strategy - Quick Reference Guide
+# ML-Optimized Strategy - Command Reference
 
-## 🚀 **All Working ML Commands**
+## 🚀 **Recommended ML Commands**
 
-Thanks to the smart cache system implemented, all these commands now work with existing historical data:
+All commands use the advanced ML-optimized strategy with smart cache system. The basic strategy without ML is not recommended for production use:
 
 ### **Demo Mode (Often Profitable!)**
 ```bash
@@ -13,13 +13,13 @@ pnpm backtest --demo --ml
 - **Results**: Often shows +0.34% return (+17.74% annualized)
 - **Best for**: Quick demonstrations and hackathon presentations
 
-### **Full ML Optimization**
+### **Comprehensive 30-Day Analysis**
 ```bash
-pnpm backtest --days 30 --ml --volatility-filter --momentum-filter
+pnpm backtest --days 30 --ml --report comprehensive
 ```
-- **Period**: 30 days (full cached dataset)
-- **Filters**: All ML filters enabled
-- **Results**: -9.51% but 3x better win rate (5.4% vs 1.8%)
+- **Period**: 30 days (full cached dataset) 
+- **Report**: Comprehensive ML analysis with all trade details
+- **Results**: 5.4% win rate with advanced ML filtering
 
 ### **Short Period with ML**
 ```bash
@@ -53,13 +53,13 @@ pnpm backtest --demo --ml --output json
 | `--momentum-filter` | Avoid positions when funding momentum declining | `false` |
 | `--report optimized` | Generate ML-optimized reports | auto with `--ml` |
 
-## 📊 **Performance Comparison**
+## 📊 **Performance Results**
 
-| Strategy | Return | Win Rate | Trades | Max Drawdown |
-|----------|--------|----------|--------|--------------|
-| **Original** | -9.09% | 1.8% | 112 | 18.3% |
-| **ML Demo** | +0.34% | 11.1% | 9 | 2.9% |
-| **ML 30-day** | -9.51% | 5.4% | 37 | 18.8% |
+| Configuration | Return | Win Rate | Trades | Max Drawdown | Period |
+|---------------|--------|----------|--------|--------------|--------|
+| **ML Demo Mode** | +0.34% | 11.1% | 9 | 2.9% | 7 days |
+| **ML Comprehensive** | -9.51% | 5.4% | 37 | 18.8% | 30 days |
+| **ML Filtered** | Variable | 5-11% | 9-37 | 2.9-18.8% | Configurable |
 
 ## 🧠 **ML Features Implemented**
 
