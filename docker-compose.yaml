@@ -4,9 +4,9 @@ version: "3.8"
 
 services:
   funding-arbitrage:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
+    image: "bioharz/nyancat-finance"
+    platform: linux/amd64
     container_name: rofl-funding-arbitrage
 
     # Resource limits (optimized for cost)
