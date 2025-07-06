@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { MarketSummary } from './types';
+import { MarketSummary } from './types.js';
 
 export class DataStorage {
   private dataDir: string;

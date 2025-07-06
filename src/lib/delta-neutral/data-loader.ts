@@ -1,6 +1,6 @@
 import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
-import { MarketDataFile } from './types';
+import { MarketDataFile } from './types.js';
 
 export class DataLoader {
   private dataPath: string;

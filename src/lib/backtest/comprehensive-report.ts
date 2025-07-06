@@ -1,4 +1,4 @@
-import { ComprehensiveBacktestResult, SymbolStats } from './types';
+import { ComprehensiveBacktestResult, SymbolStats } from './types.js';
 
 export class ComprehensiveReportGenerator {
   

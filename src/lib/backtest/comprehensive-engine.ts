@@ -9,8 +9,8 @@ import {
   PriceSnapshot,
   BacktestSummary,
   EquityPoint
-} from './types';
-import { HistoricalData, DataStorage } from '../historical';
+} from './types.js';
+import { HistoricalData, DataStorage } from '../historical/index.js';
 
 export class ComprehensiveBacktestEngine {
   private storage: DataStorage;

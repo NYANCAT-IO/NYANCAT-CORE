@@ -1,6 +1,6 @@
 import ccxt from 'ccxt';
-import { HistoricalData, HistoricalFundingRate, HistoricalOHLCV, FetchOptions } from './types';
-import { DataStorage } from './data-storage';
+import { HistoricalData, HistoricalFundingRate, HistoricalOHLCV, FetchOptions } from './types.js';
+import { DataStorage } from './data-storage.js';
 
 export class HistoricalDataFetcher {
   private exchange: any; // CCXT doesn't have proper TypeScript types
@@ -336,7 +336,7 @@ export class HistoricalDataFetcher {
 
   async fetchValidPairsOnly(options: Omit<FetchOptions, 'symbols'>): Promise<HistoricalData> {
     // Use TOP_30_VALID_PAIRS from config
-    const { TOP_30_VALID_PAIRS } = await import('../../config/valid-pairs');
+    const { TOP_30_VALID_PAIRS } = await import('../../config/valid-pairs.js');
     
     console.log(`📊 Fetching data for ${TOP_30_VALID_PAIRS.length} valid delta-neutral pairs`);
     

@@ -6,8 +6,8 @@ import {
   PriceSnapshot,
   BacktestSummary,
   EquityPoint
-} from './types';
-import { HistoricalData, DataStorage } from '../historical';
+} from './types.js';
+import { HistoricalData, DataStorage } from '../historical/index.js';
 
 // Simple open position type for basic backtest
 interface SimpleOpenPosition {

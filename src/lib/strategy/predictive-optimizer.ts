@@ -1,4 +1,4 @@
-import { HistoricalData } from '../historical/types';
+import { HistoricalData } from '../historical/types.js';
 
 export interface FundingMomentumSignal {
   symbol: string;

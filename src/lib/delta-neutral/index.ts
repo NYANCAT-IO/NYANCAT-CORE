@@ -1,3 +1,3 @@
-export * from './types';
-export * from './analyzer';
-export * from './data-loader';
+export * from './types.js';
+export * from './analyzer.js';
+export * from './data-loader.js';

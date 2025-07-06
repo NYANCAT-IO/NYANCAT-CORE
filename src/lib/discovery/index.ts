@@ -1,1 +1,1 @@
-export * from './valid-pairs';
+export * from './valid-pairs.js';

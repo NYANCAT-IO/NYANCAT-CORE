@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import ccxt from 'ccxt';
-import { ValidPairsDiscovery } from '../lib/discovery/valid-pairs';
+import { ValidPairsDiscovery } from '../lib/discovery/valid-pairs.js';
 import { writeFileSync } from 'fs';
 import { join } from 'path';
 

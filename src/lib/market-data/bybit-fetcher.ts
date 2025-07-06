@@ -1,5 +1,5 @@
 import ccxt from 'ccxt';
-import { MarketSummary, FetchOptions } from './types';
+import { MarketSummary, FetchOptions } from './types.js';
 
 export class BybitDataFetcher {
   private exchange: any;

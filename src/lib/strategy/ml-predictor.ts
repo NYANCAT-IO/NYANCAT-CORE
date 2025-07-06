@@ -1,5 +1,5 @@
 import { RandomForestClassifier } from 'ml-random-forest';
-import { HistoricalData } from '../historical/types';
+import { HistoricalData } from '../historical/types.js';
 
 export interface FeatureVector {
   // Basic features

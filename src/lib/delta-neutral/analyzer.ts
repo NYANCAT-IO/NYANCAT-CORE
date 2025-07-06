@@ -6,8 +6,8 @@ import {
   PositionSize,
   FeeStructure,
   MarketSummaryStats
-} from './types';
-import { DataLoader } from './data-loader';
+} from './types.js';
+import { DataLoader } from './data-loader.js';
 
 export class DeltaNeutralAnalyzer {
   private dataLoader: DataLoader;

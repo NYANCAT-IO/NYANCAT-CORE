@@ -1,4 +1,4 @@
-import { BacktestResult } from './types';
+import { BacktestResult } from './types.js';
 
 export class ReportGenerator {
   generateJSON(result: BacktestResult): string {

@@ -9,7 +9,7 @@ import {
   StrategyType, 
   StrategyConfig,
   StrategyResult 
-} from '../lib/delta-neutral';
+} from '../lib/delta-neutral/index.js';
 
 // Load environment variables
 dotenv.config();

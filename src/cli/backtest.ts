@@ -11,7 +11,7 @@ import {
   ComprehensiveReportGenerator,
   OptimizedBacktestEngine,
   OptimizedBacktestConfig
-} from '../lib/backtest';
+} from '../lib/backtest/index.js';
 
 const program = new Command();
 

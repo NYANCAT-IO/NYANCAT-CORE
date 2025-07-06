@@ -4,9 +4,9 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
 import dotenv from 'dotenv';
-import { BybitDataFetcher } from '../lib/market-data/bybit-fetcher';
-import { DataStorage } from '../lib/market-data/storage';
-import { FetchOptions } from '../lib/market-data/types';
+import { BybitDataFetcher } from '../lib/market-data/bybit-fetcher.js';
+import { DataStorage } from '../lib/market-data/storage.js';
+import { FetchOptions } from '../lib/market-data/types.js';
 
 // Load environment variables
 dotenv.config();
