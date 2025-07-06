@@ -1,6 +1,53 @@
 # ML-Optimized Strategy - Command Reference
 
-## 🚀 **Recommended ML Commands**
+## 🚀 **ML Parameter Optimization Commands**
+
+**NEW**: Automated parameter optimization to find optimal parameters for consistent positive returns:
+
+### **Quick Optimization Test (5 minutes)**
+```bash
+pnpm optimize-ml --days 14 --evaluations 10
+```
+- **Period**: 14 days of optimization
+- **Evaluations**: Tests 10 parameter combinations
+- **Output**: JSON + HTML reports with optimal parameters
+
+### **Production Parameter Optimization (15-20 minutes)**
+```bash
+pnpm optimize-ml --days 30 --evaluations 50 --baseline --validate
+```
+- **Period**: 30 days for robust optimization
+- **Evaluations**: Tests 50 parameter combinations
+- **Baseline**: Compares against current manual parameters
+- **Validation**: Tests optimal parameters on 60-day period
+
+### **Full Analysis with Reports**
+```bash
+pnpm optimize-ml --days 30 --evaluations 50 --baseline --validate --output both
+```
+- **Comprehensive**: All optimization features enabled
+- **Reports**: Beautiful HTML report + machine-readable JSON
+- **Goal**: Find parameters to turn 59-day negative performance positive
+
+### **Conservative Optimization**
+```bash
+pnpm optimize-ml --days 30 --evaluations 30 --output json
+```
+- **Focused**: Fewer evaluations for faster results
+- **JSON Only**: Machine-readable output for automation
+
+## 🎯 **Parameter Optimization Options**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-d, --days <number>` | Number of days to optimize over | `30` |
+| `-e, --evaluations <number>` | Maximum parameter combinations to test | `50` |
+| `-c, --capital <amount>` | Initial capital for optimization | `10000` |
+| `--validate` | Test optimal parameters on longer period | `false` |
+| `--baseline` | Compare against current manual parameters | `false` |
+| `-o, --output <format>` | Output format: json, html, or both | `both` |
+
+## 🔧 **Traditional ML Backtest Commands**
 
 All commands use the advanced ML-optimized strategy with smart cache system. The basic strategy without ML is not recommended for production use:
 
@@ -149,5 +196,36 @@ The ML-optimized strategy shows additional metrics:
 - **Avg Confidence**: Average ML confidence scores
 - **Risk Threshold**: Current risk filtering level
 - **Filter Status**: Which ML filters are enabled
+
+## 🎛️ **Parameter Optimization Details**
+
+### **What It Optimizes**
+- **Risk Threshold**: [0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8] - Position risk tolerance
+- **Min APR**: [3, 4, 5, 6, 7, 8, 9, 10] - Minimum funding rate threshold
+- **Volatility Filter**: [true, false] - Trade only in low volatility periods
+- **Momentum Filter**: [true, false] - Avoid declining funding momentum
+
+### **Optimization Scoring (Multi-Objective)**
+- **40% Total Return**: Primary profit metric
+- **30% Risk-Adjusted Return**: Sharpe ratio consideration
+- **20% Drawdown Protection**: Maximum loss limitation
+- **10% Trading Stability**: Consistent trade generation
+
+### **Generated Reports**
+- **JSON Output**: `ml-optimization-results.json` - Machine-readable results
+- **HTML Report**: `ml-optimization-results.html` - Beautiful visual report
+- **Optimal Parameters**: Risk threshold, APR, and filter recommendations
+- **Performance Comparison**: Optimized vs baseline vs validation results
+
+### **Solving the Core Problem**
+The parameter optimization system addresses the original issue:
+- **Demo (7 days)**: +1.26% profit with default parameters
+- **Production (59 days)**: Negative performance with same parameters
+- **Solution**: Find optimal parameters for consistent positive returns across all periods
+
+### **Expected Outcomes**
+- **Conservative Parameters**: Lower risk thresholds (0.2-0.4), higher APR (7-10%)
+- **Smart Filtering**: Volatility and momentum filters to reduce noise
+- **Consistent Performance**: Positive returns across both short and long periods
 
 All ML features are production-ready and demonstrate advanced algorithmic trading capabilities perfect for hackathon presentations!
