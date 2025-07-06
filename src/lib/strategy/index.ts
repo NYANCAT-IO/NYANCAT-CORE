@@ -1,11 +1,11 @@
-export { PredictiveOptimizer } from './predictive-optimizer';
-export { MLFundingPredictor } from './ml-predictor';
+export { PredictiveOptimizer } from './predictive-optimizer.js';
+export { MLFundingPredictor } from './ml-predictor.js';
 export type { 
   FundingMomentumSignal, 
   VolatilityMetrics, 
   PredictiveSignals 
-} from './predictive-optimizer';
+} from './predictive-optimizer.js';
 export type {
   FeatureVector,
   MLPrediction
-} from './ml-predictor';
+} from './ml-predictor.js';

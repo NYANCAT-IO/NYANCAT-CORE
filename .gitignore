@@ -112,6 +112,17 @@ data_backup
 # Generated backtest results
 backtest-results.html
 backtest-results.json
+backtest-comprehensive.html
+backtest-comprehensive.json
+backtest-optimized.html
+backtest-optimized.json
+
+# Demo results directory
+results/
+
+# ML optimization results
+ml-optimization-results.html
+ml-optimization-results.json
 
 # ROFL and containerization
 rofl/data/

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { HistoricalDataFetcher } from '../lib/historical';
+import { HistoricalDataFetcher } from '../lib/historical/index.js';
 
 const program = new Command();
 
@@ -17,7 +17,9 @@ program
   .option('--list-cache', 'List available cached data')
   .option('--clear-cache', 'Clear all cached data')
   .action(async (options) => {
-    const fetcher = new HistoricalDataFetcher();
+    // Use environment variable for data directory
+    const dataPath = process.env.DATA_DIR ? `${process.env.DATA_DIR}/historical` : undefined;
+    const fetcher = new HistoricalDataFetcher(dataPath);
 
     // Handle cache operations
     if (options.listCache) {
@@ -26,7 +28,9 @@ program
     }
 
     if (options.clearCache) {
-      const storage = new (await import('../lib/historical')).DataStorage();
+      const { DataStorage } = await import('../lib/historical/index.js');
+      const basePath = dataPath || 'data/historical';
+      const storage = new DataStorage(basePath);
       await storage.clearCache();
       console.log('Cache cleared');
       return;

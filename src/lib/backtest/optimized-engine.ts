@@ -7,8 +7,8 @@ import {
   PriceSnapshot,
   EquityPoint
 } from './types';
-import { HistoricalData, DataStorage } from '../historical';
-import { PredictiveOptimizer, PredictiveSignals, MLFundingPredictor, MLPrediction } from '../strategy';
+import { HistoricalData, DataStorage } from '../historical/index.js';
+import { PredictiveOptimizer, PredictiveSignals, MLFundingPredictor, MLPrediction } from '../strategy/index.js';
 
 export interface OptimizedBacktestConfig extends BacktestConfig {
   useML?: boolean;

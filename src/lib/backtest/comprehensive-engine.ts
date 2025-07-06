@@ -10,7 +10,7 @@ import {
   BacktestSummary,
   EquityPoint
 } from './types';
-import { HistoricalData, DataStorage } from '../historical';
+import { HistoricalData, DataStorage } from '../historical/index.js';
 
 export class ComprehensiveBacktestEngine {
   private storage: DataStorage;

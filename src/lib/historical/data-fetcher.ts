@@ -1,6 +1,6 @@
 import ccxt from 'ccxt';
-import { HistoricalData, HistoricalFundingRate, HistoricalOHLCV, FetchOptions } from './types';
-import { DataStorage } from './data-storage';
+import { HistoricalData, HistoricalFundingRate, HistoricalOHLCV, FetchOptions } from './types.js';
+import { DataStorage } from './data-storage.js';
 
 export class HistoricalDataFetcher {
   private exchange: any; // CCXT doesn't have proper TypeScript types
@@ -9,7 +9,7 @@ export class HistoricalDataFetcher {
   private retryDelay = 1000; // ms
   private validPairs: Set<string> | null = null;
 
-  constructor() {
+  constructor(dataPath?: string) {
     this.exchange = new ccxt.bybit({
       enableRateLimit: true,
       rateLimit: 50, // 20 requests per second max
@@ -17,7 +17,9 @@ export class HistoricalDataFetcher {
         defaultType: 'future', // for perpetuals
       },
     });
-    this.storage = new DataStorage();
+    // Use environment variable or provided path, fallback to default
+    const basePath = dataPath || process.env.DATA_DIR || 'data/historical';
+    this.storage = new DataStorage(basePath);
   }
 
   private async sleep(ms: number): Promise<void> {
@@ -336,7 +338,7 @@ export class HistoricalDataFetcher {
 
   async fetchValidPairsOnly(options: Omit<FetchOptions, 'symbols'>): Promise<HistoricalData> {
     // Use TOP_30_VALID_PAIRS from config
-    const { TOP_30_VALID_PAIRS } = await import('../../config/valid-pairs');
+    const { TOP_30_VALID_PAIRS } = await import('../../config/valid-pairs.js');
     
     console.log(`📊 Fetching data for ${TOP_30_VALID_PAIRS.length} valid delta-neutral pairs`);
     

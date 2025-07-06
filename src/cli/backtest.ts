@@ -11,7 +11,7 @@ import {
   ComprehensiveReportGenerator,
   OptimizedBacktestEngine,
   OptimizedBacktestConfig
-} from '../lib/backtest';
+} from '../lib/backtest/index.js';
 
 const program = new Command();
 
@@ -31,6 +31,22 @@ program
   .option('--momentum-filter', 'Avoid positions when funding momentum is declining')
   .action(async (options) => {
     const spinner = ora('Running backtest...').start();
+    
+    // Helper function to get output path
+    const getOutputPath = (filename: string): string => {
+      const resultsDir = process.env.RESULTS_DIR || '.';
+      return `${resultsDir}/${filename}`;
+    };
+
+    // Ensure results directory exists
+    const resultsDir = process.env.RESULTS_DIR;
+    if (resultsDir) {
+      try {
+        await fs.mkdir(resultsDir, { recursive: true });
+      } catch (error) {
+        // Directory already exists or creation failed, continue
+      }
+    }
     
     try {
       // Parse options
@@ -99,22 +115,24 @@ program
       if (useOptimized) {
         if (options.output === 'json' || options.output === 'both') {
           const jsonOutput = JSON.stringify(result, null, 2);
-          await fs.writeFile('backtest-optimized.json', jsonOutput, 'utf-8');
-          console.log('🚀 ML-Optimized JSON results saved to backtest-optimized.json');
+          const jsonPath = getOutputPath('backtest-optimized.json');
+          await fs.writeFile(jsonPath, jsonOutput, 'utf-8');
+          console.log(`🚀 ML-Optimized JSON results saved to ${jsonPath}`);
         }
         
         if (options.output === 'html' || options.output === 'both') {
           // Use comprehensive report generator for now (could create optimized HTML later)
           const generator = new ComprehensiveReportGenerator();
           const htmlOutput = generator.generateHTML(result as any);
-          await fs.writeFile('backtest-optimized.html', htmlOutput, 'utf-8');
-          console.log('📈 ML-Optimized HTML report saved to backtest-optimized.html');
+          const htmlPath = getOutputPath('backtest-optimized.html');
+          await fs.writeFile(htmlPath, htmlOutput, 'utf-8');
+          console.log(`📈 ML-Optimized HTML report saved to ${htmlPath}`);
           
           // Open in browser if demo mode
           if (options.demo || options.days <= 7) {
             try {
               const open = (await import('open')).default;
-              await open('backtest-optimized.html');
+              await open(htmlPath);
             } catch {
               // Ignore if open package is not available
             }
@@ -128,19 +146,21 @@ program
         
         if (options.output === 'json' || options.output === 'both') {
           const jsonOutput = generator.generateJSON(result);
-          await fs.writeFile('backtest-results.json', jsonOutput, 'utf-8');
-          console.log('📊 JSON results saved to backtest-results.json');
+          const jsonPath = getOutputPath('backtest-results.json');
+          await fs.writeFile(jsonPath, jsonOutput, 'utf-8');
+          console.log(`📊 JSON results saved to ${jsonPath}`);
         }
         
         if (options.output === 'html' || options.output === 'both') {
           const htmlOutput = generator.generateHTML(result);
-          await fs.writeFile('backtest-results.html', htmlOutput, 'utf-8');
-          console.log('📈 HTML report saved to backtest-results.html');
+          const htmlPath = getOutputPath('backtest-results.html');
+          await fs.writeFile(htmlPath, htmlOutput, 'utf-8');
+          console.log(`📈 HTML report saved to ${htmlPath}`);
           
           // Try to open in browser
           try {
             const open = (await import('open')).default;
-            await open('backtest-results.html');
+            await open(htmlPath);
           } catch {
             // Ignore if open package is not available
           }
@@ -153,20 +173,22 @@ program
         
         if (options.output === 'json' || options.output === 'both') {
           const jsonOutput = comprehensiveGenerator.generateJSON(result as any);
-          await fs.writeFile('backtest-comprehensive.json', jsonOutput, 'utf-8');
-          console.log('📊 Comprehensive JSON results saved to backtest-comprehensive.json');
+          const jsonPath = getOutputPath('backtest-comprehensive.json');
+          await fs.writeFile(jsonPath, jsonOutput, 'utf-8');
+          console.log(`📊 Comprehensive JSON results saved to ${jsonPath}`);
         }
         
         if (options.output === 'html' || options.output === 'both') {
           const htmlOutput = comprehensiveGenerator.generateHTML(result as any);
-          await fs.writeFile('backtest-comprehensive.html', htmlOutput, 'utf-8');
-          console.log('📈 Comprehensive HTML report saved to backtest-comprehensive.html');
+          const htmlPath = getOutputPath('backtest-comprehensive.html');
+          await fs.writeFile(htmlPath, htmlOutput, 'utf-8');
+          console.log(`📈 Comprehensive HTML report saved to ${htmlPath}`);
           
           // Try to open in browser if demo mode
           if (options.demo) {
             try {
               const open = (await import('open')).default;
-              await open('backtest-comprehensive.html');
+              await open(htmlPath);
             } catch {
               // Ignore if open package is not available
             }

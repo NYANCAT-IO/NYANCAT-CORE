@@ -126,6 +126,18 @@ docker-compose exec funding-arbitrage node dist/cli/index.js --health-check --js
 **Purpose:** Test TypeScript compilation, dependencies, and CLI functionality in containerized environment.
 **Note:** This does NOT run trading logic - it's purely for infrastructure verification.
 
+### **Container Backtest (Now Working!)**
+```bash
+# ✅ Container backtest now works (ES module fix)
+docker-compose exec funding-arbitrage node dist/cli/backtest.js --demo --ml
+
+# Container build and test
+docker-compose build
+docker-compose up -d
+```
+
+**Status:** ✅ **FIXED** - ES module directory imports resolved with TypeScript "bundler" moduleResolution.
+
 ### **CLI Command Distinction**
 - **`--health-check`**: Infrastructure testing (main CLI) - No API calls, tests container setup
 - **`--demo`**: Quick backtest (backtest CLI) - Real trading logic, 7 days, lower thresholds
@@ -149,5 +161,19 @@ The ML-optimized strategy shows additional metrics:
 - **Avg Confidence**: Average ML confidence scores
 - **Risk Threshold**: Current risk filtering level
 - **Filter Status**: Which ML filters are enabled
+
+## ⚗️ **Experimental: Fugle Optimizer (Non-Functional)**
+
+### **Advanced Parameter Optimization CLI**
+```bash
+# ❌ Currently non-functional due to type errors
+pnpm optimize-ml --days 30 --evaluations 50 --baseline --validate
+```
+
+**Status:** Experimental Fugle framework integration with 60+ TypeScript errors.
+**Purpose:** Automated ML parameter tuning using professional backtesting framework.
+**See:** `docs/fugle-optimizer-status.md` for detailed status and future potential.
+
+---
 
 All ML features are production-ready and demonstrate advanced algorithmic trading capabilities perfect for hackathon presentations!

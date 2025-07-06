@@ -99,8 +99,8 @@ resources:
 
 #### **Containerization Process**
 ```dockerfile
-# docker/Dockerfile - Ultra-lightweight Node.js
-FROM node:20-alpine
+# Dockerfile - Ultra-lightweight Node.js (moved to root)
+FROM node:24-alpine
 WORKDIR /app
 
 # Install dependencies
@@ -122,10 +122,10 @@ CMD ["node", "dist/cli/index.js", "--health-check"]
 
 #### **ROFL-Compatible Compose Configuration**
 ```yaml
-# docker/compose.yaml
+# docker-compose.yaml (moved to root)
 services:
   delta-neutral-funding:
-    build: ../
+    build: .
     platform: linux/amd64
     environment:
       # Secrets (encrypted in ROFL)
@@ -149,8 +149,8 @@ services:
 # Perfect simulation before ROFL deployment
 export BYBIT_TESTNET_API_KEY="test_key"
 export BYBIT_TESTNET_API_SECRET="test_secret"
-cd docker/
-podman-compose up --build
+# Run from project root (Docker files now in root)
+docker-compose up --build
 
 # Validation checklist:
 # ✅ Container builds successfully
@@ -603,6 +603,23 @@ oasis rofl machine stop
 
 ## 📋 **Implementation Status**
 
+### **Phase 3: Docker Containerization** ✅ **COMPLETED**
+
+**Docker Standard Organization:**
+- ✅ **Dockerfile moved to root** - Standard industry practice
+- ✅ **docker-compose.yaml moved to root** - Proper file organization  
+- ✅ **Node.js v24 upgrade** - Latest LTS for ES module compatibility
+- ✅ **Multi-stage build optimization** - Smaller production images
+- ✅ **TypeScript moduleResolution fix** - "bundler" enables directory imports
+
+**ES Module Resolution Fixed:**
+- ✅ **Root cause identified** - "node" moduleResolution incompatible with directory imports
+- ✅ **Solution implemented** - Changed to "bundler" moduleResolution in tsconfig.json
+- ✅ **Build success** - Both `pnpm tsc` and `docker-compose build` work
+- ✅ **Container functionality** - Main CLI and backtest CLI both work in container
+
+**Result:** Full containerization ready for ROFL deployment
+
 ### **Phase 2.3: CLI Interface Consistency** ✅ **COMPLETED**
 
 **Problem Identified:** Conflicting `--demo` flags between main CLI and backtest CLI causing user confusion and inconsistent behavior.
@@ -618,12 +635,12 @@ oasis rofl machine stop
 - ✅ No flag conflicts between commands
 - ✅ Clear separation: `--health-check` = infrastructure testing, `--demo` = quick backtest
 
-**Container Issues Identified:**
-- ❌ ES module import error when running backtest in container
+**Container Issues Resolution:**
+- ✅ ~~ES module import error~~ **FIXED** - Changed TypeScript moduleResolution to "bundler"
 - ❌ Missing historical data in container for backtest functionality
-- 📋 Documented in separate troubleshooting guide for future resolution
+- 📋 See `docs/es-module-fix-summary.md` and updated `docs/rofl-container-troubleshooting.md`
 
-**Commits:** `78bb5b8`, `4425ae0`, `3c169d1`
+**Commits:** `78bb5b8`, `4425ae0`, `3c169d1`, `18b39c7` (ES module fix)
 
 ---
 

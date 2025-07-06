@@ -1,20 +1,16 @@
 {
   "summary": {
     "initialCapital": 10000,
-    "finalCapital": 10126.277727710702,
-    "totalReturn": 1.2627772771070158,
-    "totalReturnDollars": 126.27772771070158,
-    "numberOfTrades": 18,
-    "winningTrades": 0,
-    "winRate": 0,
-    "maxDrawdown": 3.118600649828699,
+    "finalCapital": 10094.979461424524,
+    "totalReturn": 0.9497946142452384,
+    "totalReturnDollars": 94.97946142452383,
+    "numberOfTrades": 16,
+    "winningTrades": 1,
+    "winRate": 6.25,
+    "maxDrawdown": 4.093045284120444,
     "totalDays": 7
   },
   "equityCurve": [
-    {
-      "timestamp": 1751155200000,
-      "value": 10000
-    },
     {
       "timestamp": 1751184000000,
       "value": 10000
@@ -25,75 +21,79 @@
     },
     {
       "timestamp": 1751241600000,
-      "value": 10353.11238973889
+      "value": 10352.16601864883
     },
     {
       "timestamp": 1751270400000,
-      "value": 10119.109833749495
+      "value": 10120.194506707427
     },
     {
       "timestamp": 1751299200000,
-      "value": 10124.12774287816
+      "value": 10089.722022895503
     },
     {
       "timestamp": 1751328000000,
-      "value": 10110.428471268095
+      "value": 10081.428027010728
     },
     {
       "timestamp": 1751356800000,
-      "value": 10071.876657216444
+      "value": 9994.458912578899
     },
     {
       "timestamp": 1751385600000,
-      "value": 10045.20269382568
+      "value": 9961.146260200214
     },
     {
       "timestamp": 1751414400000,
-      "value": 10030.240159474997
+      "value": 9928.447175618205
     },
     {
       "timestamp": 1751443200000,
-      "value": 10125.012571355055
+      "value": 10034.721216050222
     },
     {
       "timestamp": 1751472000000,
-      "value": 10336.560145075264
+      "value": 10278.526200107019
     },
     {
       "timestamp": 1751500800000,
-      "value": 10290.36947209632
+      "value": 10226.282221773123
     },
     {
       "timestamp": 1751529600000,
-      "value": 10381.966441008115
+      "value": 10319.884326485431
     },
     {
       "timestamp": 1751558400000,
-      "value": 10298.461372131602
+      "value": 10246.230833523405
     },
     {
       "timestamp": 1751587200000,
-      "value": 10310.913211362526
+      "value": 10267.339279571514
     },
     {
       "timestamp": 1751616000000,
-      "value": 10175.321216458195
+      "value": 10144.110960333082
     },
     {
       "timestamp": 1751644800000,
-      "value": 10147.639991305552
+      "value": 10081.794929249834
     },
     {
       "timestamp": 1751673600000,
-      "value": 10165.521197623422
+      "value": 10098.692834545012
     },
     {
       "timestamp": 1751702400000,
-      "value": 10119.112092617488
+      "value": 10064.038827259308
     },
     {
       "timestamp": 1751731200000,
-      "value": 10126.277727710702
+      "value": 10077.82452509461
+    },
+    {
+      "timestamp": 1751760000000,
+      "value": 10094.979461424524
     }
   ],
   "positions": [
@@ -128,9 +128,8 @@
         "fundingMomentum": {
           "symbol": "NEAR/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             10.950000000000001,
             10.950000000000001
           ],
@@ -138,8 +137,8 @@
         },
         "volatility": {
           "symbol": "NEAR/USDT:USDT",
-          "currentVol": 0.37925896700231976,
-          "avgVol": 0.8032202180360177,
+          "currentVol": 0.3377558252150633,
+          "avgVol": 0.7999968361461335,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -156,19 +155,18 @@
             10.950000000000001,
             10.950000000000001,
             10.950000000000001,
-            10.950000000000001,
             -6.347715
           ],
-          "avgDecline": 4.32442875
+          "avgDecline": 5.765905
         },
         "volatility": {
           "symbol": "NEAR/USDT:USDT",
           "currentVol": 1.0736450690585144,
-          "avgVol": 0.8032202180360177,
-          "volPercentile": 91.66666666666666,
+          "avgVol": 0.7999968361461335,
+          "volPercentile": 91.48936170212765,
           "isLowVol": false
         },
-        "riskScore": 0.27499999999999997,
+        "riskScore": 0.27446808510638293,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -183,12 +181,12 @@
       "entryPerpPrice": 0.8948,
       "exitSpotPrice": 0.9155,
       "exitPerpPrice": 0.9136,
-      "quantity": 1160.875390799464,
+      "quantity": 1176.353729343457,
       "fundingPayments": [
-        0.10856506654756588,
-        0.006214973936221527
+        0.11001260076820012,
+        0.006297840255371148
       ],
-      "totalPnL": -0.7107184499135946,
+      "totalPnL": -0.7201946959124406,
       "entryFundingRate": 0.00009639,
       "entryFundingAPR": 10.554705,
       "concurrentPositions": 4,
@@ -197,28 +195,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (0.6%)",
       "holdingPeriodHours": 16,
       "fundingPeriodsHeld": 2,
-      "spotPnL": 23.101420276909366,
-      "perpPnL": -21.82445734702984,
-      "totalFunding": 0.11478004048378741,
-      "entryFees": 1.03968,
-      "exitFees": 1.0627814202769092,
+      "spotPnL": 23.409439213934828,
+      "perpPnL": -22.115450111656905,
+      "totalFunding": 0.11631044102357127,
+      "entryFees": 1.0535424,
+      "exitFees": 1.0769518392139348,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "WLD/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             7.412055,
             10.554705
           ],
-          "avgDecline": 0.19764750000000042
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "WLD/USDT:USDT",
-          "currentVol": 0.5062783917747518,
-          "avgVol": 0.8125336692126229,
-          "volPercentile": 3.4722222222222223,
+          "currentVol": 0.4244504300429691,
+          "avgVol": 0.8095182677074835,
+          "volPercentile": 0,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -231,22 +228,21 @@
           "trend": "stable",
           "strength": 0.1,
           "lastRates": [
-            10.950000000000001,
             7.412055,
             10.554705,
             10.950000000000001,
             0.64167
           ],
-          "avgDecline": 2.5770825000000004
+          "avgDecline": 2.256795
         },
         "volatility": {
           "symbol": "WLD/USDT:USDT",
           "currentVol": 1.0887770678248632,
-          "avgVol": 0.8125336692126229,
-          "volPercentile": 90.27777777777779,
+          "avgVol": 0.8095182677074835,
+          "volPercentile": 90.0709219858156,
           "isLowVol": false
         },
-        "riskScore": 0.27083333333333337,
+        "riskScore": 0.2702127659574468,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -261,13 +257,13 @@
       "entryPerpPrice": 1961.6,
       "exitSpotPrice": 1921,
       "exitPerpPrice": 1920,
-      "quantity": 0.9679062659195109,
+      "quantity": 0.9291900152827305,
       "fundingPayments": [
-        0.19553642384105963,
-        0.0541651574121243,
-        -0.19403345899133975
+        0.18771496688741723,
+        0.05199855111563933,
+        -0.1862721206316862
       ],
-      "totalPnL": -4.09084232093743,
+      "totalPnL": -3.9272086280999314,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 2,
@@ -276,28 +272,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-11.4%)",
       "holdingPeriodHours": 24,
       "fundingPeriodsHeld": 3,
-      "spotPnL": -40.652063168619456,
-      "perpPnL": 40.26490066225156,
-      "totalFunding": 0.05566812226184417,
-      "entryFees": 1.9000000000000001,
-      "exitFees": 1.8593479368313803,
+      "spotPnL": -39.02598064187468,
+      "perpPnL": 38.654304635761505,
+      "totalFunding": 0.05344139737137038,
+      "entryFees": 1.824,
+      "exitFees": 1.7849740193581254,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "MKR/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.542463,
+          "trend": "stable",
+          "strength": 0,
           "lastRates": [
-            5.525370000000001,
             2.635665,
             10.950000000000001
           ],
-          "avgDecline": -2.7123150000000003
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.5713911432625018,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 28.47222222222222,
+          "currentVol": 0.6186646536715346,
+          "avgVol": 0.6688308796143906,
+          "volPercentile": 32.62411347517731,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -321,8 +316,8 @@
         "volatility": {
           "symbol": "MKR/USDT:USDT",
           "currentVol": 0.6868459112898134,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 54.861111111111114,
+          "avgVol": 0.6688308796143906,
+          "volPercentile": 53.90070921985816,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -340,14 +335,14 @@
       "entryPerpPrice": 7.225,
       "exitSpotPrice": 7.128,
       "exitPerpPrice": 7.123,
-      "quantity": 113.8895807388958,
+      "quantity": 110.79178414279784,
       "fundingPayments": [
-        0.0840391216272312,
-        0.05282241121594022,
-        0.08170438522208386,
-        -0.027143939281361565
+        0.08175325751897053,
+        0.051385641630866646,
+        0.07948202594404317,
+        -0.026405624132908527
       ],
-      "totalPnL": -1.1017942105063558,
+      "totalPnL": -1.0718254079805836,
       "entryFundingRate": 0.00008784,
       "entryFundingAPR": 9.61848,
       "concurrentPositions": 5,
@@ -356,28 +351,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-3.7%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": -11.275068493150707,
-      "perpPnL": 11.616737235367307,
-      "totalFunding": 0.19142197878389372,
-      "entryFees": 0.82308,
-      "exitFees": 0.8118049315068493,
+      "spotPnL": -10.968386630137008,
+      "perpPnL": 11.300761982565316,
+      "totalFunding": 0.18621530096097183,
+      "entryFees": 0.8006922240000001,
+      "exitFees": 0.789723837369863,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "UNI/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.37722750000000005,
+          "trend": "stable",
+          "strength": 0,
           "lastRates": [
-            5.846205,
             -7.052895,
             9.61848
           ],
-          "avgDecline": -1.8861375000000002
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "UNI/USDT:USDT",
-          "currentVol": 0.8232581203810904,
-          "avgVol": 0.9872111284818134,
-          "volPercentile": 28.47222222222222,
+          "currentVol": 0.7646993600397824,
+          "avgVol": 0.9880465603642388,
+          "volPercentile": 22.69503546099291,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -401,8 +395,8 @@
         "volatility": {
           "symbol": "UNI/USDT:USDT",
           "currentVol": 0.8250973166137728,
-          "avgVol": 0.9872111284818134,
-          "volPercentile": 28.47222222222222,
+          "avgVol": 0.9880465603642388,
+          "volPercentile": 29.078014184397162,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -413,92 +407,6 @@
       "confidence": 1
     },
     {
-      "symbol": "POL/USDT:USDT",
-      "entryTime": 1751270400000,
-      "exitTime": 1751328000000,
-      "entrySpotPrice": 0.1831,
-      "entryPerpPrice": 0.1829,
-      "exitSpotPrice": 0.1874,
-      "exitPerpPrice": 0.1871,
-      "quantity": 5891.2072980306175,
-      "fundingPayments": [
-        0.055671908966389336,
-        -0.01531018145906063
-      ],
-      "totalPnL": -1.5532098466098556,
-      "entryFundingRate": 0.00005,
-      "entryFundingAPR": 5.4750000000000005,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00001389,
-      "exitFundingAPR": -1.520955,
-      "exitReason": "ML Signal: Exit soon + Low APR (-1.5%)",
-      "holdingPeriodHours": 16,
-      "fundingPeriodsHeld": 2,
-      "spotPnL": 25.332191381531644,
-      "perpPnL": -24.743070651728484,
-      "totalFunding": 0.04036172750732871,
-      "entryFees": 1.078680056269406,
-      "exitFees": 1.1040122476509378,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "POL/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005
-          ],
-          "avgDecline": 0
-        },
-        "volatility": {
-          "symbol": "POL/USDT:USDT",
-          "currentVol": 0.6599129364821993,
-          "avgVol": 0.6897286706542083,
-          "volPercentile": 44.44444444444444,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "POL/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            -1.520955
-          ],
-          "avgDecline": 1.74898875
-        },
-        "volatility": {
-          "symbol": "POL/USDT:USDT",
-          "currentVol": 0.9468211203321046,
-          "avgVol": 0.6897286706542083,
-          "volPercentile": 87.5,
-          "isLowVol": false
-        },
-        "riskScore": 0.2625,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.032850000000000004,
-        "riskAdjustedScore": 0
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
       "symbol": "LDO/USDT:USDT",
       "entryTime": 1751212800000,
       "exitTime": 1751356800000,
@@ -506,15 +414,15 @@
       "entryPerpPrice": 0.7237,
       "exitSpotPrice": 0.7272,
       "exitPerpPrice": 0.727,
-      "quantity": 1889.5027624309394,
+      "quantity": 1914.6961325966852,
       "fundingPayments": [
-        0.14594519337016576,
-        0.14095690607734807,
-        0.14141038674033152,
-        0.14065458563535913,
-        0.002142922872928177
+        0.14789112928176798,
+        0.1428363314917127,
+        0.1432958585635359,
+        0.14252998011049725,
+        0.0021714951779005526
       ],
-      "totalPnL": -2.3598866903867197,
+      "totalPnL": -2.3913518462585426,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 3,
@@ -523,18 +431,17 @@
       "exitReason": "ML Signal: Exit soon + Low APR (0.2%)",
       "holdingPeriodHours": 40,
       "fundingPeriodsHeld": 5,
-      "spotPnL": 6.0464088397789695,
-      "perpPnL": -6.2353591160220425,
-      "totalFunding": 0.5711099946961327,
-      "entryFees": 1.368,
-      "exitFees": 1.3740464088397792,
+      "spotPnL": 6.127027624309355,
+      "perpPnL": -6.3184972375690025,
+      "totalFunding": 0.5787247946254144,
+      "entryFees": 1.3862400000000001,
+      "exitFees": 1.3923670276243094,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LDO/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             10.950000000000001,
             10.950000000000001
           ],
@@ -542,9 +449,9 @@
         },
         "volatility": {
           "symbol": "LDO/USDT:USDT",
-          "currentVol": 0.45938839469268233,
-          "avgVol": 0.8080426068814313,
-          "volPercentile": 5.555555555555555,
+          "currentVol": 0.36718128010978496,
+          "avgVol": 0.8050235615732338,
+          "volPercentile": 0,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -568,8 +475,8 @@
         "volatility": {
           "symbol": "LDO/USDT:USDT",
           "currentVol": 0.8236834419940045,
-          "avgVol": 0.8080426068814313,
-          "volPercentile": 50,
+          "avgVol": 0.8050235615732338,
+          "volPercentile": 51.06382978723404,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -580,53 +487,51 @@
       "confidence": 1
     },
     {
-      "symbol": "TRX/USDT:USDT",
+      "symbol": "BNB/USDT:USDT",
       "entryTime": 1751270400000,
-      "exitTime": 1751385600000,
-      "entrySpotPrice": 0.2777,
-      "entryPerpPrice": 0.27751,
-      "exitSpotPrice": 0.2788,
-      "exitPerpPrice": 0.27869,
-      "quantity": 5394.910856386819,
+      "exitTime": 1751356800000,
+      "entrySpotPrice": 653.4,
+      "entryPerpPrice": 653.1,
+      "exitSpotPrice": 652.4,
+      "exitPerpPrice": 651.9,
+      "quantity": 2.323658715670503,
       "fundingPayments": [
-        0.033850151292982675,
-        0.15088486683142657,
-        0.10957633166366086,
-        -0.12202468546493249
+        0.1529432166654325,
+        0.1528735069039624,
+        -0.004195976933385315
       ],
-      "totalPnL": -3.2615740957672057,
-      "entryFundingRate": 0.00008881,
-      "entryFundingAPR": 9.724695,
+      "totalPnL": -2.267881061152327,
+      "entryFundingRate": 0.0001,
+      "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 4,
-      "exitFundingRate": -0.00008116,
-      "exitFundingAPR": -8.887020000000001,
-      "exitReason": "ML Signal: Exit now (risk: 46.5%, momentum: declining)",
-      "holdingPeriodHours": 32,
-      "fundingPeriodsHeld": 4,
-      "spotPnL": 5.934401942025446,
-      "perpPnL": -6.365994810536525,
-      "totalFunding": 0.1722866643231376,
-      "entryFees": 1.4981667448186198,
-      "exitFees": 1.504101146760645,
+      "exitFundingRate": -0.00000277,
+      "exitFundingAPR": -0.303315,
+      "exitReason": "ML Signal: Exit soon + Low APR (-0.3%)",
+      "holdingPeriodHours": 24,
+      "fundingPeriodsHeld": 3,
+      "spotPnL": -2.323658715670503,
+      "perpPnL": 2.788390458804709,
+      "totalFunding": 0.30162074663600963,
+      "entryFees": 1.5182786048191066,
+      "exitFees": 1.515954946103436,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "TRX/USDT:USDT",
+          "symbol": "BNB/USDT:USDT",
           "trend": "rising",
-          "strength": 0.5349075000000001,
+          "strength": 0.673717,
           "lastRates": [
-            -0.973455,
-            0.075555,
-            -0.79278,
-            7.769025,
-            9.724695
+            0.844245,
+            4.861800000000001,
+            9.88785,
+            10.950000000000001
           ],
-          "avgDecline": -2.6745375000000005
+          "avgDecline": -3.368585
         },
         "volatility": {
-          "symbol": "TRX/USDT:USDT",
-          "currentVol": 0.12696290544164404,
-          "avgVol": 0.20412699114865876,
-          "volPercentile": 2.083333333333333,
+          "symbol": "BNB/USDT:USDT",
+          "currentVol": 0.20872257527262375,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 39.71631205673759,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -635,33 +540,112 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "TRX/USDT:USDT",
-          "trend": "declining",
-          "strength": 0.9305857500000002,
+          "symbol": "BNB/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
           "lastRates": [
-            9.724695,
-            2.4681300000000004,
+            9.88785,
             10.950000000000001,
-            7.979264999999999,
-            -8.887020000000001
+            10.950000000000001,
+            10.950000000000001,
+            -0.303315
           ],
-          "avgDecline": 4.652928750000001
+          "avgDecline": 2.54779125
         },
         "volatility": {
-          "symbol": "TRX/USDT:USDT",
-          "currentVol": 0.14979545315782894,
-          "avgVol": 0.20412699114865876,
-          "volPercentile": 26.38888888888889,
+          "symbol": "BNB/USDT:USDT",
+          "currentVol": 0.2504818968030072,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 74.46808510638297,
           "isLowVol": true
         },
-        "riskScore": 0.4652928750000001,
+        "riskScore": 0,
         "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_now"
+        "exitRecommendation": "exit_soon"
+      },
+      "predictedOutcome": "win",
+      "confidence": 1
+    },
+    {
+      "symbol": "LINK/USDT:USDT",
+      "entryTime": 1751328000000,
+      "exitTime": 1751356800000,
+      "entrySpotPrice": 13.344,
+      "entryPerpPrice": 13.336,
+      "exitSpotPrice": 13.164,
+      "exitPerpPrice": 13.157,
+      "quantity": 89.51399940996754,
+      "fundingPayments": [
+        -0.05834502609433815
+      ],
+      "totalPnL": -2.520696121863678,
+      "entryFundingRate": 0.0001,
+      "entryFundingAPR": 10.950000000000001,
+      "concurrentPositions": 5,
+      "exitFundingRate": -0.00004954,
+      "exitFundingAPR": -5.42463,
+      "exitReason": "ML Signal: Exit soon + Low APR (-5.4%)",
+      "holdingPeriodHours": 8,
+      "fundingPeriodsHeld": 1,
+      "spotPnL": -16.112519893794133,
+      "perpPnL": 16.023005894384212,
+      "totalFunding": -0.05834502609433815,
+      "entryFees": 1.1944748081266068,
+      "exitFees": 1.1783622882328126,
+      "entrySignals": {
+        "fundingMomentum": {
+          "symbol": "LINK/USDT:USDT",
+          "trend": "rising",
+          "strength": 0.6583140000000001,
+          "lastRates": [
+            -2.21628,
+            8.784089999999999,
+            -10.066335,
+            10.30614,
+            10.950000000000001
+          ],
+          "avgDecline": -3.29157
+        },
+        "volatility": {
+          "symbol": "LINK/USDT:USDT",
+          "currentVol": 0.6891124858141384,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 70.92198581560284,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "enter",
+        "exitRecommendation": "hold"
+      },
+      "exitSignals": {
+        "fundingMomentum": {
+          "symbol": "LINK/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            8.784089999999999,
+            -10.066335,
+            10.30614,
+            10.950000000000001,
+            -5.42463
+          ],
+          "avgDecline": 3.5521799999999994
+        },
+        "volatility": {
+          "symbol": "LINK/USDT:USDT",
+          "currentVol": 0.6478351004729883,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 53.90070921985816,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "avoid",
+        "exitRecommendation": "exit_soon"
       },
       "mlPrediction": {
         "willDecline": false,
         "confidence": 0.6,
-        "expectedReturn": 0.058348170000000005,
+        "expectedReturn": 0.06570000000000001,
         "riskAdjustedScore": 0.6
       },
       "predictedOutcome": "win",
@@ -675,14 +659,14 @@
       "entryPerpPrice": 86,
       "exitSpotPrice": 83.36,
       "exitPerpPrice": 83.3,
-      "quantity": 14.714886243768657,
+      "quantity": 14.635805940339292,
       "fundingPayments": [
-        0.12678345987631073,
-        0.12663631101387307,
-        0.032901031810305834,
-        -0.10049924447644512
+        0.12610210398196334,
+        0.12595574592255995,
+        0.03272421606497175,
+        -0.09995914442973326
       ],
-      "totalPnL": -2.012582446595052,
+      "totalPnL": -2.0017664859469844,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
@@ -691,11 +675,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-9.0%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": -39.4358951333001,
-      "perpPnL": 39.730192858175414,
-      "totalFunding": 0.18582155822404453,
-      "entryFees": 1.2660688124138553,
-      "exitFees": 1.2266329172805552,
+      "spotPnL": -39.2239599201094,
+      "perpPnL": 39.51667603891613,
+      "totalFunding": 0.18482292153976182,
+      "entryFees": 1.259264743106793,
+      "exitFees": 1.2200407831866835,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LTC/USDT:USDT",
@@ -713,8 +697,8 @@
         "volatility": {
           "symbol": "LTC/USDT:USDT",
           "currentVol": 0.5266309985234535,
-          "avgVol": 0.5056696440110069,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.5086686048083139,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -738,8 +722,8 @@
         "volatility": {
           "symbol": "LTC/USDT:USDT",
           "currentVol": 0.48530883533183833,
-          "avgVol": 0.5056696440110069,
-          "volPercentile": 43.75,
+          "avgVol": 0.5086686048083139,
+          "volPercentile": 42.5531914893617,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -756,91 +740,6 @@
       "confidence": 0.6
     },
     {
-      "symbol": "RENDER/USDT:USDT",
-      "entryTime": 1751443200000,
-      "exitTime": 1751472000000,
-      "entrySpotPrice": 3.178,
-      "entryPerpPrice": 3.174,
-      "exitSpotPrice": 3.291,
-      "exitPerpPrice": 3.287,
-      "quantity": 249.40146206286843,
-      "fundingPayments": [
-        -0.05097408242868433
-      ],
-      "totalPnL": -1.66435214051338,
-      "entryFundingRate": 0.00004742,
-      "entryFundingAPR": 5.19249,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00006218,
-      "exitFundingAPR": -6.808710000000001,
-      "exitReason": "ML Signal: Exit soon + Low APR (-6.8%)",
-      "holdingPeriodHours": 8,
-      "fundingPeriodsHeld": 1,
-      "spotPnL": 28.18236521310413,
-      "perpPnL": -28.18236521310413,
-      "totalFunding": -0.05097408242868433,
-      "entryFees": 0.7925978464357959,
-      "exitFees": 0.8207802116489,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "RENDER/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.19249
-          ],
-          "avgDecline": 0.07062750000000007
-        },
-        "volatility": {
-          "symbol": "RENDER/USDT:USDT",
-          "currentVol": 0.5341525200319936,
-          "avgVol": 0.7485509517448908,
-          "volPercentile": 6.944444444444445,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "RENDER/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.19249,
-            5.4750000000000005,
-            -6.808710000000001
-          ],
-          "avgDecline": 3.0709275000000007
-        },
-        "volatility": {
-          "symbol": "RENDER/USDT:USDT",
-          "currentVol": 0.6907505790350132,
-          "avgVol": 0.7485509517448908,
-          "volPercentile": 43.75,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.03115494,
-        "riskAdjustedScore": 0.5684210526315789
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
       "symbol": "BNB/USDT:USDT",
       "entryTime": 1751414400000,
       "exitTime": 1751500800000,
@@ -848,26 +747,26 @@
       "entryPerpPrice": 645.3,
       "exitSpotPrice": 659.9,
       "exitPerpPrice": 659.4,
-      "quantity": 3.728136345476226,
+      "quantity": 3.3044931204070616,
       "fundingPayments": [
-        0.24572146653033808,
-        0.24743640924925714,
-        -0.029180413970677367
+        0.21779914156602945,
+        0.21931920840141672,
+        -0.02586452540388946
       ],
-      "totalPnL": -4.030663716297565,
+      "totalPnL": -3.5726430813994963,
       "entryFundingRate": 0.00006229,
       "entryFundingAPR": 6.820755,
-      "concurrentPositions": 1,
+      "concurrentPositions": 2,
       "exitFundingRate": -0.00001187,
       "exitFundingAPR": -1.2997649999999998,
       "exitReason": "ML Signal: Exit soon + Low APR (-1.3%)",
       "holdingPeriodHours": 24,
       "fundingPeriodsHeld": 3,
-      "spotPnL": 52.93953610576215,
-      "perpPnL": -52.566722471214874,
-      "totalFunding": 0.46397746180891786,
-      "entryFees": 2.4072576382739994,
-      "exitFees": 2.4601971743797613,
+      "spotPnL": 46.92380230978005,
+      "perpPnL": -46.59335299773964,
+      "totalFunding": 0.4112538245635567,
+      "entryFees": 2.13371120784684,
+      "exitFees": 2.18063501015662,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "BNB/USDT:USDT",
@@ -885,8 +784,8 @@
         "volatility": {
           "symbol": "BNB/USDT:USDT",
           "currentVol": 0.19403346441220737,
-          "avgVol": 0.21769699171396475,
-          "volPercentile": 25,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 23.404255319148938,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -910,8 +809,8 @@
         "volatility": {
           "symbol": "BNB/USDT:USDT",
           "currentVol": 0.23710922614137186,
-          "avgVol": 0.21769699171396475,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -922,93 +821,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04092453,
-        "riskAdjustedScore": 0.5387755102040817
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
-      "symbol": "ARB/USDT:USDT",
-      "entryTime": 1751472000000,
-      "exitTime": 1751529600000,
-      "entrySpotPrice": 0.3547,
-      "entryPerpPrice": 0.3543,
-      "exitSpotPrice": 0.3555,
-      "exitPerpPrice": 0.3551,
-      "quantity": 2253.9966309633933,
-      "fundingPayments": [
-        0.07900258191526693,
-        0.0029374467274142207
-      ],
-      "totalPnL": -1.518848378667646,
-      "entryFundingRate": 0.0001,
-      "entryFundingAPR": 10.950000000000001,
-      "concurrentPositions": 5,
-      "exitFundingRate": 0.00000367,
-      "exitFundingAPR": 0.40186499999999997,
-      "exitReason": "ML Signal: Exit soon + Low APR (0.4%)",
-      "holdingPeriodHours": 16,
-      "fundingPeriodsHeld": 2,
-      "spotPnL": 1.803197304770641,
-      "perpPnL": -1.8031973047707663,
-      "totalFunding": 0.08194002864268116,
-      "entryFees": 0.7994926050027157,
-      "exitFees": 0.8012958023074863,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "ARB/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            10.153935,
-            -2.118825,
-            -4.17852,
-            -3.198495,
-            10.950000000000001
-          ],
-          "avgDecline": -0.19901624999999967
-        },
-        "volatility": {
-          "symbol": "ARB/USDT:USDT",
-          "currentVol": 1.1292185577373308,
-          "avgVol": 1.1338140025942796,
-          "volPercentile": 66.66666666666666,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "ARB/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.22901924999999998,
-          "lastRates": [
-            -4.17852,
-            -3.198495,
-            10.950000000000001,
-            10.950000000000001,
-            0.40186499999999997
-          ],
-          "avgDecline": -1.14509625
-        },
-        "volatility": {
-          "symbol": "ARB/USDT:USDT",
-          "currentVol": 0.9443055579936155,
-          "avgVol": 1.1338140025942796,
-          "volPercentile": 52.77777777777778,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.3507692307692307
+        "riskAdjustedScore": 0.5739130434782609
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -1021,29 +834,29 @@
       "entryPerpPrice": 13.109,
       "exitSpotPrice": 13.388,
       "exitPerpPrice": 13.378,
-      "quantity": 104.6462433026481,
+      "quantity": 92.75680651906703,
       "fundingPayments": [
-        0.13589566575857487,
-        0.1417851950507579,
-        0.14485132997952552,
-        0.09666753547992232,
-        0.03164991723305762,
-        0.015105540808921496
+        0.1204558097617724,
+        0.1256761971526839,
+        0.1283939715836926,
+        0.08568460369144756,
+        0.028053995599638705,
+        0.013389317016634329
       ],
-      "totalPnL": -1.579397449636808,
+      "totalPnL": -1.3999533956414998,
       "entryFundingRate": 0.00007098,
       "entryFundingAPR": 7.77231,
-      "concurrentPositions": 3,
+      "concurrentPositions": 4,
       "exitFundingRate": 0.00001079,
       "exitFundingAPR": 1.181505,
       "exitReason": "ML Signal: Exit soon + Low APR (1.2%)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": 28.777716908228264,
-      "perpPnL": -28.149839448412354,
-      "totalFunding": 0.5659551843107598,
-      "entryFees": 1.3722261884276246,
-      "exitFees": 1.4010039053358527,
+      "spotPnL": 25.508121792743466,
+      "perpPnL": -24.95158095362904,
+      "totalFunding": 0.5016538948058695,
+      "entryFees": 1.2163200038845259,
+      "exitFees": 1.2418281256772694,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LINK/USDT:USDT",
@@ -1061,8 +874,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.4881640534588826,
-          "avgVol": 0.5967217702833483,
-          "volPercentile": 27.77777777777778,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 28.368794326241137,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1086,8 +899,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.528031528553782,
-          "avgVol": 0.5967217702833483,
-          "volPercentile": 38.19444444444444,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 39.00709219858156,
           "isLowVol": true
         },
         "riskScore": 0.24421237500000004,
@@ -1098,7 +911,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04663386,
-        "riskAdjustedScore": 0.46315789473684205
+        "riskAdjustedScore": 0.45555555555555555
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -1111,29 +924,29 @@
       "entryPerpPrice": 3.3057,
       "exitSpotPrice": 3.45,
       "exitPerpPrice": 3.4479,
-      "quantity": 315.4542961902585,
+      "quantity": 279.6137939964427,
       "fundingPayments": [
-        0.10014941040619797,
-        0.1118979479446085,
-        0.11415029161940693,
-        0.07554068826959152,
-        0.05952569604333848,
-        -0.03482670886805725
+        0.08877088360620843,
+        0.09918460500641817,
+        0.10118104749555278,
+        0.06695809409875246,
+        0.052762653455568624,
+        -0.030869854418257126
       ],
-      "totalPnL": -1.136954166503895,
+      "totalPnL": -1.0077785338021852,
       "entryFundingRate": 0.00006786,
       "entryFundingAPR": 7.43067,
-      "concurrentPositions": 4,
+      "concurrentPositions": 5,
       "exitFundingRate": -0.00003202,
       "exitFundingAPR": -3.50619,
       "exitReason": "ML Signal: Exit now (risk: 36.1%, momentum: declining)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": 45.425418651397266,
-      "perpPnL": -44.85760091825486,
-      "totalFunding": 0.42643732541508617,
-      "entryFees": 1.0428919032049946,
-      "exitFees": 1.0883173218563917,
+      "spotPnL": 40.264386335487785,
+      "perpPnL": -39.761081506294246,
+      "totalFunding": 0.37798742924424333,
+      "entryFees": 0.9244032029522397,
+      "exitFees": 0.9646675892877274,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "DOT/USDT:USDT",
@@ -1151,8 +964,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.4017938071030853,
-          "avgVol": 0.6366784095486234,
-          "volPercentile": 6.944444444444445,
+          "avgVol": 0.6329449797978364,
+          "volPercentile": 7.092198581560284,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1176,8 +989,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5908185759784993,
-          "avgVol": 0.6366784095486234,
-          "volPercentile": 50,
+          "avgVol": 0.6329449797978364,
+          "volPercentile": 51.06382978723404,
           "isLowVol": true
         },
         "riskScore": 0.36140475000000005,
@@ -1188,58 +1001,67 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04458402,
-        "riskAdjustedScore": 0.5894736842105263
+        "riskAdjustedScore": 0.5888888888888889
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "CRV/USDT:USDT",
-      "entryTime": 1751529600000,
-      "exitTime": 1751616000000,
-      "entrySpotPrice": 0.5422,
-      "entryPerpPrice": 0.542,
-      "exitSpotPrice": 0.5113,
-      "exitPerpPrice": 0.5109,
-      "quantity": 2096.1122119410297,
+      "symbol": "FIL/USDT:USDT",
+      "entryTime": 1751270400000,
+      "exitTime": 1751644800000,
+      "entrySpotPrice": 2.318,
+      "entryPerpPrice": 2.317,
+      "exitSpotPrice": 2.244,
+      "exitPerpPrice": 2.241,
+      "quantity": 471.5964605132686,
       "fundingPayments": [
-        0.11119875284347164,
-        0.11119875284347164,
-        -0.09700245978012728
+        0.09774228540796179,
+        0.10860866485620575,
+        0.10629784219969074,
+        0.10554328786286951,
+        0.10370406166686776,
+        0.10596772467733145,
+        0.11403202415210836,
+        0.11209847866400394,
+        0.11403202415210836,
+        0.11200415937190131,
+        0.11294735229292784,
+        0.10936321919302698,
+        0.019202922127745967
       ],
-      "totalPnL": -1.6636367269848975,
+      "totalPnL": 0.11331391478986141,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
-      "exitFundingRate": -0.00009058,
-      "exitFundingAPR": -9.918510000000001,
-      "exitReason": "ML Signal: Exit soon + Low APR (-9.9%)",
-      "holdingPeriodHours": 24,
-      "fundingPeriodsHeld": 3,
-      "spotPnL": -64.7698673489779,
-      "perpPnL": 65.18908979136606,
-      "totalFunding": 0.125395045906816,
-      "entryFees": 1.1365120413144263,
-      "exitFees": 1.0717421739654485,
+      "exitFundingRate": 0.00001817,
+      "exitFundingAPR": 1.9896150000000001,
+      "exitReason": "ML Signal: Exit soon + Low APR (2.0%)",
+      "holdingPeriodHours": 104,
+      "fundingPeriodsHeld": 13,
+      "spotPnL": -34.898138077981805,
+      "perpPnL": 35.84133099900845,
+      "totalFunding": 1.3215440466247497,
+      "entryFees": 1.0931605954697565,
+      "exitFees": 1.058262457391775,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "CRV/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.9436709999999999,
+          "symbol": "FIL/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
           "lastRates": [
-            -7.92342,
-            -1.5527099999999998,
-            9.581249999999999,
+            10.950000000000001,
+            0.45661500000000005,
             10.950000000000001,
             10.950000000000001
           ],
-          "avgDecline": -4.718355
+          "avgDecline": 0
         },
         "volatility": {
-          "symbol": "CRV/USDT:USDT",
-          "currentVol": 0.8540049428383392,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 67.36111111111111,
+          "symbol": "FIL/USDT:USDT",
+          "currentVol": 1.080705989042726,
+          "avgVol": 0.7259117927682192,
+          "volPercentile": 74.46808510638297,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1248,7 +1070,7 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "CRV/USDT:USDT",
+          "symbol": "FIL/USDT:USDT",
           "trend": "stable",
           "strength": 0.1,
           "lastRates": [
@@ -1256,29 +1078,23 @@
             10.950000000000001,
             10.950000000000001,
             10.950000000000001,
-            -9.918510000000001
+            1.9896150000000001
           ],
-          "avgDecline": 5.2171275
+          "avgDecline": 2.24009625
         },
         "volatility": {
-          "symbol": "CRV/USDT:USDT",
-          "currentVol": 0.7987016785809709,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 50,
+          "symbol": "FIL/USDT:USDT",
+          "currentVol": 0.5113643371497669,
+          "avgVol": 0.7259117927682192,
+          "volPercentile": 30.49645390070922,
           "isLowVol": true
         },
         "riskScore": 0,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.31111111111111117
-      },
       "predictedOutcome": "win",
-      "confidence": 0.6
+      "confidence": 1
     },
     {
       "symbol": "XRP/USDT:USDT",
@@ -1288,16 +1104,16 @@
       "entryPerpPrice": 2.2422,
       "exitSpotPrice": 2.2234,
       "exitPerpPrice": 2.2222,
-      "quantity": 556.3849546236331,
+      "quantity": 569.3827775475806,
       "fundingPayments": [
-        0.12662765182279265,
-        0.1256539781522013,
-        0.12582089363858842,
-        0.08102992072263775,
-        0.10207443663182243,
-        -0.02373885400636104
+        0.1295858263420539,
+        0.12858940648134562,
+        0.1287602213146099,
+        0.08292287730304491,
+        0.10445901846024301,
+        -0.024293422238711684
       ],
-      "totalPnL": -1.836404020435523,
+      "totalPnL": -1.879304631021935,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
@@ -1306,11 +1122,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-2.1%)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": -11.016422101547958,
-      "perpPnL": 11.127699092472673,
-      "totalFunding": 0.5374680269616815,
-      "entryFees": 1.2480827302117337,
-      "exitFees": 1.2370663081101858,
+      "spotPnL": -11.27377899544212,
+      "perpPnL": 11.387655550951623,
+      "totalFunding": 0.5500239276625857,
+      "entryFees": 1.2772394465947328,
+      "exitFees": 1.2659656675992907,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "XRP/USDT:USDT",
@@ -1328,8 +1144,8 @@
         "volatility": {
           "symbol": "XRP/USDT:USDT",
           "currentVol": 0.5637591384180618,
-          "avgVol": 0.5180808017752476,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.5229010337432577,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1353,8 +1169,8 @@
         "volatility": {
           "symbol": "XRP/USDT:USDT",
           "currentVol": 0.4113510414347475,
-          "avgVol": 0.5180808017752476,
-          "volPercentile": 45.83333333333333,
+          "avgVol": 0.5229010337432577,
+          "volPercentile": 44.680851063829785,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1365,7 +1181,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.19726027397260273
+        "riskAdjustedScore": 0.20571428571428577
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -1378,11 +1194,11 @@
       "entryPerpPrice": 0.5038,
       "exitSpotPrice": 0.4977,
       "exitPerpPrice": 0.4973,
-      "quantity": 3907.494799333356,
+      "quantity": 3981.512851976951,
       "fundingPayments": [
-        -0.12790123731529202
+        -0.13032401738358523
       ],
-      "totalPnL": -4.042820276767381,
+      "totalPnL": -4.119401743779292,
       "entryFundingRate": 0.00008596,
       "entryFundingAPR": 9.412619999999999,
       "concurrentPositions": 2,
@@ -1391,11 +1207,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-7.2%)",
       "holdingPeriodHours": 8,
       "fundingPeriodsHeld": 1,
-      "spotPnL": -25.398716195666836,
-      "perpPnL": 25.398716195666836,
-      "totalFunding": -0.12790123731529202,
-      "entryFees": 1.9701588778238779,
-      "exitFees": 1.944760161628211,
+      "spotPnL": -25.879833537850203,
+      "perpPnL": 25.879833537850203,
+      "totalFunding": -0.13032401738358523,
+      "entryFees": 2.0074787799667786,
+      "exitFees": 1.9815989464289285,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "CRV/USDT:USDT",
@@ -1413,8 +1229,8 @@
         "volatility": {
           "symbol": "CRV/USDT:USDT",
           "currentVol": 0.7322853260373849,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 36.80555555555556,
+          "avgVol": 0.7916837066160487,
+          "volPercentile": 37.5886524822695,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1438,8 +1254,8 @@
         "volatility": {
           "symbol": "CRV/USDT:USDT",
           "currentVol": 0.6222861645839848,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 20.13888888888889,
+          "avgVol": 0.7916837066160487,
+          "volPercentile": 20.56737588652482,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1450,56 +1266,56 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.05647571999999999,
-        "riskAdjustedScore": 0.4413223140495868
+        "riskAdjustedScore": 0.4372881355932204
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "MKR/USDT:USDT",
+      "symbol": "RENDER/USDT:USDT",
       "entryTime": 1751673600000,
       "exitTime": 1751702400000,
-      "entrySpotPrice": 1879,
-      "entryPerpPrice": 1876.7,
-      "exitSpotPrice": 1867,
-      "exitPerpPrice": 1870.8,
-      "quantity": 0.7968710735211001,
+      "entrySpotPrice": 3.161,
+      "entryPerpPrice": 3.158,
+      "exitSpotPrice": 3.149,
+      "exitPerpPrice": 3.147,
+      "quantity": 502.7693875799958,
       "fundingPayments": [
-        -0.054309348710225476
+        -0.01014199983399832
       ],
-      "totalPnL": -7.900301938598904,
-      "entryFundingRate": 0.00006421,
-      "entryFundingAPR": 7.030995,
+      "totalPnL": -3.685386223043712,
+      "entryFundingRate": 0.00005,
+      "entryFundingAPR": 5.4750000000000005,
       "concurrentPositions": 3,
-      "exitFundingRate": -0.00003643,
-      "exitFundingAPR": -3.9890850000000007,
-      "exitReason": "ML Signal: Exit now (risk: 37.3%, momentum: declining)",
+      "exitFundingRate": -0.00000641,
+      "exitFundingAPR": -0.7018949999999998,
+      "exitReason": "ML Signal: Exit soon + Low APR (-0.7%)",
       "holdingPeriodHours": 8,
       "fundingPeriodsHeld": 1,
-      "spotPnL": -9.5624528822532,
-      "perpPnL": 4.701539333774563,
-      "totalFunding": -0.054309348710225476,
-      "entryFees": 1.4973207471461472,
-      "exitFees": 1.487758294263894,
+      "spotPnL": -6.033232650959955,
+      "perpPnL": 5.530463263380015,
+      "totalFunding": -0.01014199983399832,
+      "entryFees": 1.5892540341403667,
+      "exitFees": 1.5832208014894067,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "MKR/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "rising",
+          "strength": 1,
           "lastRates": [
-            6.222885,
-            10.950000000000001,
-            0.8190600000000001,
-            -0.7413150000000001,
-            7.030995
+            -16.501649999999998,
+            4.7774849999999995,
+            -9.236324999999999,
+            -4.60995,
+            5.4750000000000005
           ],
-          "avgDecline": -0.20202750000000003
+          "avgDecline": -5.4941625
         },
         "volatility": {
-          "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.5866191559964417,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 29.86111111111111,
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.6560714380514665,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 41.843971631205676,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1508,108 +1324,23 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "MKR/USDT:USDT",
-          "trend": "declining",
-          "strength": 0.7469542500000002,
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "rising",
+          "strength": 0.4267214999999999,
           "lastRates": [
-            10.950000000000001,
-            0.8190600000000001,
-            -0.7413150000000001,
-            7.030995,
-            -3.9890850000000007
+            -9.236324999999999,
+            -4.60995,
+            5.4750000000000005,
+            5.4750000000000005,
+            -0.7018949999999998
           ],
-          "avgDecline": 3.7347712500000005
+          "avgDecline": -2.1336074999999997
         },
         "volatility": {
-          "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.48654652871887494,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 14.583333333333334,
-          "isLowVol": true
-        },
-        "riskScore": 0.3734771250000001,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_now"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.042185969999999996,
-        "riskAdjustedScore": 0.49586776859504134
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
-      "symbol": "ADA/USDT:USDT",
-      "entryTime": 1751673600000,
-      "exitTime": 1751702400000,
-      "entrySpotPrice": 0.5754,
-      "entryPerpPrice": 0.5749,
-      "exitSpotPrice": 0.5735,
-      "exitPerpPrice": 0.5731,
-      "quantity": 1977.6916368284178,
-      "fundingPayments": [
-        -0.13205419062900234
-      ],
-      "totalPnL": -2.6019932758642117,
-      "entryFundingRate": 0.00005174,
-      "entryFundingAPR": 5.66553,
-      "concurrentPositions": 4,
-      "exitFundingRate": -0.00011651,
-      "exitFundingAPR": -12.757844999999998,
-      "exitReason": "ML Signal: Exit soon + Low APR (-12.8%)",
-      "holdingPeriodHours": 8,
-      "fundingPeriodsHeld": 1,
-      "spotPnL": -3.757614109974019,
-      "perpPnL": 3.5598449462909794,
-      "totalFunding": -0.13205419062900234,
-      "entryFees": 1.1379637678310717,
-      "exitFees": 1.1342061537210977,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "ADA/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            7.713179999999999,
-            -2.67618,
-            10.950000000000001,
-            2.407905,
-            5.66553
-          ],
-          "avgDecline": 0.5119124999999994
-        },
-        "volatility": {
-          "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.6337864629740582,
-          "avgVol": 0.725363582115403,
-          "volPercentile": 36.80555555555556,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "ADA/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            -2.67618,
-            10.950000000000001,
-            2.407905,
-            5.66553,
-            -12.757844999999998
-          ],
-          "avgDecline": 2.52041625
-        },
-        "volatility": {
-          "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.5969442864801799,
-          "avgVol": 0.725363582115403,
-          "volPercentile": 32.63888888888889,
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.5609207240905006,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 15.602836879432624,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1619,16 +1350,101 @@
       "mlPrediction": {
         "willDecline": false,
         "confidence": 0.6,
-        "expectedReturn": 0.033993180000000005,
-        "riskAdjustedScore": 0.44628099173553715
+        "expectedReturn": 0.032850000000000004,
+        "riskAdjustedScore": 0.4169491525423728
+      },
+      "predictedOutcome": "win",
+      "confidence": 0.6
+    },
+    {
+      "symbol": "RENDER/USDT:USDT",
+      "entryTime": 1751731200000,
+      "exitTime": 1751760000000,
+      "entrySpotPrice": 3.16,
+      "entryPerpPrice": 3.158,
+      "exitSpotPrice": 3.164,
+      "exitPerpPrice": 3.162,
+      "quantity": 274.16057366681287,
+      "fundingPayments": [
+        0.01470255164752848
+      ],
+      "totalPnL": -1.7190889162213963,
+      "entryFundingRate": 0.00004571,
+      "entryFundingAPR": 5.005245,
+      "concurrentPositions": 5,
+      "exitFundingRate": 0.00001696,
+      "exitFundingAPR": 1.8571199999999999,
+      "exitReason": "ML Signal: Exit soon + Low APR (1.9%)",
+      "holdingPeriodHours": 8,
+      "fundingPeriodsHeld": 1,
+      "spotPnL": 1.0966422946672525,
+      "perpPnL": -1.0966422946672525,
+      "totalFunding": 0.01470255164752848,
+      "entryFees": 0.8663474127871288,
+      "exitFees": 0.8674440550817959,
+      "entrySignals": {
+        "fundingMomentum": {
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            5.4750000000000005,
+            5.4750000000000005,
+            -0.7018949999999998,
+            5.4750000000000005,
+            5.005245
+          ],
+          "avgDecline": 0.11743875000000004
+        },
+        "volatility": {
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.4861235542940604,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 0,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "enter",
+        "exitRecommendation": "hold"
+      },
+      "exitSignals": {
+        "fundingMomentum": {
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            5.4750000000000005,
+            -0.7018949999999998,
+            5.4750000000000005,
+            5.005245,
+            1.8571199999999999
+          ],
+          "avgDecline": 0.9044700000000001
+        },
+        "volatility": {
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.5310240365355126,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 7.092198581560284,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "avoid",
+        "exitRecommendation": "exit_soon"
+      },
+      "mlPrediction": {
+        "willDecline": false,
+        "confidence": 0.6,
+        "expectedReturn": 0.03003147,
+        "riskAdjustedScore": 0.6
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     }
   ],
   "config": {
-    "startDate": "2025-06-28T22:56:30.402Z",
-    "endDate": "2025-07-05T22:56:30.402Z",
+    "startDate": "2025-06-29T01:01:20.491Z",
+    "endDate": "2025-07-06T01:01:20.491Z",
     "initialCapital": 10000,
     "minAPR": 3,
     "useML": true,
@@ -1666,9 +1482,8 @@
         "fundingMomentum": {
           "symbol": "NEAR/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             10.950000000000001,
             10.950000000000001
           ],
@@ -1676,8 +1491,8 @@
         },
         "volatility": {
           "symbol": "NEAR/USDT:USDT",
-          "currentVol": 0.37925896700231976,
-          "avgVol": 0.8032202180360177,
+          "currentVol": 0.3377558252150633,
+          "avgVol": 0.7999968361461335,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -1694,19 +1509,18 @@
             10.950000000000001,
             10.950000000000001,
             10.950000000000001,
-            10.950000000000001,
             -6.347715
           ],
-          "avgDecline": 4.32442875
+          "avgDecline": 5.765905
         },
         "volatility": {
           "symbol": "NEAR/USDT:USDT",
           "currentVol": 1.0736450690585144,
-          "avgVol": 0.8032202180360177,
-          "volPercentile": 91.66666666666666,
+          "avgVol": 0.7999968361461335,
+          "volPercentile": 91.48936170212765,
           "isLowVol": false
         },
-        "riskScore": 0.27499999999999997,
+        "riskScore": 0.27446808510638293,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -1721,12 +1535,12 @@
       "entryPerpPrice": 0.8948,
       "exitSpotPrice": 0.9155,
       "exitPerpPrice": 0.9136,
-      "quantity": 1160.875390799464,
+      "quantity": 1176.353729343457,
       "fundingPayments": [
-        0.10856506654756588,
-        0.006214973936221527
+        0.11001260076820012,
+        0.006297840255371148
       ],
-      "totalPnL": -0.7107184499135946,
+      "totalPnL": -0.7201946959124406,
       "entryFundingRate": 0.00009639,
       "entryFundingAPR": 10.554705,
       "concurrentPositions": 4,
@@ -1735,28 +1549,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (0.6%)",
       "holdingPeriodHours": 16,
       "fundingPeriodsHeld": 2,
-      "spotPnL": 23.101420276909366,
-      "perpPnL": -21.82445734702984,
-      "totalFunding": 0.11478004048378741,
-      "entryFees": 1.03968,
-      "exitFees": 1.0627814202769092,
+      "spotPnL": 23.409439213934828,
+      "perpPnL": -22.115450111656905,
+      "totalFunding": 0.11631044102357127,
+      "entryFees": 1.0535424,
+      "exitFees": 1.0769518392139348,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "WLD/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             7.412055,
             10.554705
           ],
-          "avgDecline": 0.19764750000000042
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "WLD/USDT:USDT",
-          "currentVol": 0.5062783917747518,
-          "avgVol": 0.8125336692126229,
-          "volPercentile": 3.4722222222222223,
+          "currentVol": 0.4244504300429691,
+          "avgVol": 0.8095182677074835,
+          "volPercentile": 0,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1769,22 +1582,21 @@
           "trend": "stable",
           "strength": 0.1,
           "lastRates": [
-            10.950000000000001,
             7.412055,
             10.554705,
             10.950000000000001,
             0.64167
           ],
-          "avgDecline": 2.5770825000000004
+          "avgDecline": 2.256795
         },
         "volatility": {
           "symbol": "WLD/USDT:USDT",
           "currentVol": 1.0887770678248632,
-          "avgVol": 0.8125336692126229,
-          "volPercentile": 90.27777777777779,
+          "avgVol": 0.8095182677074835,
+          "volPercentile": 90.0709219858156,
           "isLowVol": false
         },
-        "riskScore": 0.27083333333333337,
+        "riskScore": 0.2702127659574468,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -1799,13 +1611,13 @@
       "entryPerpPrice": 1961.6,
       "exitSpotPrice": 1921,
       "exitPerpPrice": 1920,
-      "quantity": 0.9679062659195109,
+      "quantity": 0.9291900152827305,
       "fundingPayments": [
-        0.19553642384105963,
-        0.0541651574121243,
-        -0.19403345899133975
+        0.18771496688741723,
+        0.05199855111563933,
+        -0.1862721206316862
       ],
-      "totalPnL": -4.09084232093743,
+      "totalPnL": -3.9272086280999314,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 2,
@@ -1814,28 +1626,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-11.4%)",
       "holdingPeriodHours": 24,
       "fundingPeriodsHeld": 3,
-      "spotPnL": -40.652063168619456,
-      "perpPnL": 40.26490066225156,
-      "totalFunding": 0.05566812226184417,
-      "entryFees": 1.9000000000000001,
-      "exitFees": 1.8593479368313803,
+      "spotPnL": -39.02598064187468,
+      "perpPnL": 38.654304635761505,
+      "totalFunding": 0.05344139737137038,
+      "entryFees": 1.824,
+      "exitFees": 1.7849740193581254,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "MKR/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.542463,
+          "trend": "stable",
+          "strength": 0,
           "lastRates": [
-            5.525370000000001,
             2.635665,
             10.950000000000001
           ],
-          "avgDecline": -2.7123150000000003
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.5713911432625018,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 28.47222222222222,
+          "currentVol": 0.6186646536715346,
+          "avgVol": 0.6688308796143906,
+          "volPercentile": 32.62411347517731,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1859,8 +1670,8 @@
         "volatility": {
           "symbol": "MKR/USDT:USDT",
           "currentVol": 0.6868459112898134,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 54.861111111111114,
+          "avgVol": 0.6688308796143906,
+          "volPercentile": 53.90070921985816,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1878,14 +1689,14 @@
       "entryPerpPrice": 7.225,
       "exitSpotPrice": 7.128,
       "exitPerpPrice": 7.123,
-      "quantity": 113.8895807388958,
+      "quantity": 110.79178414279784,
       "fundingPayments": [
-        0.0840391216272312,
-        0.05282241121594022,
-        0.08170438522208386,
-        -0.027143939281361565
+        0.08175325751897053,
+        0.051385641630866646,
+        0.07948202594404317,
+        -0.026405624132908527
       ],
-      "totalPnL": -1.1017942105063558,
+      "totalPnL": -1.0718254079805836,
       "entryFundingRate": 0.00008784,
       "entryFundingAPR": 9.61848,
       "concurrentPositions": 5,
@@ -1894,28 +1705,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-3.7%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": -11.275068493150707,
-      "perpPnL": 11.616737235367307,
-      "totalFunding": 0.19142197878389372,
-      "entryFees": 0.82308,
-      "exitFees": 0.8118049315068493,
+      "spotPnL": -10.968386630137008,
+      "perpPnL": 11.300761982565316,
+      "totalFunding": 0.18621530096097183,
+      "entryFees": 0.8006922240000001,
+      "exitFees": 0.789723837369863,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "UNI/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.37722750000000005,
+          "trend": "stable",
+          "strength": 0,
           "lastRates": [
-            5.846205,
             -7.052895,
             9.61848
           ],
-          "avgDecline": -1.8861375000000002
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "UNI/USDT:USDT",
-          "currentVol": 0.8232581203810904,
-          "avgVol": 0.9872111284818134,
-          "volPercentile": 28.47222222222222,
+          "currentVol": 0.7646993600397824,
+          "avgVol": 0.9880465603642388,
+          "volPercentile": 22.69503546099291,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1939,8 +1749,8 @@
         "volatility": {
           "symbol": "UNI/USDT:USDT",
           "currentVol": 0.8250973166137728,
-          "avgVol": 0.9872111284818134,
-          "volPercentile": 28.47222222222222,
+          "avgVol": 0.9880465603642388,
+          "volPercentile": 29.078014184397162,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -1951,92 +1761,6 @@
       "confidence": 1
     },
     {
-      "symbol": "POL/USDT:USDT",
-      "entryTime": 1751270400000,
-      "exitTime": 1751328000000,
-      "entrySpotPrice": 0.1831,
-      "entryPerpPrice": 0.1829,
-      "exitSpotPrice": 0.1874,
-      "exitPerpPrice": 0.1871,
-      "quantity": 5891.2072980306175,
-      "fundingPayments": [
-        0.055671908966389336,
-        -0.01531018145906063
-      ],
-      "totalPnL": -1.5532098466098556,
-      "entryFundingRate": 0.00005,
-      "entryFundingAPR": 5.4750000000000005,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00001389,
-      "exitFundingAPR": -1.520955,
-      "exitReason": "ML Signal: Exit soon + Low APR (-1.5%)",
-      "holdingPeriodHours": 16,
-      "fundingPeriodsHeld": 2,
-      "spotPnL": 25.332191381531644,
-      "perpPnL": -24.743070651728484,
-      "totalFunding": 0.04036172750732871,
-      "entryFees": 1.078680056269406,
-      "exitFees": 1.1040122476509378,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "POL/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005
-          ],
-          "avgDecline": 0
-        },
-        "volatility": {
-          "symbol": "POL/USDT:USDT",
-          "currentVol": 0.6599129364821993,
-          "avgVol": 0.6897286706542083,
-          "volPercentile": 44.44444444444444,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "POL/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            -1.520955
-          ],
-          "avgDecline": 1.74898875
-        },
-        "volatility": {
-          "symbol": "POL/USDT:USDT",
-          "currentVol": 0.9468211203321046,
-          "avgVol": 0.6897286706542083,
-          "volPercentile": 87.5,
-          "isLowVol": false
-        },
-        "riskScore": 0.2625,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.032850000000000004,
-        "riskAdjustedScore": 0
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
       "symbol": "LDO/USDT:USDT",
       "entryTime": 1751212800000,
       "exitTime": 1751356800000,
@@ -2044,15 +1768,15 @@
       "entryPerpPrice": 0.7237,
       "exitSpotPrice": 0.7272,
       "exitPerpPrice": 0.727,
-      "quantity": 1889.5027624309394,
+      "quantity": 1914.6961325966852,
       "fundingPayments": [
-        0.14594519337016576,
-        0.14095690607734807,
-        0.14141038674033152,
-        0.14065458563535913,
-        0.002142922872928177
+        0.14789112928176798,
+        0.1428363314917127,
+        0.1432958585635359,
+        0.14252998011049725,
+        0.0021714951779005526
       ],
-      "totalPnL": -2.3598866903867197,
+      "totalPnL": -2.3913518462585426,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 3,
@@ -2061,18 +1785,17 @@
       "exitReason": "ML Signal: Exit soon + Low APR (0.2%)",
       "holdingPeriodHours": 40,
       "fundingPeriodsHeld": 5,
-      "spotPnL": 6.0464088397789695,
-      "perpPnL": -6.2353591160220425,
-      "totalFunding": 0.5711099946961327,
-      "entryFees": 1.368,
-      "exitFees": 1.3740464088397792,
+      "spotPnL": 6.127027624309355,
+      "perpPnL": -6.3184972375690025,
+      "totalFunding": 0.5787247946254144,
+      "entryFees": 1.3862400000000001,
+      "exitFees": 1.3923670276243094,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LDO/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             10.950000000000001,
             10.950000000000001
           ],
@@ -2080,9 +1803,9 @@
         },
         "volatility": {
           "symbol": "LDO/USDT:USDT",
-          "currentVol": 0.45938839469268233,
-          "avgVol": 0.8080426068814313,
-          "volPercentile": 5.555555555555555,
+          "currentVol": 0.36718128010978496,
+          "avgVol": 0.8050235615732338,
+          "volPercentile": 0,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2106,8 +1829,8 @@
         "volatility": {
           "symbol": "LDO/USDT:USDT",
           "currentVol": 0.8236834419940045,
-          "avgVol": 0.8080426068814313,
-          "volPercentile": 50,
+          "avgVol": 0.8050235615732338,
+          "volPercentile": 51.06382978723404,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2118,53 +1841,51 @@
       "confidence": 1
     },
     {
-      "symbol": "TRX/USDT:USDT",
+      "symbol": "BNB/USDT:USDT",
       "entryTime": 1751270400000,
-      "exitTime": 1751385600000,
-      "entrySpotPrice": 0.2777,
-      "entryPerpPrice": 0.27751,
-      "exitSpotPrice": 0.2788,
-      "exitPerpPrice": 0.27869,
-      "quantity": 5394.910856386819,
+      "exitTime": 1751356800000,
+      "entrySpotPrice": 653.4,
+      "entryPerpPrice": 653.1,
+      "exitSpotPrice": 652.4,
+      "exitPerpPrice": 651.9,
+      "quantity": 2.323658715670503,
       "fundingPayments": [
-        0.033850151292982675,
-        0.15088486683142657,
-        0.10957633166366086,
-        -0.12202468546493249
+        0.1529432166654325,
+        0.1528735069039624,
+        -0.004195976933385315
       ],
-      "totalPnL": -3.2615740957672057,
-      "entryFundingRate": 0.00008881,
-      "entryFundingAPR": 9.724695,
+      "totalPnL": -2.267881061152327,
+      "entryFundingRate": 0.0001,
+      "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 4,
-      "exitFundingRate": -0.00008116,
-      "exitFundingAPR": -8.887020000000001,
-      "exitReason": "ML Signal: Exit now (risk: 46.5%, momentum: declining)",
-      "holdingPeriodHours": 32,
-      "fundingPeriodsHeld": 4,
-      "spotPnL": 5.934401942025446,
-      "perpPnL": -6.365994810536525,
-      "totalFunding": 0.1722866643231376,
-      "entryFees": 1.4981667448186198,
-      "exitFees": 1.504101146760645,
+      "exitFundingRate": -0.00000277,
+      "exitFundingAPR": -0.303315,
+      "exitReason": "ML Signal: Exit soon + Low APR (-0.3%)",
+      "holdingPeriodHours": 24,
+      "fundingPeriodsHeld": 3,
+      "spotPnL": -2.323658715670503,
+      "perpPnL": 2.788390458804709,
+      "totalFunding": 0.30162074663600963,
+      "entryFees": 1.5182786048191066,
+      "exitFees": 1.515954946103436,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "TRX/USDT:USDT",
+          "symbol": "BNB/USDT:USDT",
           "trend": "rising",
-          "strength": 0.5349075000000001,
+          "strength": 0.673717,
           "lastRates": [
-            -0.973455,
-            0.075555,
-            -0.79278,
-            7.769025,
-            9.724695
+            0.844245,
+            4.861800000000001,
+            9.88785,
+            10.950000000000001
           ],
-          "avgDecline": -2.6745375000000005
+          "avgDecline": -3.368585
         },
         "volatility": {
-          "symbol": "TRX/USDT:USDT",
-          "currentVol": 0.12696290544164404,
-          "avgVol": 0.20412699114865876,
-          "volPercentile": 2.083333333333333,
+          "symbol": "BNB/USDT:USDT",
+          "currentVol": 0.20872257527262375,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 39.71631205673759,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2173,33 +1894,112 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "TRX/USDT:USDT",
-          "trend": "declining",
-          "strength": 0.9305857500000002,
+          "symbol": "BNB/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
           "lastRates": [
-            9.724695,
-            2.4681300000000004,
+            9.88785,
             10.950000000000001,
-            7.979264999999999,
-            -8.887020000000001
+            10.950000000000001,
+            10.950000000000001,
+            -0.303315
           ],
-          "avgDecline": 4.652928750000001
+          "avgDecline": 2.54779125
         },
         "volatility": {
-          "symbol": "TRX/USDT:USDT",
-          "currentVol": 0.14979545315782894,
-          "avgVol": 0.20412699114865876,
-          "volPercentile": 26.38888888888889,
+          "symbol": "BNB/USDT:USDT",
+          "currentVol": 0.2504818968030072,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 74.46808510638297,
           "isLowVol": true
         },
-        "riskScore": 0.4652928750000001,
+        "riskScore": 0,
         "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_now"
+        "exitRecommendation": "exit_soon"
+      },
+      "predictedOutcome": "win",
+      "confidence": 1
+    },
+    {
+      "symbol": "LINK/USDT:USDT",
+      "entryTime": 1751328000000,
+      "exitTime": 1751356800000,
+      "entrySpotPrice": 13.344,
+      "entryPerpPrice": 13.336,
+      "exitSpotPrice": 13.164,
+      "exitPerpPrice": 13.157,
+      "quantity": 89.51399940996754,
+      "fundingPayments": [
+        -0.05834502609433815
+      ],
+      "totalPnL": -2.520696121863678,
+      "entryFundingRate": 0.0001,
+      "entryFundingAPR": 10.950000000000001,
+      "concurrentPositions": 5,
+      "exitFundingRate": -0.00004954,
+      "exitFundingAPR": -5.42463,
+      "exitReason": "ML Signal: Exit soon + Low APR (-5.4%)",
+      "holdingPeriodHours": 8,
+      "fundingPeriodsHeld": 1,
+      "spotPnL": -16.112519893794133,
+      "perpPnL": 16.023005894384212,
+      "totalFunding": -0.05834502609433815,
+      "entryFees": 1.1944748081266068,
+      "exitFees": 1.1783622882328126,
+      "entrySignals": {
+        "fundingMomentum": {
+          "symbol": "LINK/USDT:USDT",
+          "trend": "rising",
+          "strength": 0.6583140000000001,
+          "lastRates": [
+            -2.21628,
+            8.784089999999999,
+            -10.066335,
+            10.30614,
+            10.950000000000001
+          ],
+          "avgDecline": -3.29157
+        },
+        "volatility": {
+          "symbol": "LINK/USDT:USDT",
+          "currentVol": 0.6891124858141384,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 70.92198581560284,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "enter",
+        "exitRecommendation": "hold"
+      },
+      "exitSignals": {
+        "fundingMomentum": {
+          "symbol": "LINK/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            8.784089999999999,
+            -10.066335,
+            10.30614,
+            10.950000000000001,
+            -5.42463
+          ],
+          "avgDecline": 3.5521799999999994
+        },
+        "volatility": {
+          "symbol": "LINK/USDT:USDT",
+          "currentVol": 0.6478351004729883,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 53.90070921985816,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "avoid",
+        "exitRecommendation": "exit_soon"
       },
       "mlPrediction": {
         "willDecline": false,
         "confidence": 0.6,
-        "expectedReturn": 0.058348170000000005,
+        "expectedReturn": 0.06570000000000001,
         "riskAdjustedScore": 0.6
       },
       "predictedOutcome": "win",
@@ -2213,14 +2013,14 @@
       "entryPerpPrice": 86,
       "exitSpotPrice": 83.36,
       "exitPerpPrice": 83.3,
-      "quantity": 14.714886243768657,
+      "quantity": 14.635805940339292,
       "fundingPayments": [
-        0.12678345987631073,
-        0.12663631101387307,
-        0.032901031810305834,
-        -0.10049924447644512
+        0.12610210398196334,
+        0.12595574592255995,
+        0.03272421606497175,
+        -0.09995914442973326
       ],
-      "totalPnL": -2.012582446595052,
+      "totalPnL": -2.0017664859469844,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
@@ -2229,11 +2029,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-9.0%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": -39.4358951333001,
-      "perpPnL": 39.730192858175414,
-      "totalFunding": 0.18582155822404453,
-      "entryFees": 1.2660688124138553,
-      "exitFees": 1.2266329172805552,
+      "spotPnL": -39.2239599201094,
+      "perpPnL": 39.51667603891613,
+      "totalFunding": 0.18482292153976182,
+      "entryFees": 1.259264743106793,
+      "exitFees": 1.2200407831866835,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LTC/USDT:USDT",
@@ -2251,8 +2051,8 @@
         "volatility": {
           "symbol": "LTC/USDT:USDT",
           "currentVol": 0.5266309985234535,
-          "avgVol": 0.5056696440110069,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.5086686048083139,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2276,8 +2076,8 @@
         "volatility": {
           "symbol": "LTC/USDT:USDT",
           "currentVol": 0.48530883533183833,
-          "avgVol": 0.5056696440110069,
-          "volPercentile": 43.75,
+          "avgVol": 0.5086686048083139,
+          "volPercentile": 42.5531914893617,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2294,91 +2094,6 @@
       "confidence": 0.6
     },
     {
-      "symbol": "RENDER/USDT:USDT",
-      "entryTime": 1751443200000,
-      "exitTime": 1751472000000,
-      "entrySpotPrice": 3.178,
-      "entryPerpPrice": 3.174,
-      "exitSpotPrice": 3.291,
-      "exitPerpPrice": 3.287,
-      "quantity": 249.40146206286843,
-      "fundingPayments": [
-        -0.05097408242868433
-      ],
-      "totalPnL": -1.66435214051338,
-      "entryFundingRate": 0.00004742,
-      "entryFundingAPR": 5.19249,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00006218,
-      "exitFundingAPR": -6.808710000000001,
-      "exitReason": "ML Signal: Exit soon + Low APR (-6.8%)",
-      "holdingPeriodHours": 8,
-      "fundingPeriodsHeld": 1,
-      "spotPnL": 28.18236521310413,
-      "perpPnL": -28.18236521310413,
-      "totalFunding": -0.05097408242868433,
-      "entryFees": 0.7925978464357959,
-      "exitFees": 0.8207802116489,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "RENDER/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.19249
-          ],
-          "avgDecline": 0.07062750000000007
-        },
-        "volatility": {
-          "symbol": "RENDER/USDT:USDT",
-          "currentVol": 0.5341525200319936,
-          "avgVol": 0.7485509517448908,
-          "volPercentile": 6.944444444444445,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "RENDER/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.19249,
-            5.4750000000000005,
-            -6.808710000000001
-          ],
-          "avgDecline": 3.0709275000000007
-        },
-        "volatility": {
-          "symbol": "RENDER/USDT:USDT",
-          "currentVol": 0.6907505790350132,
-          "avgVol": 0.7485509517448908,
-          "volPercentile": 43.75,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.03115494,
-        "riskAdjustedScore": 0.5684210526315789
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
       "symbol": "BNB/USDT:USDT",
       "entryTime": 1751414400000,
       "exitTime": 1751500800000,
@@ -2386,26 +2101,26 @@
       "entryPerpPrice": 645.3,
       "exitSpotPrice": 659.9,
       "exitPerpPrice": 659.4,
-      "quantity": 3.728136345476226,
+      "quantity": 3.3044931204070616,
       "fundingPayments": [
-        0.24572146653033808,
-        0.24743640924925714,
-        -0.029180413970677367
+        0.21779914156602945,
+        0.21931920840141672,
+        -0.02586452540388946
       ],
-      "totalPnL": -4.030663716297565,
+      "totalPnL": -3.5726430813994963,
       "entryFundingRate": 0.00006229,
       "entryFundingAPR": 6.820755,
-      "concurrentPositions": 1,
+      "concurrentPositions": 2,
       "exitFundingRate": -0.00001187,
       "exitFundingAPR": -1.2997649999999998,
       "exitReason": "ML Signal: Exit soon + Low APR (-1.3%)",
       "holdingPeriodHours": 24,
       "fundingPeriodsHeld": 3,
-      "spotPnL": 52.93953610576215,
-      "perpPnL": -52.566722471214874,
-      "totalFunding": 0.46397746180891786,
-      "entryFees": 2.4072576382739994,
-      "exitFees": 2.4601971743797613,
+      "spotPnL": 46.92380230978005,
+      "perpPnL": -46.59335299773964,
+      "totalFunding": 0.4112538245635567,
+      "entryFees": 2.13371120784684,
+      "exitFees": 2.18063501015662,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "BNB/USDT:USDT",
@@ -2423,8 +2138,8 @@
         "volatility": {
           "symbol": "BNB/USDT:USDT",
           "currentVol": 0.19403346441220737,
-          "avgVol": 0.21769699171396475,
-          "volPercentile": 25,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 23.404255319148938,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2448,8 +2163,8 @@
         "volatility": {
           "symbol": "BNB/USDT:USDT",
           "currentVol": 0.23710922614137186,
-          "avgVol": 0.21769699171396475,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2460,93 +2175,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04092453,
-        "riskAdjustedScore": 0.5387755102040817
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
-      "symbol": "ARB/USDT:USDT",
-      "entryTime": 1751472000000,
-      "exitTime": 1751529600000,
-      "entrySpotPrice": 0.3547,
-      "entryPerpPrice": 0.3543,
-      "exitSpotPrice": 0.3555,
-      "exitPerpPrice": 0.3551,
-      "quantity": 2253.9966309633933,
-      "fundingPayments": [
-        0.07900258191526693,
-        0.0029374467274142207
-      ],
-      "totalPnL": -1.518848378667646,
-      "entryFundingRate": 0.0001,
-      "entryFundingAPR": 10.950000000000001,
-      "concurrentPositions": 5,
-      "exitFundingRate": 0.00000367,
-      "exitFundingAPR": 0.40186499999999997,
-      "exitReason": "ML Signal: Exit soon + Low APR (0.4%)",
-      "holdingPeriodHours": 16,
-      "fundingPeriodsHeld": 2,
-      "spotPnL": 1.803197304770641,
-      "perpPnL": -1.8031973047707663,
-      "totalFunding": 0.08194002864268116,
-      "entryFees": 0.7994926050027157,
-      "exitFees": 0.8012958023074863,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "ARB/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            10.153935,
-            -2.118825,
-            -4.17852,
-            -3.198495,
-            10.950000000000001
-          ],
-          "avgDecline": -0.19901624999999967
-        },
-        "volatility": {
-          "symbol": "ARB/USDT:USDT",
-          "currentVol": 1.1292185577373308,
-          "avgVol": 1.1338140025942796,
-          "volPercentile": 66.66666666666666,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "ARB/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.22901924999999998,
-          "lastRates": [
-            -4.17852,
-            -3.198495,
-            10.950000000000001,
-            10.950000000000001,
-            0.40186499999999997
-          ],
-          "avgDecline": -1.14509625
-        },
-        "volatility": {
-          "symbol": "ARB/USDT:USDT",
-          "currentVol": 0.9443055579936155,
-          "avgVol": 1.1338140025942796,
-          "volPercentile": 52.77777777777778,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.3507692307692307
+        "riskAdjustedScore": 0.5739130434782609
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -2559,29 +2188,29 @@
       "entryPerpPrice": 13.109,
       "exitSpotPrice": 13.388,
       "exitPerpPrice": 13.378,
-      "quantity": 104.6462433026481,
+      "quantity": 92.75680651906703,
       "fundingPayments": [
-        0.13589566575857487,
-        0.1417851950507579,
-        0.14485132997952552,
-        0.09666753547992232,
-        0.03164991723305762,
-        0.015105540808921496
+        0.1204558097617724,
+        0.1256761971526839,
+        0.1283939715836926,
+        0.08568460369144756,
+        0.028053995599638705,
+        0.013389317016634329
       ],
-      "totalPnL": -1.579397449636808,
+      "totalPnL": -1.3999533956414998,
       "entryFundingRate": 0.00007098,
       "entryFundingAPR": 7.77231,
-      "concurrentPositions": 3,
+      "concurrentPositions": 4,
       "exitFundingRate": 0.00001079,
       "exitFundingAPR": 1.181505,
       "exitReason": "ML Signal: Exit soon + Low APR (1.2%)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": 28.777716908228264,
-      "perpPnL": -28.149839448412354,
-      "totalFunding": 0.5659551843107598,
-      "entryFees": 1.3722261884276246,
-      "exitFees": 1.4010039053358527,
+      "spotPnL": 25.508121792743466,
+      "perpPnL": -24.95158095362904,
+      "totalFunding": 0.5016538948058695,
+      "entryFees": 1.2163200038845259,
+      "exitFees": 1.2418281256772694,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LINK/USDT:USDT",
@@ -2599,8 +2228,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.4881640534588826,
-          "avgVol": 0.5967217702833483,
-          "volPercentile": 27.77777777777778,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 28.368794326241137,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2624,8 +2253,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.528031528553782,
-          "avgVol": 0.5967217702833483,
-          "volPercentile": 38.19444444444444,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 39.00709219858156,
           "isLowVol": true
         },
         "riskScore": 0.24421237500000004,
@@ -2636,7 +2265,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04663386,
-        "riskAdjustedScore": 0.46315789473684205
+        "riskAdjustedScore": 0.45555555555555555
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -2649,29 +2278,29 @@
       "entryPerpPrice": 3.3057,
       "exitSpotPrice": 3.45,
       "exitPerpPrice": 3.4479,
-      "quantity": 315.4542961902585,
+      "quantity": 279.6137939964427,
       "fundingPayments": [
-        0.10014941040619797,
-        0.1118979479446085,
-        0.11415029161940693,
-        0.07554068826959152,
-        0.05952569604333848,
-        -0.03482670886805725
+        0.08877088360620843,
+        0.09918460500641817,
+        0.10118104749555278,
+        0.06695809409875246,
+        0.052762653455568624,
+        -0.030869854418257126
       ],
-      "totalPnL": -1.136954166503895,
+      "totalPnL": -1.0077785338021852,
       "entryFundingRate": 0.00006786,
       "entryFundingAPR": 7.43067,
-      "concurrentPositions": 4,
+      "concurrentPositions": 5,
       "exitFundingRate": -0.00003202,
       "exitFundingAPR": -3.50619,
       "exitReason": "ML Signal: Exit now (risk: 36.1%, momentum: declining)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": 45.425418651397266,
-      "perpPnL": -44.85760091825486,
-      "totalFunding": 0.42643732541508617,
-      "entryFees": 1.0428919032049946,
-      "exitFees": 1.0883173218563917,
+      "spotPnL": 40.264386335487785,
+      "perpPnL": -39.761081506294246,
+      "totalFunding": 0.37798742924424333,
+      "entryFees": 0.9244032029522397,
+      "exitFees": 0.9646675892877274,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "DOT/USDT:USDT",
@@ -2689,8 +2318,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.4017938071030853,
-          "avgVol": 0.6366784095486234,
-          "volPercentile": 6.944444444444445,
+          "avgVol": 0.6329449797978364,
+          "volPercentile": 7.092198581560284,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2714,8 +2343,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5908185759784993,
-          "avgVol": 0.6366784095486234,
-          "volPercentile": 50,
+          "avgVol": 0.6329449797978364,
+          "volPercentile": 51.06382978723404,
           "isLowVol": true
         },
         "riskScore": 0.36140475000000005,
@@ -2726,58 +2355,67 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04458402,
-        "riskAdjustedScore": 0.5894736842105263
+        "riskAdjustedScore": 0.5888888888888889
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "CRV/USDT:USDT",
-      "entryTime": 1751529600000,
-      "exitTime": 1751616000000,
-      "entrySpotPrice": 0.5422,
-      "entryPerpPrice": 0.542,
-      "exitSpotPrice": 0.5113,
-      "exitPerpPrice": 0.5109,
-      "quantity": 2096.1122119410297,
+      "symbol": "FIL/USDT:USDT",
+      "entryTime": 1751270400000,
+      "exitTime": 1751644800000,
+      "entrySpotPrice": 2.318,
+      "entryPerpPrice": 2.317,
+      "exitSpotPrice": 2.244,
+      "exitPerpPrice": 2.241,
+      "quantity": 471.5964605132686,
       "fundingPayments": [
-        0.11119875284347164,
-        0.11119875284347164,
-        -0.09700245978012728
+        0.09774228540796179,
+        0.10860866485620575,
+        0.10629784219969074,
+        0.10554328786286951,
+        0.10370406166686776,
+        0.10596772467733145,
+        0.11403202415210836,
+        0.11209847866400394,
+        0.11403202415210836,
+        0.11200415937190131,
+        0.11294735229292784,
+        0.10936321919302698,
+        0.019202922127745967
       ],
-      "totalPnL": -1.6636367269848975,
+      "totalPnL": 0.11331391478986141,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
-      "exitFundingRate": -0.00009058,
-      "exitFundingAPR": -9.918510000000001,
-      "exitReason": "ML Signal: Exit soon + Low APR (-9.9%)",
-      "holdingPeriodHours": 24,
-      "fundingPeriodsHeld": 3,
-      "spotPnL": -64.7698673489779,
-      "perpPnL": 65.18908979136606,
-      "totalFunding": 0.125395045906816,
-      "entryFees": 1.1365120413144263,
-      "exitFees": 1.0717421739654485,
+      "exitFundingRate": 0.00001817,
+      "exitFundingAPR": 1.9896150000000001,
+      "exitReason": "ML Signal: Exit soon + Low APR (2.0%)",
+      "holdingPeriodHours": 104,
+      "fundingPeriodsHeld": 13,
+      "spotPnL": -34.898138077981805,
+      "perpPnL": 35.84133099900845,
+      "totalFunding": 1.3215440466247497,
+      "entryFees": 1.0931605954697565,
+      "exitFees": 1.058262457391775,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "CRV/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.9436709999999999,
+          "symbol": "FIL/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
           "lastRates": [
-            -7.92342,
-            -1.5527099999999998,
-            9.581249999999999,
+            10.950000000000001,
+            0.45661500000000005,
             10.950000000000001,
             10.950000000000001
           ],
-          "avgDecline": -4.718355
+          "avgDecline": 0
         },
         "volatility": {
-          "symbol": "CRV/USDT:USDT",
-          "currentVol": 0.8540049428383392,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 67.36111111111111,
+          "symbol": "FIL/USDT:USDT",
+          "currentVol": 1.080705989042726,
+          "avgVol": 0.7259117927682192,
+          "volPercentile": 74.46808510638297,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2786,7 +2424,7 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "CRV/USDT:USDT",
+          "symbol": "FIL/USDT:USDT",
           "trend": "stable",
           "strength": 0.1,
           "lastRates": [
@@ -2794,29 +2432,23 @@
             10.950000000000001,
             10.950000000000001,
             10.950000000000001,
-            -9.918510000000001
+            1.9896150000000001
           ],
-          "avgDecline": 5.2171275
+          "avgDecline": 2.24009625
         },
         "volatility": {
-          "symbol": "CRV/USDT:USDT",
-          "currentVol": 0.7987016785809709,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 50,
+          "symbol": "FIL/USDT:USDT",
+          "currentVol": 0.5113643371497669,
+          "avgVol": 0.7259117927682192,
+          "volPercentile": 30.49645390070922,
           "isLowVol": true
         },
         "riskScore": 0,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.31111111111111117
-      },
       "predictedOutcome": "win",
-      "confidence": 0.6
+      "confidence": 1
     },
     {
       "symbol": "XRP/USDT:USDT",
@@ -2826,16 +2458,16 @@
       "entryPerpPrice": 2.2422,
       "exitSpotPrice": 2.2234,
       "exitPerpPrice": 2.2222,
-      "quantity": 556.3849546236331,
+      "quantity": 569.3827775475806,
       "fundingPayments": [
-        0.12662765182279265,
-        0.1256539781522013,
-        0.12582089363858842,
-        0.08102992072263775,
-        0.10207443663182243,
-        -0.02373885400636104
+        0.1295858263420539,
+        0.12858940648134562,
+        0.1287602213146099,
+        0.08292287730304491,
+        0.10445901846024301,
+        -0.024293422238711684
       ],
-      "totalPnL": -1.836404020435523,
+      "totalPnL": -1.879304631021935,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
@@ -2844,11 +2476,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-2.1%)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": -11.016422101547958,
-      "perpPnL": 11.127699092472673,
-      "totalFunding": 0.5374680269616815,
-      "entryFees": 1.2480827302117337,
-      "exitFees": 1.2370663081101858,
+      "spotPnL": -11.27377899544212,
+      "perpPnL": 11.387655550951623,
+      "totalFunding": 0.5500239276625857,
+      "entryFees": 1.2772394465947328,
+      "exitFees": 1.2659656675992907,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "XRP/USDT:USDT",
@@ -2866,8 +2498,8 @@
         "volatility": {
           "symbol": "XRP/USDT:USDT",
           "currentVol": 0.5637591384180618,
-          "avgVol": 0.5180808017752476,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.5229010337432577,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2891,8 +2523,8 @@
         "volatility": {
           "symbol": "XRP/USDT:USDT",
           "currentVol": 0.4113510414347475,
-          "avgVol": 0.5180808017752476,
-          "volPercentile": 45.83333333333333,
+          "avgVol": 0.5229010337432577,
+          "volPercentile": 44.680851063829785,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2903,7 +2535,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.19726027397260273
+        "riskAdjustedScore": 0.20571428571428577
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -2916,11 +2548,11 @@
       "entryPerpPrice": 0.5038,
       "exitSpotPrice": 0.4977,
       "exitPerpPrice": 0.4973,
-      "quantity": 3907.494799333356,
+      "quantity": 3981.512851976951,
       "fundingPayments": [
-        -0.12790123731529202
+        -0.13032401738358523
       ],
-      "totalPnL": -4.042820276767381,
+      "totalPnL": -4.119401743779292,
       "entryFundingRate": 0.00008596,
       "entryFundingAPR": 9.412619999999999,
       "concurrentPositions": 2,
@@ -2929,11 +2561,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-7.2%)",
       "holdingPeriodHours": 8,
       "fundingPeriodsHeld": 1,
-      "spotPnL": -25.398716195666836,
-      "perpPnL": 25.398716195666836,
-      "totalFunding": -0.12790123731529202,
-      "entryFees": 1.9701588778238779,
-      "exitFees": 1.944760161628211,
+      "spotPnL": -25.879833537850203,
+      "perpPnL": 25.879833537850203,
+      "totalFunding": -0.13032401738358523,
+      "entryFees": 2.0074787799667786,
+      "exitFees": 1.9815989464289285,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "CRV/USDT:USDT",
@@ -2951,8 +2583,8 @@
         "volatility": {
           "symbol": "CRV/USDT:USDT",
           "currentVol": 0.7322853260373849,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 36.80555555555556,
+          "avgVol": 0.7916837066160487,
+          "volPercentile": 37.5886524822695,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2976,8 +2608,8 @@
         "volatility": {
           "symbol": "CRV/USDT:USDT",
           "currentVol": 0.6222861645839848,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 20.13888888888889,
+          "avgVol": 0.7916837066160487,
+          "volPercentile": 20.56737588652482,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -2988,56 +2620,56 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.05647571999999999,
-        "riskAdjustedScore": 0.4413223140495868
+        "riskAdjustedScore": 0.4372881355932204
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "MKR/USDT:USDT",
+      "symbol": "RENDER/USDT:USDT",
       "entryTime": 1751673600000,
       "exitTime": 1751702400000,
-      "entrySpotPrice": 1879,
-      "entryPerpPrice": 1876.7,
-      "exitSpotPrice": 1867,
-      "exitPerpPrice": 1870.8,
-      "quantity": 0.7968710735211001,
+      "entrySpotPrice": 3.161,
+      "entryPerpPrice": 3.158,
+      "exitSpotPrice": 3.149,
+      "exitPerpPrice": 3.147,
+      "quantity": 502.7693875799958,
       "fundingPayments": [
-        -0.054309348710225476
+        -0.01014199983399832
       ],
-      "totalPnL": -7.900301938598904,
-      "entryFundingRate": 0.00006421,
-      "entryFundingAPR": 7.030995,
+      "totalPnL": -3.685386223043712,
+      "entryFundingRate": 0.00005,
+      "entryFundingAPR": 5.4750000000000005,
       "concurrentPositions": 3,
-      "exitFundingRate": -0.00003643,
-      "exitFundingAPR": -3.9890850000000007,
-      "exitReason": "ML Signal: Exit now (risk: 37.3%, momentum: declining)",
+      "exitFundingRate": -0.00000641,
+      "exitFundingAPR": -0.7018949999999998,
+      "exitReason": "ML Signal: Exit soon + Low APR (-0.7%)",
       "holdingPeriodHours": 8,
       "fundingPeriodsHeld": 1,
-      "spotPnL": -9.5624528822532,
-      "perpPnL": 4.701539333774563,
-      "totalFunding": -0.054309348710225476,
-      "entryFees": 1.4973207471461472,
-      "exitFees": 1.487758294263894,
+      "spotPnL": -6.033232650959955,
+      "perpPnL": 5.530463263380015,
+      "totalFunding": -0.01014199983399832,
+      "entryFees": 1.5892540341403667,
+      "exitFees": 1.5832208014894067,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "MKR/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "rising",
+          "strength": 1,
           "lastRates": [
-            6.222885,
-            10.950000000000001,
-            0.8190600000000001,
-            -0.7413150000000001,
-            7.030995
+            -16.501649999999998,
+            4.7774849999999995,
+            -9.236324999999999,
+            -4.60995,
+            5.4750000000000005
           ],
-          "avgDecline": -0.20202750000000003
+          "avgDecline": -5.4941625
         },
         "volatility": {
-          "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.5866191559964417,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 29.86111111111111,
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.6560714380514665,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 41.843971631205676,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3046,108 +2678,23 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "MKR/USDT:USDT",
-          "trend": "declining",
-          "strength": 0.7469542500000002,
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "rising",
+          "strength": 0.4267214999999999,
           "lastRates": [
-            10.950000000000001,
-            0.8190600000000001,
-            -0.7413150000000001,
-            7.030995,
-            -3.9890850000000007
+            -9.236324999999999,
+            -4.60995,
+            5.4750000000000005,
+            5.4750000000000005,
+            -0.7018949999999998
           ],
-          "avgDecline": 3.7347712500000005
+          "avgDecline": -2.1336074999999997
         },
         "volatility": {
-          "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.48654652871887494,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 14.583333333333334,
-          "isLowVol": true
-        },
-        "riskScore": 0.3734771250000001,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_now"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.042185969999999996,
-        "riskAdjustedScore": 0.49586776859504134
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
-      "symbol": "ADA/USDT:USDT",
-      "entryTime": 1751673600000,
-      "exitTime": 1751702400000,
-      "entrySpotPrice": 0.5754,
-      "entryPerpPrice": 0.5749,
-      "exitSpotPrice": 0.5735,
-      "exitPerpPrice": 0.5731,
-      "quantity": 1977.6916368284178,
-      "fundingPayments": [
-        -0.13205419062900234
-      ],
-      "totalPnL": -2.6019932758642117,
-      "entryFundingRate": 0.00005174,
-      "entryFundingAPR": 5.66553,
-      "concurrentPositions": 4,
-      "exitFundingRate": -0.00011651,
-      "exitFundingAPR": -12.757844999999998,
-      "exitReason": "ML Signal: Exit soon + Low APR (-12.8%)",
-      "holdingPeriodHours": 8,
-      "fundingPeriodsHeld": 1,
-      "spotPnL": -3.757614109974019,
-      "perpPnL": 3.5598449462909794,
-      "totalFunding": -0.13205419062900234,
-      "entryFees": 1.1379637678310717,
-      "exitFees": 1.1342061537210977,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "ADA/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            7.713179999999999,
-            -2.67618,
-            10.950000000000001,
-            2.407905,
-            5.66553
-          ],
-          "avgDecline": 0.5119124999999994
-        },
-        "volatility": {
-          "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.6337864629740582,
-          "avgVol": 0.725363582115403,
-          "volPercentile": 36.80555555555556,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "ADA/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            -2.67618,
-            10.950000000000001,
-            2.407905,
-            5.66553,
-            -12.757844999999998
-          ],
-          "avgDecline": 2.52041625
-        },
-        "volatility": {
-          "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.5969442864801799,
-          "avgVol": 0.725363582115403,
-          "volPercentile": 32.63888888888889,
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.5609207240905006,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 15.602836879432624,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3157,8 +2704,93 @@
       "mlPrediction": {
         "willDecline": false,
         "confidence": 0.6,
-        "expectedReturn": 0.033993180000000005,
-        "riskAdjustedScore": 0.44628099173553715
+        "expectedReturn": 0.032850000000000004,
+        "riskAdjustedScore": 0.4169491525423728
+      },
+      "predictedOutcome": "win",
+      "confidence": 0.6
+    },
+    {
+      "symbol": "RENDER/USDT:USDT",
+      "entryTime": 1751731200000,
+      "exitTime": 1751760000000,
+      "entrySpotPrice": 3.16,
+      "entryPerpPrice": 3.158,
+      "exitSpotPrice": 3.164,
+      "exitPerpPrice": 3.162,
+      "quantity": 274.16057366681287,
+      "fundingPayments": [
+        0.01470255164752848
+      ],
+      "totalPnL": -1.7190889162213963,
+      "entryFundingRate": 0.00004571,
+      "entryFundingAPR": 5.005245,
+      "concurrentPositions": 5,
+      "exitFundingRate": 0.00001696,
+      "exitFundingAPR": 1.8571199999999999,
+      "exitReason": "ML Signal: Exit soon + Low APR (1.9%)",
+      "holdingPeriodHours": 8,
+      "fundingPeriodsHeld": 1,
+      "spotPnL": 1.0966422946672525,
+      "perpPnL": -1.0966422946672525,
+      "totalFunding": 0.01470255164752848,
+      "entryFees": 0.8663474127871288,
+      "exitFees": 0.8674440550817959,
+      "entrySignals": {
+        "fundingMomentum": {
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            5.4750000000000005,
+            5.4750000000000005,
+            -0.7018949999999998,
+            5.4750000000000005,
+            5.005245
+          ],
+          "avgDecline": 0.11743875000000004
+        },
+        "volatility": {
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.4861235542940604,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 0,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "enter",
+        "exitRecommendation": "hold"
+      },
+      "exitSignals": {
+        "fundingMomentum": {
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            5.4750000000000005,
+            -0.7018949999999998,
+            5.4750000000000005,
+            5.005245,
+            1.8571199999999999
+          ],
+          "avgDecline": 0.9044700000000001
+        },
+        "volatility": {
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.5310240365355126,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 7.092198581560284,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "avoid",
+        "exitRecommendation": "exit_soon"
+      },
+      "mlPrediction": {
+        "willDecline": false,
+        "confidence": 0.6,
+        "expectedReturn": 0.03003147,
+        "riskAdjustedScore": 0.6
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -3196,9 +2828,8 @@
         "fundingMomentum": {
           "symbol": "NEAR/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             10.950000000000001,
             10.950000000000001
           ],
@@ -3206,8 +2837,8 @@
         },
         "volatility": {
           "symbol": "NEAR/USDT:USDT",
-          "currentVol": 0.37925896700231976,
-          "avgVol": 0.8032202180360177,
+          "currentVol": 0.3377558252150633,
+          "avgVol": 0.7999968361461335,
           "volPercentile": 0,
           "isLowVol": true
         },
@@ -3224,19 +2855,18 @@
             10.950000000000001,
             10.950000000000001,
             10.950000000000001,
-            10.950000000000001,
             -6.347715
           ],
-          "avgDecline": 4.32442875
+          "avgDecline": 5.765905
         },
         "volatility": {
           "symbol": "NEAR/USDT:USDT",
           "currentVol": 1.0736450690585144,
-          "avgVol": 0.8032202180360177,
-          "volPercentile": 91.66666666666666,
+          "avgVol": 0.7999968361461335,
+          "volPercentile": 91.48936170212765,
           "isLowVol": false
         },
-        "riskScore": 0.27499999999999997,
+        "riskScore": 0.27446808510638293,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -3251,12 +2881,12 @@
       "entryPerpPrice": 0.8948,
       "exitSpotPrice": 0.9155,
       "exitPerpPrice": 0.9136,
-      "quantity": 1160.875390799464,
+      "quantity": 1176.353729343457,
       "fundingPayments": [
-        0.10856506654756588,
-        0.006214973936221527
+        0.11001260076820012,
+        0.006297840255371148
       ],
-      "totalPnL": -0.7107184499135946,
+      "totalPnL": -0.7201946959124406,
       "entryFundingRate": 0.00009639,
       "entryFundingAPR": 10.554705,
       "concurrentPositions": 4,
@@ -3265,28 +2895,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (0.6%)",
       "holdingPeriodHours": 16,
       "fundingPeriodsHeld": 2,
-      "spotPnL": 23.101420276909366,
-      "perpPnL": -21.82445734702984,
-      "totalFunding": 0.11478004048378741,
-      "entryFees": 1.03968,
-      "exitFees": 1.0627814202769092,
+      "spotPnL": 23.409439213934828,
+      "perpPnL": -22.115450111656905,
+      "totalFunding": 0.11631044102357127,
+      "entryFees": 1.0535424,
+      "exitFees": 1.0769518392139348,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "WLD/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             7.412055,
             10.554705
           ],
-          "avgDecline": 0.19764750000000042
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "WLD/USDT:USDT",
-          "currentVol": 0.5062783917747518,
-          "avgVol": 0.8125336692126229,
-          "volPercentile": 3.4722222222222223,
+          "currentVol": 0.4244504300429691,
+          "avgVol": 0.8095182677074835,
+          "volPercentile": 0,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3299,22 +2928,21 @@
           "trend": "stable",
           "strength": 0.1,
           "lastRates": [
-            10.950000000000001,
             7.412055,
             10.554705,
             10.950000000000001,
             0.64167
           ],
-          "avgDecline": 2.5770825000000004
+          "avgDecline": 2.256795
         },
         "volatility": {
           "symbol": "WLD/USDT:USDT",
           "currentVol": 1.0887770678248632,
-          "avgVol": 0.8125336692126229,
-          "volPercentile": 90.27777777777779,
+          "avgVol": 0.8095182677074835,
+          "volPercentile": 90.0709219858156,
           "isLowVol": false
         },
-        "riskScore": 0.27083333333333337,
+        "riskScore": 0.2702127659574468,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
@@ -3329,13 +2957,13 @@
       "entryPerpPrice": 1961.6,
       "exitSpotPrice": 1921,
       "exitPerpPrice": 1920,
-      "quantity": 0.9679062659195109,
+      "quantity": 0.9291900152827305,
       "fundingPayments": [
-        0.19553642384105963,
-        0.0541651574121243,
-        -0.19403345899133975
+        0.18771496688741723,
+        0.05199855111563933,
+        -0.1862721206316862
       ],
-      "totalPnL": -4.09084232093743,
+      "totalPnL": -3.9272086280999314,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 2,
@@ -3344,28 +2972,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-11.4%)",
       "holdingPeriodHours": 24,
       "fundingPeriodsHeld": 3,
-      "spotPnL": -40.652063168619456,
-      "perpPnL": 40.26490066225156,
-      "totalFunding": 0.05566812226184417,
-      "entryFees": 1.9000000000000001,
-      "exitFees": 1.8593479368313803,
+      "spotPnL": -39.02598064187468,
+      "perpPnL": 38.654304635761505,
+      "totalFunding": 0.05344139737137038,
+      "entryFees": 1.824,
+      "exitFees": 1.7849740193581254,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "MKR/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.542463,
+          "trend": "stable",
+          "strength": 0,
           "lastRates": [
-            5.525370000000001,
             2.635665,
             10.950000000000001
           ],
-          "avgDecline": -2.7123150000000003
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.5713911432625018,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 28.47222222222222,
+          "currentVol": 0.6186646536715346,
+          "avgVol": 0.6688308796143906,
+          "volPercentile": 32.62411347517731,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3389,8 +3016,8 @@
         "volatility": {
           "symbol": "MKR/USDT:USDT",
           "currentVol": 0.6868459112898134,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 54.861111111111114,
+          "avgVol": 0.6688308796143906,
+          "volPercentile": 53.90070921985816,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3408,14 +3035,14 @@
       "entryPerpPrice": 7.225,
       "exitSpotPrice": 7.128,
       "exitPerpPrice": 7.123,
-      "quantity": 113.8895807388958,
+      "quantity": 110.79178414279784,
       "fundingPayments": [
-        0.0840391216272312,
-        0.05282241121594022,
-        0.08170438522208386,
-        -0.027143939281361565
+        0.08175325751897053,
+        0.051385641630866646,
+        0.07948202594404317,
+        -0.026405624132908527
       ],
-      "totalPnL": -1.1017942105063558,
+      "totalPnL": -1.0718254079805836,
       "entryFundingRate": 0.00008784,
       "entryFundingAPR": 9.61848,
       "concurrentPositions": 5,
@@ -3424,28 +3051,27 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-3.7%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": -11.275068493150707,
-      "perpPnL": 11.616737235367307,
-      "totalFunding": 0.19142197878389372,
-      "entryFees": 0.82308,
-      "exitFees": 0.8118049315068493,
+      "spotPnL": -10.968386630137008,
+      "perpPnL": 11.300761982565316,
+      "totalFunding": 0.18621530096097183,
+      "entryFees": 0.8006922240000001,
+      "exitFees": 0.789723837369863,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "UNI/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.37722750000000005,
+          "trend": "stable",
+          "strength": 0,
           "lastRates": [
-            5.846205,
             -7.052895,
             9.61848
           ],
-          "avgDecline": -1.8861375000000002
+          "avgDecline": 0
         },
         "volatility": {
           "symbol": "UNI/USDT:USDT",
-          "currentVol": 0.8232581203810904,
-          "avgVol": 0.9872111284818134,
-          "volPercentile": 28.47222222222222,
+          "currentVol": 0.7646993600397824,
+          "avgVol": 0.9880465603642388,
+          "volPercentile": 22.69503546099291,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3469,8 +3095,8 @@
         "volatility": {
           "symbol": "UNI/USDT:USDT",
           "currentVol": 0.8250973166137728,
-          "avgVol": 0.9872111284818134,
-          "volPercentile": 28.47222222222222,
+          "avgVol": 0.9880465603642388,
+          "volPercentile": 29.078014184397162,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3481,92 +3107,6 @@
       "confidence": 1
     },
     {
-      "symbol": "POL/USDT:USDT",
-      "entryTime": 1751270400000,
-      "exitTime": 1751328000000,
-      "entrySpotPrice": 0.1831,
-      "entryPerpPrice": 0.1829,
-      "exitSpotPrice": 0.1874,
-      "exitPerpPrice": 0.1871,
-      "quantity": 5891.2072980306175,
-      "fundingPayments": [
-        0.055671908966389336,
-        -0.01531018145906063
-      ],
-      "totalPnL": -1.5532098466098556,
-      "entryFundingRate": 0.00005,
-      "entryFundingAPR": 5.4750000000000005,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00001389,
-      "exitFundingAPR": -1.520955,
-      "exitReason": "ML Signal: Exit soon + Low APR (-1.5%)",
-      "holdingPeriodHours": 16,
-      "fundingPeriodsHeld": 2,
-      "spotPnL": 25.332191381531644,
-      "perpPnL": -24.743070651728484,
-      "totalFunding": 0.04036172750732871,
-      "entryFees": 1.078680056269406,
-      "exitFees": 1.1040122476509378,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "POL/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005
-          ],
-          "avgDecline": 0
-        },
-        "volatility": {
-          "symbol": "POL/USDT:USDT",
-          "currentVol": 0.6599129364821993,
-          "avgVol": 0.6897286706542083,
-          "volPercentile": 44.44444444444444,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "POL/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            -1.520955
-          ],
-          "avgDecline": 1.74898875
-        },
-        "volatility": {
-          "symbol": "POL/USDT:USDT",
-          "currentVol": 0.9468211203321046,
-          "avgVol": 0.6897286706542083,
-          "volPercentile": 87.5,
-          "isLowVol": false
-        },
-        "riskScore": 0.2625,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.032850000000000004,
-        "riskAdjustedScore": 0
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
       "symbol": "LDO/USDT:USDT",
       "entryTime": 1751212800000,
       "exitTime": 1751356800000,
@@ -3574,15 +3114,15 @@
       "entryPerpPrice": 0.7237,
       "exitSpotPrice": 0.7272,
       "exitPerpPrice": 0.727,
-      "quantity": 1889.5027624309394,
+      "quantity": 1914.6961325966852,
       "fundingPayments": [
-        0.14594519337016576,
-        0.14095690607734807,
-        0.14141038674033152,
-        0.14065458563535913,
-        0.002142922872928177
+        0.14789112928176798,
+        0.1428363314917127,
+        0.1432958585635359,
+        0.14252998011049725,
+        0.0021714951779005526
       ],
-      "totalPnL": -2.3598866903867197,
+      "totalPnL": -2.3913518462585426,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 3,
@@ -3591,18 +3131,17 @@
       "exitReason": "ML Signal: Exit soon + Low APR (0.2%)",
       "holdingPeriodHours": 40,
       "fundingPeriodsHeld": 5,
-      "spotPnL": 6.0464088397789695,
-      "perpPnL": -6.2353591160220425,
-      "totalFunding": 0.5711099946961327,
-      "entryFees": 1.368,
-      "exitFees": 1.3740464088397792,
+      "spotPnL": 6.127027624309355,
+      "perpPnL": -6.3184972375690025,
+      "totalFunding": 0.5787247946254144,
+      "entryFees": 1.3862400000000001,
+      "exitFees": 1.3923670276243094,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LDO/USDT:USDT",
           "trend": "stable",
-          "strength": 0.1,
+          "strength": 0,
           "lastRates": [
-            10.950000000000001,
             10.950000000000001,
             10.950000000000001
           ],
@@ -3610,9 +3149,9 @@
         },
         "volatility": {
           "symbol": "LDO/USDT:USDT",
-          "currentVol": 0.45938839469268233,
-          "avgVol": 0.8080426068814313,
-          "volPercentile": 5.555555555555555,
+          "currentVol": 0.36718128010978496,
+          "avgVol": 0.8050235615732338,
+          "volPercentile": 0,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3636,8 +3175,8 @@
         "volatility": {
           "symbol": "LDO/USDT:USDT",
           "currentVol": 0.8236834419940045,
-          "avgVol": 0.8080426068814313,
-          "volPercentile": 50,
+          "avgVol": 0.8050235615732338,
+          "volPercentile": 51.06382978723404,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3648,53 +3187,51 @@
       "confidence": 1
     },
     {
-      "symbol": "TRX/USDT:USDT",
+      "symbol": "BNB/USDT:USDT",
       "entryTime": 1751270400000,
-      "exitTime": 1751385600000,
-      "entrySpotPrice": 0.2777,
-      "entryPerpPrice": 0.27751,
-      "exitSpotPrice": 0.2788,
-      "exitPerpPrice": 0.27869,
-      "quantity": 5394.910856386819,
+      "exitTime": 1751356800000,
+      "entrySpotPrice": 653.4,
+      "entryPerpPrice": 653.1,
+      "exitSpotPrice": 652.4,
+      "exitPerpPrice": 651.9,
+      "quantity": 2.323658715670503,
       "fundingPayments": [
-        0.033850151292982675,
-        0.15088486683142657,
-        0.10957633166366086,
-        -0.12202468546493249
+        0.1529432166654325,
+        0.1528735069039624,
+        -0.004195976933385315
       ],
-      "totalPnL": -3.2615740957672057,
-      "entryFundingRate": 0.00008881,
-      "entryFundingAPR": 9.724695,
+      "totalPnL": -2.267881061152327,
+      "entryFundingRate": 0.0001,
+      "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 4,
-      "exitFundingRate": -0.00008116,
-      "exitFundingAPR": -8.887020000000001,
-      "exitReason": "ML Signal: Exit now (risk: 46.5%, momentum: declining)",
-      "holdingPeriodHours": 32,
-      "fundingPeriodsHeld": 4,
-      "spotPnL": 5.934401942025446,
-      "perpPnL": -6.365994810536525,
-      "totalFunding": 0.1722866643231376,
-      "entryFees": 1.4981667448186198,
-      "exitFees": 1.504101146760645,
+      "exitFundingRate": -0.00000277,
+      "exitFundingAPR": -0.303315,
+      "exitReason": "ML Signal: Exit soon + Low APR (-0.3%)",
+      "holdingPeriodHours": 24,
+      "fundingPeriodsHeld": 3,
+      "spotPnL": -2.323658715670503,
+      "perpPnL": 2.788390458804709,
+      "totalFunding": 0.30162074663600963,
+      "entryFees": 1.5182786048191066,
+      "exitFees": 1.515954946103436,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "TRX/USDT:USDT",
+          "symbol": "BNB/USDT:USDT",
           "trend": "rising",
-          "strength": 0.5349075000000001,
+          "strength": 0.673717,
           "lastRates": [
-            -0.973455,
-            0.075555,
-            -0.79278,
-            7.769025,
-            9.724695
+            0.844245,
+            4.861800000000001,
+            9.88785,
+            10.950000000000001
           ],
-          "avgDecline": -2.6745375000000005
+          "avgDecline": -3.368585
         },
         "volatility": {
-          "symbol": "TRX/USDT:USDT",
-          "currentVol": 0.12696290544164404,
-          "avgVol": 0.20412699114865876,
-          "volPercentile": 2.083333333333333,
+          "symbol": "BNB/USDT:USDT",
+          "currentVol": 0.20872257527262375,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 39.71631205673759,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3703,33 +3240,112 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "TRX/USDT:USDT",
-          "trend": "declining",
-          "strength": 0.9305857500000002,
+          "symbol": "BNB/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
           "lastRates": [
-            9.724695,
-            2.4681300000000004,
+            9.88785,
             10.950000000000001,
-            7.979264999999999,
-            -8.887020000000001
+            10.950000000000001,
+            10.950000000000001,
+            -0.303315
           ],
-          "avgDecline": 4.652928750000001
+          "avgDecline": 2.54779125
         },
         "volatility": {
-          "symbol": "TRX/USDT:USDT",
-          "currentVol": 0.14979545315782894,
-          "avgVol": 0.20412699114865876,
-          "volPercentile": 26.38888888888889,
+          "symbol": "BNB/USDT:USDT",
+          "currentVol": 0.2504818968030072,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 74.46808510638297,
           "isLowVol": true
         },
-        "riskScore": 0.4652928750000001,
+        "riskScore": 0,
         "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_now"
+        "exitRecommendation": "exit_soon"
+      },
+      "predictedOutcome": "win",
+      "confidence": 1
+    },
+    {
+      "symbol": "LINK/USDT:USDT",
+      "entryTime": 1751328000000,
+      "exitTime": 1751356800000,
+      "entrySpotPrice": 13.344,
+      "entryPerpPrice": 13.336,
+      "exitSpotPrice": 13.164,
+      "exitPerpPrice": 13.157,
+      "quantity": 89.51399940996754,
+      "fundingPayments": [
+        -0.05834502609433815
+      ],
+      "totalPnL": -2.520696121863678,
+      "entryFundingRate": 0.0001,
+      "entryFundingAPR": 10.950000000000001,
+      "concurrentPositions": 5,
+      "exitFundingRate": -0.00004954,
+      "exitFundingAPR": -5.42463,
+      "exitReason": "ML Signal: Exit soon + Low APR (-5.4%)",
+      "holdingPeriodHours": 8,
+      "fundingPeriodsHeld": 1,
+      "spotPnL": -16.112519893794133,
+      "perpPnL": 16.023005894384212,
+      "totalFunding": -0.05834502609433815,
+      "entryFees": 1.1944748081266068,
+      "exitFees": 1.1783622882328126,
+      "entrySignals": {
+        "fundingMomentum": {
+          "symbol": "LINK/USDT:USDT",
+          "trend": "rising",
+          "strength": 0.6583140000000001,
+          "lastRates": [
+            -2.21628,
+            8.784089999999999,
+            -10.066335,
+            10.30614,
+            10.950000000000001
+          ],
+          "avgDecline": -3.29157
+        },
+        "volatility": {
+          "symbol": "LINK/USDT:USDT",
+          "currentVol": 0.6891124858141384,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 70.92198581560284,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "enter",
+        "exitRecommendation": "hold"
+      },
+      "exitSignals": {
+        "fundingMomentum": {
+          "symbol": "LINK/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            8.784089999999999,
+            -10.066335,
+            10.30614,
+            10.950000000000001,
+            -5.42463
+          ],
+          "avgDecline": 3.5521799999999994
+        },
+        "volatility": {
+          "symbol": "LINK/USDT:USDT",
+          "currentVol": 0.6478351004729883,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 53.90070921985816,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "avoid",
+        "exitRecommendation": "exit_soon"
       },
       "mlPrediction": {
         "willDecline": false,
         "confidence": 0.6,
-        "expectedReturn": 0.058348170000000005,
+        "expectedReturn": 0.06570000000000001,
         "riskAdjustedScore": 0.6
       },
       "predictedOutcome": "win",
@@ -3743,14 +3359,14 @@
       "entryPerpPrice": 86,
       "exitSpotPrice": 83.36,
       "exitPerpPrice": 83.3,
-      "quantity": 14.714886243768657,
+      "quantity": 14.635805940339292,
       "fundingPayments": [
-        0.12678345987631073,
-        0.12663631101387307,
-        0.032901031810305834,
-        -0.10049924447644512
+        0.12610210398196334,
+        0.12595574592255995,
+        0.03272421606497175,
+        -0.09995914442973326
       ],
-      "totalPnL": -2.012582446595052,
+      "totalPnL": -2.0017664859469844,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
@@ -3759,11 +3375,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-9.0%)",
       "holdingPeriodHours": 32,
       "fundingPeriodsHeld": 4,
-      "spotPnL": -39.4358951333001,
-      "perpPnL": 39.730192858175414,
-      "totalFunding": 0.18582155822404453,
-      "entryFees": 1.2660688124138553,
-      "exitFees": 1.2266329172805552,
+      "spotPnL": -39.2239599201094,
+      "perpPnL": 39.51667603891613,
+      "totalFunding": 0.18482292153976182,
+      "entryFees": 1.259264743106793,
+      "exitFees": 1.2200407831866835,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LTC/USDT:USDT",
@@ -3781,8 +3397,8 @@
         "volatility": {
           "symbol": "LTC/USDT:USDT",
           "currentVol": 0.5266309985234535,
-          "avgVol": 0.5056696440110069,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.5086686048083139,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3806,8 +3422,8 @@
         "volatility": {
           "symbol": "LTC/USDT:USDT",
           "currentVol": 0.48530883533183833,
-          "avgVol": 0.5056696440110069,
-          "volPercentile": 43.75,
+          "avgVol": 0.5086686048083139,
+          "volPercentile": 42.5531914893617,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3824,91 +3440,6 @@
       "confidence": 0.6
     },
     {
-      "symbol": "RENDER/USDT:USDT",
-      "entryTime": 1751443200000,
-      "exitTime": 1751472000000,
-      "entrySpotPrice": 3.178,
-      "entryPerpPrice": 3.174,
-      "exitSpotPrice": 3.291,
-      "exitPerpPrice": 3.287,
-      "quantity": 249.40146206286843,
-      "fundingPayments": [
-        -0.05097408242868433
-      ],
-      "totalPnL": -1.66435214051338,
-      "entryFundingRate": 0.00004742,
-      "entryFundingAPR": 5.19249,
-      "concurrentPositions": 5,
-      "exitFundingRate": -0.00006218,
-      "exitFundingAPR": -6.808710000000001,
-      "exitReason": "ML Signal: Exit soon + Low APR (-6.8%)",
-      "holdingPeriodHours": 8,
-      "fundingPeriodsHeld": 1,
-      "spotPnL": 28.18236521310413,
-      "perpPnL": -28.18236521310413,
-      "totalFunding": -0.05097408242868433,
-      "entryFees": 0.7925978464357959,
-      "exitFees": 0.8207802116489,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "RENDER/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.4750000000000005,
-            5.19249
-          ],
-          "avgDecline": 0.07062750000000007
-        },
-        "volatility": {
-          "symbol": "RENDER/USDT:USDT",
-          "currentVol": 0.5341525200319936,
-          "avgVol": 0.7485509517448908,
-          "volPercentile": 6.944444444444445,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "RENDER/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            5.4750000000000005,
-            5.4750000000000005,
-            5.19249,
-            5.4750000000000005,
-            -6.808710000000001
-          ],
-          "avgDecline": 3.0709275000000007
-        },
-        "volatility": {
-          "symbol": "RENDER/USDT:USDT",
-          "currentVol": 0.6907505790350132,
-          "avgVol": 0.7485509517448908,
-          "volPercentile": 43.75,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.03115494,
-        "riskAdjustedScore": 0.5684210526315789
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
       "symbol": "BNB/USDT:USDT",
       "entryTime": 1751414400000,
       "exitTime": 1751500800000,
@@ -3916,26 +3447,26 @@
       "entryPerpPrice": 645.3,
       "exitSpotPrice": 659.9,
       "exitPerpPrice": 659.4,
-      "quantity": 3.728136345476226,
+      "quantity": 3.3044931204070616,
       "fundingPayments": [
-        0.24572146653033808,
-        0.24743640924925714,
-        -0.029180413970677367
+        0.21779914156602945,
+        0.21931920840141672,
+        -0.02586452540388946
       ],
-      "totalPnL": -4.030663716297565,
+      "totalPnL": -3.5726430813994963,
       "entryFundingRate": 0.00006229,
       "entryFundingAPR": 6.820755,
-      "concurrentPositions": 1,
+      "concurrentPositions": 2,
       "exitFundingRate": -0.00001187,
       "exitFundingAPR": -1.2997649999999998,
       "exitReason": "ML Signal: Exit soon + Low APR (-1.3%)",
       "holdingPeriodHours": 24,
       "fundingPeriodsHeld": 3,
-      "spotPnL": 52.93953610576215,
-      "perpPnL": -52.566722471214874,
-      "totalFunding": 0.46397746180891786,
-      "entryFees": 2.4072576382739994,
-      "exitFees": 2.4601971743797613,
+      "spotPnL": 46.92380230978005,
+      "perpPnL": -46.59335299773964,
+      "totalFunding": 0.4112538245635567,
+      "entryFees": 2.13371120784684,
+      "exitFees": 2.18063501015662,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "BNB/USDT:USDT",
@@ -3953,8 +3484,8 @@
         "volatility": {
           "symbol": "BNB/USDT:USDT",
           "currentVol": 0.19403346441220737,
-          "avgVol": 0.21769699171396475,
-          "volPercentile": 25,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 23.404255319148938,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3978,8 +3509,8 @@
         "volatility": {
           "symbol": "BNB/USDT:USDT",
           "currentVol": 0.23710922614137186,
-          "avgVol": 0.21769699171396475,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.21834632923705066,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -3990,93 +3521,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04092453,
-        "riskAdjustedScore": 0.5387755102040817
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
-      "symbol": "ARB/USDT:USDT",
-      "entryTime": 1751472000000,
-      "exitTime": 1751529600000,
-      "entrySpotPrice": 0.3547,
-      "entryPerpPrice": 0.3543,
-      "exitSpotPrice": 0.3555,
-      "exitPerpPrice": 0.3551,
-      "quantity": 2253.9966309633933,
-      "fundingPayments": [
-        0.07900258191526693,
-        0.0029374467274142207
-      ],
-      "totalPnL": -1.518848378667646,
-      "entryFundingRate": 0.0001,
-      "entryFundingAPR": 10.950000000000001,
-      "concurrentPositions": 5,
-      "exitFundingRate": 0.00000367,
-      "exitFundingAPR": 0.40186499999999997,
-      "exitReason": "ML Signal: Exit soon + Low APR (0.4%)",
-      "holdingPeriodHours": 16,
-      "fundingPeriodsHeld": 2,
-      "spotPnL": 1.803197304770641,
-      "perpPnL": -1.8031973047707663,
-      "totalFunding": 0.08194002864268116,
-      "entryFees": 0.7994926050027157,
-      "exitFees": 0.8012958023074863,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "ARB/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            10.153935,
-            -2.118825,
-            -4.17852,
-            -3.198495,
-            10.950000000000001
-          ],
-          "avgDecline": -0.19901624999999967
-        },
-        "volatility": {
-          "symbol": "ARB/USDT:USDT",
-          "currentVol": 1.1292185577373308,
-          "avgVol": 1.1338140025942796,
-          "volPercentile": 66.66666666666666,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "ARB/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.22901924999999998,
-          "lastRates": [
-            -4.17852,
-            -3.198495,
-            10.950000000000001,
-            10.950000000000001,
-            0.40186499999999997
-          ],
-          "avgDecline": -1.14509625
-        },
-        "volatility": {
-          "symbol": "ARB/USDT:USDT",
-          "currentVol": 0.9443055579936155,
-          "avgVol": 1.1338140025942796,
-          "volPercentile": 52.77777777777778,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_soon"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.3507692307692307
+        "riskAdjustedScore": 0.5739130434782609
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -4089,29 +3534,29 @@
       "entryPerpPrice": 13.109,
       "exitSpotPrice": 13.388,
       "exitPerpPrice": 13.378,
-      "quantity": 104.6462433026481,
+      "quantity": 92.75680651906703,
       "fundingPayments": [
-        0.13589566575857487,
-        0.1417851950507579,
-        0.14485132997952552,
-        0.09666753547992232,
-        0.03164991723305762,
-        0.015105540808921496
+        0.1204558097617724,
+        0.1256761971526839,
+        0.1283939715836926,
+        0.08568460369144756,
+        0.028053995599638705,
+        0.013389317016634329
       ],
-      "totalPnL": -1.579397449636808,
+      "totalPnL": -1.3999533956414998,
       "entryFundingRate": 0.00007098,
       "entryFundingAPR": 7.77231,
-      "concurrentPositions": 3,
+      "concurrentPositions": 4,
       "exitFundingRate": 0.00001079,
       "exitFundingAPR": 1.181505,
       "exitReason": "ML Signal: Exit soon + Low APR (1.2%)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": 28.777716908228264,
-      "perpPnL": -28.149839448412354,
-      "totalFunding": 0.5659551843107598,
-      "entryFees": 1.3722261884276246,
-      "exitFees": 1.4010039053358527,
+      "spotPnL": 25.508121792743466,
+      "perpPnL": -24.95158095362904,
+      "totalFunding": 0.5016538948058695,
+      "entryFees": 1.2163200038845259,
+      "exitFees": 1.2418281256772694,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "LINK/USDT:USDT",
@@ -4129,8 +3574,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.4881640534588826,
-          "avgVol": 0.5967217702833483,
-          "volPercentile": 27.77777777777778,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 28.368794326241137,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4154,8 +3599,8 @@
         "volatility": {
           "symbol": "LINK/USDT:USDT",
           "currentVol": 0.528031528553782,
-          "avgVol": 0.5967217702833483,
-          "volPercentile": 38.19444444444444,
+          "avgVol": 0.5951805933845747,
+          "volPercentile": 39.00709219858156,
           "isLowVol": true
         },
         "riskScore": 0.24421237500000004,
@@ -4166,7 +3611,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04663386,
-        "riskAdjustedScore": 0.46315789473684205
+        "riskAdjustedScore": 0.45555555555555555
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -4179,29 +3624,29 @@
       "entryPerpPrice": 3.3057,
       "exitSpotPrice": 3.45,
       "exitPerpPrice": 3.4479,
-      "quantity": 315.4542961902585,
+      "quantity": 279.6137939964427,
       "fundingPayments": [
-        0.10014941040619797,
-        0.1118979479446085,
-        0.11415029161940693,
-        0.07554068826959152,
-        0.05952569604333848,
-        -0.03482670886805725
+        0.08877088360620843,
+        0.09918460500641817,
+        0.10118104749555278,
+        0.06695809409875246,
+        0.052762653455568624,
+        -0.030869854418257126
       ],
-      "totalPnL": -1.136954166503895,
+      "totalPnL": -1.0077785338021852,
       "entryFundingRate": 0.00006786,
       "entryFundingAPR": 7.43067,
-      "concurrentPositions": 4,
+      "concurrentPositions": 5,
       "exitFundingRate": -0.00003202,
       "exitFundingAPR": -3.50619,
       "exitReason": "ML Signal: Exit now (risk: 36.1%, momentum: declining)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": 45.425418651397266,
-      "perpPnL": -44.85760091825486,
-      "totalFunding": 0.42643732541508617,
-      "entryFees": 1.0428919032049946,
-      "exitFees": 1.0883173218563917,
+      "spotPnL": 40.264386335487785,
+      "perpPnL": -39.761081506294246,
+      "totalFunding": 0.37798742924424333,
+      "entryFees": 0.9244032029522397,
+      "exitFees": 0.9646675892877274,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "DOT/USDT:USDT",
@@ -4219,8 +3664,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.4017938071030853,
-          "avgVol": 0.6366784095486234,
-          "volPercentile": 6.944444444444445,
+          "avgVol": 0.6329449797978364,
+          "volPercentile": 7.092198581560284,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4244,8 +3689,8 @@
         "volatility": {
           "symbol": "DOT/USDT:USDT",
           "currentVol": 0.5908185759784993,
-          "avgVol": 0.6366784095486234,
-          "volPercentile": 50,
+          "avgVol": 0.6329449797978364,
+          "volPercentile": 51.06382978723404,
           "isLowVol": true
         },
         "riskScore": 0.36140475000000005,
@@ -4256,58 +3701,67 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.04458402,
-        "riskAdjustedScore": 0.5894736842105263
+        "riskAdjustedScore": 0.5888888888888889
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "CRV/USDT:USDT",
-      "entryTime": 1751529600000,
-      "exitTime": 1751616000000,
-      "entrySpotPrice": 0.5422,
-      "entryPerpPrice": 0.542,
-      "exitSpotPrice": 0.5113,
-      "exitPerpPrice": 0.5109,
-      "quantity": 2096.1122119410297,
+      "symbol": "FIL/USDT:USDT",
+      "entryTime": 1751270400000,
+      "exitTime": 1751644800000,
+      "entrySpotPrice": 2.318,
+      "entryPerpPrice": 2.317,
+      "exitSpotPrice": 2.244,
+      "exitPerpPrice": 2.241,
+      "quantity": 471.5964605132686,
       "fundingPayments": [
-        0.11119875284347164,
-        0.11119875284347164,
-        -0.09700245978012728
+        0.09774228540796179,
+        0.10860866485620575,
+        0.10629784219969074,
+        0.10554328786286951,
+        0.10370406166686776,
+        0.10596772467733145,
+        0.11403202415210836,
+        0.11209847866400394,
+        0.11403202415210836,
+        0.11200415937190131,
+        0.11294735229292784,
+        0.10936321919302698,
+        0.019202922127745967
       ],
-      "totalPnL": -1.6636367269848975,
+      "totalPnL": 0.11331391478986141,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
-      "exitFundingRate": -0.00009058,
-      "exitFundingAPR": -9.918510000000001,
-      "exitReason": "ML Signal: Exit soon + Low APR (-9.9%)",
-      "holdingPeriodHours": 24,
-      "fundingPeriodsHeld": 3,
-      "spotPnL": -64.7698673489779,
-      "perpPnL": 65.18908979136606,
-      "totalFunding": 0.125395045906816,
-      "entryFees": 1.1365120413144263,
-      "exitFees": 1.0717421739654485,
+      "exitFundingRate": 0.00001817,
+      "exitFundingAPR": 1.9896150000000001,
+      "exitReason": "ML Signal: Exit soon + Low APR (2.0%)",
+      "holdingPeriodHours": 104,
+      "fundingPeriodsHeld": 13,
+      "spotPnL": -34.898138077981805,
+      "perpPnL": 35.84133099900845,
+      "totalFunding": 1.3215440466247497,
+      "entryFees": 1.0931605954697565,
+      "exitFees": 1.058262457391775,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "CRV/USDT:USDT",
-          "trend": "rising",
-          "strength": 0.9436709999999999,
+          "symbol": "FIL/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
           "lastRates": [
-            -7.92342,
-            -1.5527099999999998,
-            9.581249999999999,
+            10.950000000000001,
+            0.45661500000000005,
             10.950000000000001,
             10.950000000000001
           ],
-          "avgDecline": -4.718355
+          "avgDecline": 0
         },
         "volatility": {
-          "symbol": "CRV/USDT:USDT",
-          "currentVol": 0.8540049428383392,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 67.36111111111111,
+          "symbol": "FIL/USDT:USDT",
+          "currentVol": 1.080705989042726,
+          "avgVol": 0.7259117927682192,
+          "volPercentile": 74.46808510638297,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4316,7 +3770,7 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "CRV/USDT:USDT",
+          "symbol": "FIL/USDT:USDT",
           "trend": "stable",
           "strength": 0.1,
           "lastRates": [
@@ -4324,29 +3778,23 @@
             10.950000000000001,
             10.950000000000001,
             10.950000000000001,
-            -9.918510000000001
+            1.9896150000000001
           ],
-          "avgDecline": 5.2171275
+          "avgDecline": 2.24009625
         },
         "volatility": {
-          "symbol": "CRV/USDT:USDT",
-          "currentVol": 0.7987016785809709,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 50,
+          "symbol": "FIL/USDT:USDT",
+          "currentVol": 0.5113643371497669,
+          "avgVol": 0.7259117927682192,
+          "volPercentile": 30.49645390070922,
           "isLowVol": true
         },
         "riskScore": 0,
         "entryRecommendation": "avoid",
         "exitRecommendation": "exit_soon"
       },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.31111111111111117
-      },
       "predictedOutcome": "win",
-      "confidence": 0.6
+      "confidence": 1
     },
     {
       "symbol": "XRP/USDT:USDT",
@@ -4356,16 +3804,16 @@
       "entryPerpPrice": 2.2422,
       "exitSpotPrice": 2.2234,
       "exitPerpPrice": 2.2222,
-      "quantity": 556.3849546236331,
+      "quantity": 569.3827775475806,
       "fundingPayments": [
-        0.12662765182279265,
-        0.1256539781522013,
-        0.12582089363858842,
-        0.08102992072263775,
-        0.10207443663182243,
-        -0.02373885400636104
+        0.1295858263420539,
+        0.12858940648134562,
+        0.1287602213146099,
+        0.08292287730304491,
+        0.10445901846024301,
+        -0.024293422238711684
       ],
-      "totalPnL": -1.836404020435523,
+      "totalPnL": -1.879304631021935,
       "entryFundingRate": 0.0001,
       "entryFundingAPR": 10.950000000000001,
       "concurrentPositions": 5,
@@ -4374,11 +3822,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-2.1%)",
       "holdingPeriodHours": 48,
       "fundingPeriodsHeld": 6,
-      "spotPnL": -11.016422101547958,
-      "perpPnL": 11.127699092472673,
-      "totalFunding": 0.5374680269616815,
-      "entryFees": 1.2480827302117337,
-      "exitFees": 1.2370663081101858,
+      "spotPnL": -11.27377899544212,
+      "perpPnL": 11.387655550951623,
+      "totalFunding": 0.5500239276625857,
+      "entryFees": 1.2772394465947328,
+      "exitFees": 1.2659656675992907,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "XRP/USDT:USDT",
@@ -4396,8 +3844,8 @@
         "volatility": {
           "symbol": "XRP/USDT:USDT",
           "currentVol": 0.5637591384180618,
-          "avgVol": 0.5180808017752476,
-          "volPercentile": 64.58333333333334,
+          "avgVol": 0.5229010337432577,
+          "volPercentile": 63.829787234042556,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4421,8 +3869,8 @@
         "volatility": {
           "symbol": "XRP/USDT:USDT",
           "currentVol": 0.4113510414347475,
-          "avgVol": 0.5180808017752476,
-          "volPercentile": 45.83333333333333,
+          "avgVol": 0.5229010337432577,
+          "volPercentile": 44.680851063829785,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4433,7 +3881,7 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.06570000000000001,
-        "riskAdjustedScore": 0.19726027397260273
+        "riskAdjustedScore": 0.20571428571428577
       },
       "predictedOutcome": "win",
       "confidence": 0.6
@@ -4446,11 +3894,11 @@
       "entryPerpPrice": 0.5038,
       "exitSpotPrice": 0.4977,
       "exitPerpPrice": 0.4973,
-      "quantity": 3907.494799333356,
+      "quantity": 3981.512851976951,
       "fundingPayments": [
-        -0.12790123731529202
+        -0.13032401738358523
       ],
-      "totalPnL": -4.042820276767381,
+      "totalPnL": -4.119401743779292,
       "entryFundingRate": 0.00008596,
       "entryFundingAPR": 9.412619999999999,
       "concurrentPositions": 2,
@@ -4459,11 +3907,11 @@
       "exitReason": "ML Signal: Exit soon + Low APR (-7.2%)",
       "holdingPeriodHours": 8,
       "fundingPeriodsHeld": 1,
-      "spotPnL": -25.398716195666836,
-      "perpPnL": 25.398716195666836,
-      "totalFunding": -0.12790123731529202,
-      "entryFees": 1.9701588778238779,
-      "exitFees": 1.944760161628211,
+      "spotPnL": -25.879833537850203,
+      "perpPnL": 25.879833537850203,
+      "totalFunding": -0.13032401738358523,
+      "entryFees": 2.0074787799667786,
+      "exitFees": 1.9815989464289285,
       "entrySignals": {
         "fundingMomentum": {
           "symbol": "CRV/USDT:USDT",
@@ -4481,8 +3929,8 @@
         "volatility": {
           "symbol": "CRV/USDT:USDT",
           "currentVol": 0.7322853260373849,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 36.80555555555556,
+          "avgVol": 0.7916837066160487,
+          "volPercentile": 37.5886524822695,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4506,8 +3954,8 @@
         "volatility": {
           "symbol": "CRV/USDT:USDT",
           "currentVol": 0.6222861645839848,
-          "avgVol": 0.7948646321378735,
-          "volPercentile": 20.13888888888889,
+          "avgVol": 0.7916837066160487,
+          "volPercentile": 20.56737588652482,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4518,56 +3966,56 @@
         "willDecline": false,
         "confidence": 0.6,
         "expectedReturn": 0.05647571999999999,
-        "riskAdjustedScore": 0.4413223140495868
+        "riskAdjustedScore": 0.4372881355932204
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     },
     {
-      "symbol": "MKR/USDT:USDT",
+      "symbol": "RENDER/USDT:USDT",
       "entryTime": 1751673600000,
       "exitTime": 1751702400000,
-      "entrySpotPrice": 1879,
-      "entryPerpPrice": 1876.7,
-      "exitSpotPrice": 1867,
-      "exitPerpPrice": 1870.8,
-      "quantity": 0.7968710735211001,
+      "entrySpotPrice": 3.161,
+      "entryPerpPrice": 3.158,
+      "exitSpotPrice": 3.149,
+      "exitPerpPrice": 3.147,
+      "quantity": 502.7693875799958,
       "fundingPayments": [
-        -0.054309348710225476
+        -0.01014199983399832
       ],
-      "totalPnL": -7.900301938598904,
-      "entryFundingRate": 0.00006421,
-      "entryFundingAPR": 7.030995,
+      "totalPnL": -3.685386223043712,
+      "entryFundingRate": 0.00005,
+      "entryFundingAPR": 5.4750000000000005,
       "concurrentPositions": 3,
-      "exitFundingRate": -0.00003643,
-      "exitFundingAPR": -3.9890850000000007,
-      "exitReason": "ML Signal: Exit now (risk: 37.3%, momentum: declining)",
+      "exitFundingRate": -0.00000641,
+      "exitFundingAPR": -0.7018949999999998,
+      "exitReason": "ML Signal: Exit soon + Low APR (-0.7%)",
       "holdingPeriodHours": 8,
       "fundingPeriodsHeld": 1,
-      "spotPnL": -9.5624528822532,
-      "perpPnL": 4.701539333774563,
-      "totalFunding": -0.054309348710225476,
-      "entryFees": 1.4973207471461472,
-      "exitFees": 1.487758294263894,
+      "spotPnL": -6.033232650959955,
+      "perpPnL": 5.530463263380015,
+      "totalFunding": -0.01014199983399832,
+      "entryFees": 1.5892540341403667,
+      "exitFees": 1.5832208014894067,
       "entrySignals": {
         "fundingMomentum": {
-          "symbol": "MKR/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "rising",
+          "strength": 1,
           "lastRates": [
-            6.222885,
-            10.950000000000001,
-            0.8190600000000001,
-            -0.7413150000000001,
-            7.030995
+            -16.501649999999998,
+            4.7774849999999995,
+            -9.236324999999999,
+            -4.60995,
+            5.4750000000000005
           ],
-          "avgDecline": -0.20202750000000003
+          "avgDecline": -5.4941625
         },
         "volatility": {
-          "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.5866191559964417,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 29.86111111111111,
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.6560714380514665,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 41.843971631205676,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4576,108 +4024,23 @@
       },
       "exitSignals": {
         "fundingMomentum": {
-          "symbol": "MKR/USDT:USDT",
-          "trend": "declining",
-          "strength": 0.7469542500000002,
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "rising",
+          "strength": 0.4267214999999999,
           "lastRates": [
-            10.950000000000001,
-            0.8190600000000001,
-            -0.7413150000000001,
-            7.030995,
-            -3.9890850000000007
+            -9.236324999999999,
+            -4.60995,
+            5.4750000000000005,
+            5.4750000000000005,
+            -0.7018949999999998
           ],
-          "avgDecline": 3.7347712500000005
+          "avgDecline": -2.1336074999999997
         },
         "volatility": {
-          "symbol": "MKR/USDT:USDT",
-          "currentVol": 0.48654652871887494,
-          "avgVol": 0.6677884921004749,
-          "volPercentile": 14.583333333333334,
-          "isLowVol": true
-        },
-        "riskScore": 0.3734771250000001,
-        "entryRecommendation": "avoid",
-        "exitRecommendation": "exit_now"
-      },
-      "mlPrediction": {
-        "willDecline": false,
-        "confidence": 0.6,
-        "expectedReturn": 0.042185969999999996,
-        "riskAdjustedScore": 0.49586776859504134
-      },
-      "predictedOutcome": "win",
-      "confidence": 0.6
-    },
-    {
-      "symbol": "ADA/USDT:USDT",
-      "entryTime": 1751673600000,
-      "exitTime": 1751702400000,
-      "entrySpotPrice": 0.5754,
-      "entryPerpPrice": 0.5749,
-      "exitSpotPrice": 0.5735,
-      "exitPerpPrice": 0.5731,
-      "quantity": 1977.6916368284178,
-      "fundingPayments": [
-        -0.13205419062900234
-      ],
-      "totalPnL": -2.6019932758642117,
-      "entryFundingRate": 0.00005174,
-      "entryFundingAPR": 5.66553,
-      "concurrentPositions": 4,
-      "exitFundingRate": -0.00011651,
-      "exitFundingAPR": -12.757844999999998,
-      "exitReason": "ML Signal: Exit soon + Low APR (-12.8%)",
-      "holdingPeriodHours": 8,
-      "fundingPeriodsHeld": 1,
-      "spotPnL": -3.757614109974019,
-      "perpPnL": 3.5598449462909794,
-      "totalFunding": -0.13205419062900234,
-      "entryFees": 1.1379637678310717,
-      "exitFees": 1.1342061537210977,
-      "entrySignals": {
-        "fundingMomentum": {
-          "symbol": "ADA/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            7.713179999999999,
-            -2.67618,
-            10.950000000000001,
-            2.407905,
-            5.66553
-          ],
-          "avgDecline": 0.5119124999999994
-        },
-        "volatility": {
-          "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.6337864629740582,
-          "avgVol": 0.725363582115403,
-          "volPercentile": 36.80555555555556,
-          "isLowVol": true
-        },
-        "riskScore": 0,
-        "entryRecommendation": "enter",
-        "exitRecommendation": "hold"
-      },
-      "exitSignals": {
-        "fundingMomentum": {
-          "symbol": "ADA/USDT:USDT",
-          "trend": "stable",
-          "strength": 0.1,
-          "lastRates": [
-            -2.67618,
-            10.950000000000001,
-            2.407905,
-            5.66553,
-            -12.757844999999998
-          ],
-          "avgDecline": 2.52041625
-        },
-        "volatility": {
-          "symbol": "ADA/USDT:USDT",
-          "currentVol": 0.5969442864801799,
-          "avgVol": 0.725363582115403,
-          "volPercentile": 32.63888888888889,
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.5609207240905006,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 15.602836879432624,
           "isLowVol": true
         },
         "riskScore": 0,
@@ -4687,23 +4050,108 @@
       "mlPrediction": {
         "willDecline": false,
         "confidence": 0.6,
-        "expectedReturn": 0.033993180000000005,
-        "riskAdjustedScore": 0.44628099173553715
+        "expectedReturn": 0.032850000000000004,
+        "riskAdjustedScore": 0.4169491525423728
+      },
+      "predictedOutcome": "win",
+      "confidence": 0.6
+    },
+    {
+      "symbol": "RENDER/USDT:USDT",
+      "entryTime": 1751731200000,
+      "exitTime": 1751760000000,
+      "entrySpotPrice": 3.16,
+      "entryPerpPrice": 3.158,
+      "exitSpotPrice": 3.164,
+      "exitPerpPrice": 3.162,
+      "quantity": 274.16057366681287,
+      "fundingPayments": [
+        0.01470255164752848
+      ],
+      "totalPnL": -1.7190889162213963,
+      "entryFundingRate": 0.00004571,
+      "entryFundingAPR": 5.005245,
+      "concurrentPositions": 5,
+      "exitFundingRate": 0.00001696,
+      "exitFundingAPR": 1.8571199999999999,
+      "exitReason": "ML Signal: Exit soon + Low APR (1.9%)",
+      "holdingPeriodHours": 8,
+      "fundingPeriodsHeld": 1,
+      "spotPnL": 1.0966422946672525,
+      "perpPnL": -1.0966422946672525,
+      "totalFunding": 0.01470255164752848,
+      "entryFees": 0.8663474127871288,
+      "exitFees": 0.8674440550817959,
+      "entrySignals": {
+        "fundingMomentum": {
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            5.4750000000000005,
+            5.4750000000000005,
+            -0.7018949999999998,
+            5.4750000000000005,
+            5.005245
+          ],
+          "avgDecline": 0.11743875000000004
+        },
+        "volatility": {
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.4861235542940604,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 0,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "enter",
+        "exitRecommendation": "hold"
+      },
+      "exitSignals": {
+        "fundingMomentum": {
+          "symbol": "RENDER/USDT:USDT",
+          "trend": "stable",
+          "strength": 0.1,
+          "lastRates": [
+            5.4750000000000005,
+            -0.7018949999999998,
+            5.4750000000000005,
+            5.005245,
+            1.8571199999999999
+          ],
+          "avgDecline": 0.9044700000000001
+        },
+        "volatility": {
+          "symbol": "RENDER/USDT:USDT",
+          "currentVol": 0.5310240365355126,
+          "avgVol": 0.7448850180150184,
+          "volPercentile": 7.092198581560284,
+          "isLowVol": true
+        },
+        "riskScore": 0,
+        "entryRecommendation": "avoid",
+        "exitRecommendation": "exit_soon"
+      },
+      "mlPrediction": {
+        "willDecline": false,
+        "confidence": 0.6,
+        "expectedReturn": 0.03003147,
+        "riskAdjustedScore": 0.6
       },
       "predictedOutcome": "win",
       "confidence": 0.6
     }
   ],
   "signalAccuracy": {
-    "totalPredictions": 18,
-    "correctPredictions": 0,
-    "accuracy": 0,
-    "avgConfidence": 71.11111111111109
+    "totalPredictions": 16,
+    "correctPredictions": 1,
+    "accuracy": 6.25,
+    "avgConfidence": 77.49999999999999
   },
   "featureImportance": {
-    "fundingMomentum": 0,
-    "volatilityFilter": 0,
-    "riskScore": 0
+    "fundingMomentum": 0.0625,
+    "volatilityFilter": 0.0625,
+    "riskScore": 0.0625
   },
   "monthlyStats": [],
   "symbolStats": {}

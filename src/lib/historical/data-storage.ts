@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { HistoricalData, CacheMetadata } from './types';
+import { HistoricalData, CacheMetadata } from './types.js';
 
 export class DataStorage {
   private basePath: string;

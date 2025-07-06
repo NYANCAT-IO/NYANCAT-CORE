@@ -42,8 +42,8 @@ COPY --from=builder /app/dist ./dist
 # Copy source for any runtime requirements
 COPY --from=builder /app/src ./src
 
-# Create data directory for persistent storage
-RUN mkdir -p /app/data/historical /app/data/rofl
+# Create data and results directories for persistent storage
+RUN mkdir -p /app/data/historical /app/results
 
 # Create non-root user for security
 RUN addgroup -g 1001 -S nodejs && \
@@ -55,8 +55,9 @@ USER ccxt
 
 # Environment variables for ROFL
 ENV NODE_ENV=production
-ENV ROFL_MODE=true
+ENV ROFL_MODE=false
 ENV DATA_DIR=/app/data
+ENV RESULTS_DIR=/app/results
 
 # Expose port for health checks
 EXPOSE 3000
@@ -65,5 +66,5 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
   CMD node -e "console.log('Health check OK')" || exit 1
 
-# Keep container running for testing
-CMD ["sh", "-c", "echo '🚀 ROFL Container Ready! Test with: node dist/cli/index.js --health-check' && tail -f /dev/null"]
+# Run demo command sequence
+CMD ["sh", "-c", "echo '🚀 Starting ROFL Demo Container...' && echo '📊 Fetching historical data (8 days)...' && node dist/cli/fetch-historical.js -d 8 --valid-only && echo '🤖 Running ML-optimized backtest...' && node dist/cli/backtest.js --demo --ml && echo '✅ Demo complete! Results saved to /app/results/' && tail -f /dev/null"]
