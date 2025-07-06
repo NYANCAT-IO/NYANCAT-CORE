@@ -25,6 +25,18 @@ services:
       - ROFL_MODE=false
       - DATA_DIR=/app/data
       - RESULTS_DIR=/app/results
+      
+      # Graph Protocol Integration - ENABLED BY DEFAULT
+      - ENABLE_GRAPH_UPLOAD=true
+      - GRAPH_NETWORK=TESTNET
+      - GRAPH_API_URL=https://hypergraph-v2-testnet.up.railway.app
+      - GRAPH_IPFS_URL=https://ipfs.hypergraph.xyz
+      
+      # Load Graph Protocol credentials from host .env file
+      - PRIVATE_KEY=${PRIVATE_KEY}
+      - WALLET_ADDRESS=${WALLET_ADDRESS}
+      - SPACE_ID=${SPACE_ID:-}
+      - SPACE_NAME=${SPACE_NAME:-ROFL Demo Results}
 
     # Persistent storage volumes
     volumes:

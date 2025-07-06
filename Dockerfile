@@ -66,5 +66,36 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
   CMD node -e "console.log('Health check OK')" || exit 1
 
-# Run demo command sequence
-CMD ["sh", "-c", "echo '🚀 Starting ROFL Demo Container...' && echo '📊 Fetching historical data (8 days)...' && node dist/cli/fetch-historical.js -d 8 --valid-only && echo '🤖 Running ML-optimized backtest...' && node dist/cli/backtest.js --demo --ml && echo '✅ Demo complete! Results saved to /app/results/' && tail -f /dev/null"]
+# Run comprehensive demo command sequence with Graph Protocol upload
+CMD ["sh", "-c", "\
+echo '🚀 Starting ROFL Demo Container...' && \
+echo '📊 Fetching historical data (8 days)...' && \
+node dist/cli/fetch-historical.js -d 8 --valid-only && \
+echo '🤖 Running ML-optimized backtest...' && \
+node dist/cli/backtest.js --demo --ml && \
+echo '📈 Backtest complete! Results saved to /app/results/' && \
+echo '🌐 Checking Graph Protocol configuration...' && \
+if [ \"${ENABLE_GRAPH_UPLOAD:-false}\" = \"true\" ] && [ -n \"${PRIVATE_KEY:-}\" ] && [ -n \"${WALLET_ADDRESS:-}\" ]; then \
+  echo '🔗 Graph Protocol credentials found - uploading results...' && \
+  if node dist/cli/upload-graph.js --dry-run >/dev/null 2>&1; then \
+    echo '✅ Data validation successful - proceeding with upload...' && \
+    if node dist/cli/upload-graph.js 2>/dev/null; then \
+      echo '🎉 Graph Protocol upload successful!' && \
+      echo '📊 Results are now publicly verifiable on decentralized storage'; \
+    else \
+      echo '⚠️  Graph Protocol upload failed (network/API issue) - results saved locally'; \
+    fi; \
+  else \
+    echo '⚠️  Data validation failed - skipping Graph Protocol upload'; \
+  fi; \
+else \
+  echo '📝 Graph Protocol upload skipped (credentials not configured)' && \
+  echo '💡 To enable: Set ENABLE_GRAPH_UPLOAD=true, PRIVATE_KEY, and WALLET_ADDRESS'; \
+fi && \
+echo '' && \
+echo '✅ ROFL Demo Complete!' && \
+echo '📁 Local results: /app/results/' && \
+echo '🔍 Container logs: docker logs <container-name>' && \
+echo '🛑 Stop container: docker-compose down' && \
+echo '' && \
+tail -f /dev/null"]
