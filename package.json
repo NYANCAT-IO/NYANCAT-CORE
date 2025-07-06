@@ -14,7 +14,8 @@
     "analyze-delta": "tsx src/cli/analyze-delta-neutral.ts",
     "fetch-historical": "tsx src/cli/fetch-historical.ts",
     "backtest": "tsx src/cli/backtest.ts",
-    "discover-pairs": "tsx src/cli/discover-pairs.ts"
+    "discover-pairs": "tsx src/cli/discover-pairs.ts",
+    "optimize-ml": "tsx src/cli/optimize-ml.ts"
   },
   "keywords": [
     "ccxt",
@@ -30,6 +31,7 @@
     "node": ">=16.0.0"
   },
   "dependencies": {
+    "@fugle/backtest": "^0.2.0",
     "ccxt": "^4.4.92",
     "chalk": "^5.4.1",
     "cli-table3": "^0.6.5",

@@ -1,6 +1,6 @@
 # ROFL-Optimized Node.js Container
 # Multi-stage build for production optimization
-FROM node:18-alpine AS builder
+FROM node:24-alpine AS builder
 
 # Install pnpm globally
 RUN npm install -g pnpm
@@ -22,7 +22,7 @@ COPY tsconfig.json ./
 RUN pnpm tsc
 
 # Production stage
-FROM node:18-alpine AS production
+FROM node:24-alpine AS production
 
 # Install pnpm globally
 RUN npm install -g pnpm

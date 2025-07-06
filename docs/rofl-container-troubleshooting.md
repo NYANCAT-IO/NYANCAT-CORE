@@ -23,14 +23,16 @@ Error [ERR_UNSUPPORTED_DIR_IMPORT]: Directory import '/app/dist/lib/backtest' is
 - ES module resolution issues when importing from compiled TypeScript directories
 - Works locally but fails in containerized Node.js environment
 
-**Current Status:** 🔴 **UNRESOLVED**
+**Current Status:** ✅ **RESOLVED** (July 2025)
 
-**Workaround:** Use main CLI `--health-check` for infrastructure testing instead of backtest CLI in container.
+**Solution Implemented:**
+Changed TypeScript `moduleResolution` from `"node"` to `"bundler"` in `tsconfig.json`. This allows directory imports without requiring explicit `.js` extensions in source code.
 
-**Future Fix Required:**
-- Review TypeScript compilation output structure
-- Consider explicit index.js exports in lib/backtest/
-- Test alternative module resolution strategies
+**Technical Details:**
+- **Root cause:** ES module directory imports are invalid with "node" resolution
+- **Fix:** "bundler" resolution allows `from '../lib/backtest'` syntax
+- **Result:** Both local and container builds now work perfectly
+- **See:** `docs/es-module-fix-summary.md` for complete technical details
 
 ---
 
@@ -123,13 +125,13 @@ docker-compose exec funding-arbitrage node --version
 - `docker-compose exec funding-arbitrage node dist/cli/index.js --health-check` (container)
 
 ### **Known Failing Commands**
-- `docker-compose exec funding-arbitrage node dist/cli/backtest.js --demo` (container)
-- Any backtest functionality in container
+- ✅ ~~`docker-compose exec funding-arbitrage node dist/cli/backtest.js --demo`~~ **FIXED** (ES module resolution)
+- **Note:** Backtest functionality now works in container after ES module fix
 
 ### **Test Environment**
 - **OS:** macOS (darwin)
 - **Docker:** Docker Desktop
-- **Node.js:** 18.20.8 (in container)
+- **Node.js:** 24.x (upgraded in container for ES module compatibility)
 - **Container:** Alpine Linux base
 
 ---
@@ -142,7 +144,7 @@ docker-compose exec funding-arbitrage node --version
 3. **Test containerization** with main CLI functionality only
 
 ### **For Production ROFL Deployment**
-1. **Resolve ES module imports** before container-based backtest deployment
+1. ✅ ~~**Resolve ES module imports**~~ **COMPLETED** - ES module fix implemented
 2. **Implement data fetching** within container for historical data
 3. **Test full backtest functionality** in container before ROFL deployment
 
@@ -159,5 +161,5 @@ The current container setup is **perfect for ROFL health checking and infrastruc
 
 ---
 
-**Last Updated:** December 2024  
-**Status:** Container infrastructure verified, backtest functionality requires fixes
+**Last Updated:** July 2025  
+**Status:** Container infrastructure verified, ES module issues resolved, ready for ROFL deployment

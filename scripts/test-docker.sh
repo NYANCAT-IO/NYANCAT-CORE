@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# ROFL Local Testing Script
-# Test containerization with docker-compose or podman-compose before ROFL deployment
+# Docker Testing Script for ROFL Integration  
+# Test containerization with standard Docker workflow before ROFL deployment
+# Run from project root: ./scripts/test-docker.sh
 
 set -e
 
@@ -27,12 +28,12 @@ fi
 
 # Create necessary directories
 echo "📁 Creating data directories..."
-mkdir -p ../data/rofl
-mkdir -p ../data/historical
+mkdir -p data/rofl
+mkdir -p data/historical
 
 # Copy configuration
 echo "⚙️  Setting up configuration..."
-cp ../rofl/config.json ../data/rofl/ || echo "⚠️  Config copy failed (non-critical)"
+cp rofl/config.json data/rofl/ || echo "⚠️  Config copy failed (non-critical)"
 
 # Build and start containers
 echo "🔨 Building container..."

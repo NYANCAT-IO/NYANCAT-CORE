@@ -4,7 +4,7 @@
     "target": "ES2022",
     "lib": ["ES2022"],
     "module": "ES2022",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     
     /* Emit */
     "outDir": "./dist",
@@ -45,6 +45,8 @@
     "node_modules",
     "dist",
     "**/*.test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "src/lib/backtest/fugle-optimizer.ts",
+    "src/cli/optimize-ml.ts"
   ]
 }
