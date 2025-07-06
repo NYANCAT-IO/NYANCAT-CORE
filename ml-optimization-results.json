@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-07-05T23:53:41.410Z",
+  "config": {
+    "startDate": "2025-06-28T23:53:26.115Z",
+    "endDate": "2025-07-05T23:53:26.115Z",
+    "initialCapital": 10000,
+    "minAPR": 5,
+    "useML": true,
+    "riskThreshold": 0.6,
+    "volatilityFilter": false,
+    "momentumFilter": false
+  },
+  "optimization": {
+    "params": {
+      "riskThreshold": 0.2,
+      "minAPR": 3,
+      "volatilityFilter": true,
+      "momentumFilter": true
+    },
+    "performance": {
+      "totalReturn": 1.3162873589358606,
+      "sharpeRatio": 0,
+      "maxDrawdown": 3.118600649828699,
+      "winRate": 0,
+      "trades": 18
+    },
+    "score": 0.2793442923731999
+  },
+  "baseline": null,
+  "validation": null
+}
