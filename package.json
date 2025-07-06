@@ -15,7 +15,8 @@
     "fetch-historical": "tsx src/cli/fetch-historical.ts",
     "backtest": "tsx src/cli/backtest.ts",
     "discover-pairs": "tsx src/cli/discover-pairs.ts",
-    "optimize-ml": "tsx src/cli/optimize-ml.ts"
+    "optimize-ml": "tsx src/cli/optimize-ml.ts",
+    "upload-graph": "tsx src/cli/upload-graph.ts"
   },
   "keywords": [
     "ccxt",
@@ -32,11 +33,14 @@
   },
   "dependencies": {
     "@fugle/backtest": "^0.2.0",
+    "@graphprotocol/grc-20": "^0.21.4",
     "ccxt": "^4.4.92",
     "chalk": "^5.4.1",
     "cli-table3": "^0.6.5",
     "commander": "^14.0.0",
     "dotenv": "^17.0.1",
+    "graphql": "^16.11.0",
+    "graphql-request": "^7.2.0",
     "ml-random-forest": "^2.1.0",
     "ml-regression": "^6.3.0",
     "open": "^10.1.2",

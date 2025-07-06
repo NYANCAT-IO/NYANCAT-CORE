@@ -642,6 +642,40 @@ oasis rofl machine stop
 
 **Commits:** `78bb5b8`, `4425ae0`, `3c169d1`, `18b39c7` (ES module fix)
 
+### **Phase 5: Graph Protocol Integration** ✅ **COMPLETED**
+
+**Decentralized Storage of ROFL Results:**
+
+**Graph Protocol Integration Added:**
+- ✅ **Environment Configuration** - Extended .env.example with Graph Protocol variables
+- ✅ **Dependencies Installed** - @graphprotocol/grc-20, graphql, graphql-request
+- ✅ **Core Library** - Created src/lib/graph/ with entity factory and models
+- ✅ **CLI Tool** - Built comprehensive upload-graph CLI with auto-detection
+- ✅ **Docker Compatibility** - Full container support with path resolution
+- ✅ **Testing Verified** - Both local and container environments work
+
+**Data Upload Capability:**
+- 🚀 **Auto-Detection**: Finds backtest-optimized.json from --demo --ml runs
+- 📊 **Rich Entities**: 102 entities (BacktestRun, EquityPoints, Positions, Signals)
+- 🔗 **IPFS Storage**: Permanent decentralized storage with blockchain verification
+- 🌐 **Public Sharing**: Queryable results via Geo Browser
+- 📈 **Performance**: ~623 operations processed in 15-40 seconds
+
+**Usage Examples:**
+```bash
+# Complete workflow
+pnpm backtest --demo --ml           # Generate ML results
+pnpm upload-graph --dry-run         # Validate data
+pnpm upload-graph                   # Upload to Graph Protocol
+
+# Docker workflow
+docker-compose run --rm funding-arbitrage node dist/cli/upload-graph.js --list-files
+```
+
+**Result:** ROFL backtest results now permanently stored on decentralized infrastructure with public verification capability.
+
+**Documentation:** `docs/graph-protocol-integration.md` (comprehensive guide)
+
 ---
 
-**This comprehensive plan transforms our delta-neutral funding arbitrage system into a secure, verifiable, cost-efficient ROFL application while staying within the 150 TEST budget through simulation-first development and intelligent resource optimization.**
+**This comprehensive plan transforms our delta-neutral funding arbitrage system into a secure, verifiable, cost-efficient ROFL application with decentralized result storage, staying within the 150 TEST budget through simulation-first development and intelligent resource optimization.**
