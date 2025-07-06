@@ -1,11 +1,10 @@
 # ROFL-Compatible Docker Compose Configuration
 # Resource-optimized for 512MB RAM, 1 CPU (70% cost reduction)
-version: "3.8"
 
 services:
   funding-arbitrage:
     build: .
-    image: "bioharz/nyancat-finance"
+    image: "docker.io/bioharz/nyancat-finance"
     platform: linux/amd64
     container_name: rofl-funding-arbitrage
 
@@ -32,7 +31,7 @@ services:
       - GRAPH_API_URL=https://hypergraph-v2-testnet.up.railway.app
       - GRAPH_IPFS_URL=https://ipfs.hypergraph.xyz
       
-      # Load Graph Protocol credentials from host .env file
+      # Load Graph Protocol credentials from ROFL secrets (TEE) or .env file (local)
       - PRIVATE_KEY=${PRIVATE_KEY}
       - WALLET_ADDRESS=${WALLET_ADDRESS}
       - SPACE_ID=${SPACE_ID:-}

@@ -140,3 +140,5 @@ container-*.log
 docker-compose.override.yml
 compose.override.yml
 *.orc
+
+rofl.yaml

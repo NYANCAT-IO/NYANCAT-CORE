@@ -21,6 +21,7 @@ deployments:
     network: testnet
     paratime: sapphire
     admin: wallet
+    oci_repository: rofl.sh/41fafc0c-5529-40bb-ae32-b594f7608528:1751784467
     trust_root:
       height: 27376815
       hash: a53a7af65bd9a923846b99da8d44bb677da9515629cd4e5a530409b47cd49b52
@@ -30,8 +31,20 @@ deployments:
           tcb_validity_period: 30
           min_tcb_evaluation_data_number: 18
           tdx: {}
-      enclaves: []
+      enclaves:
+        - id: E8JsB3DpixePn1IsniUoIS3P90GbA3HMTI8ADAhrv0kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+        - id: o6cWiwNYedCKOXiiMl4gykqwfwvB/Qi5HWc5Ce1y1IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
       endorsements:
         - any: {}
       fees: endorsing_node
       max_expiration: 3
+    secrets:
+      - name: PRIVATE_KEY
+        value: pGJwa1ggg2urIhVJO245NHdMTMwryzrTLRuKs8qGfygY9WGxXitkbmFtZVgbrHC3R/hRzO376p5w397akPZxNN86cWSXCZeBZW5vbmNlT0PaMqB2D0TZzKToRW85WmV2YWx1ZVAquLOIS0FXRbkWJ7Up6TJk
+      - name: WALLET_ADDRESS
+        value: pGJwa1gg0FOnC11HYPtx4CjQm6nJeqz9ofUCCErFGMBs5ORxgDxkbmFtZVgekbBVxP25XRUipyp2dlyUE8Q4A2TsVhCHrd30nQ5RZW5vbmNlT7XgZK03GFBad2p9QKMKO2V2YWx1ZVD+bNHCAhm+otrTfPwhqjT1
+    machines:
+      default:
+        provider: oasis1qp2ens0hsp7gh23wajxa4hpetkdek3swyyulyrmz
+        offer: playground_short
+        id: 000000000000017f
