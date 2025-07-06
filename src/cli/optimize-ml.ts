@@ -3,7 +3,15 @@
 import { Command } from 'commander';
 import ora from 'ora';
 import fs from 'fs/promises';
-import { OptimizedBacktestEngine, OptimizedBacktestConfig, OptimizedBacktestResult } from '../lib/backtest/optimized-engine';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+import os from 'os';
+import { Piscina } from 'piscina';
+import { OptimizedBacktestEngine, OptimizedBacktestConfig, OptimizedBacktestResult } from '../lib/backtest/optimized-engine.js';
+import type { WorkerTask } from '../workers/optimize-backtest-worker.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const program = new Command();
 
@@ -172,6 +180,151 @@ class MLParameterOptimizer {
   }
 
   /**
+   * Run parameter optimization using parallel processing with Piscina
+   */
+  async optimizeParametersParallel(
+    config: OptimizedBacktestConfig,
+    maxEvaluations: number = 100,
+    progressCallback?: (completed: number, total: number, bestScore: number) => void
+  ): Promise<OptimizationResult> {
+    console.log('🚀 Starting parallel ML parameter optimization...');
+    console.log(`📊 Max evaluations: ${maxEvaluations}`);
+    
+    const parameterCombinations = this.generateParameterCombinations(maxEvaluations);
+    console.log(`🔍 Testing ${parameterCombinations.length} parameter combinations in parallel`);
+
+    // Calculate optimal worker configuration based on system resources
+    const cpuCount = os.cpus().length;
+    const memoryGB = Math.round(os.totalmem() / (1024 ** 3));
+    
+    // Conservative thread allocation: leave 1-2 cores for system/main thread
+    const optimalThreads = Math.min(
+      Math.max(1, cpuCount - 1), // Leave at least 1 core for system
+      parameterCombinations.length, // Don't create more threads than tasks
+      Math.floor(memoryGB / 2) // Rough estimate: 2GB per worker for ML processing
+    );
+    
+    // Queue size: balance memory usage vs throughput
+    const maxQueue = Math.min(
+      Math.max(optimalThreads * 3, 20), // 3x thread count for good utilization
+      100 // Cap at 100 to prevent excessive memory usage
+    );
+    
+    // Minimum threads: keep some workers alive for quick response
+    const minThreads = Math.min(2, optimalThreads);
+    
+    console.log(`🔧 Worker Pool Configuration:`);
+    console.log(`   💻 CPU cores: ${cpuCount} (using ${optimalThreads} for workers)`);
+    console.log(`   🧠 Memory: ${memoryGB}GB (estimated ${optimalThreads * 2}GB for workers)`);
+    console.log(`   📋 Queue size: ${maxQueue} tasks`);
+    console.log(`   ⚡ Min/Max threads: ${minThreads}/${optimalThreads}`);
+
+    // Create optimized Piscina worker pool
+    const workerPath = resolve(__dirname, '../workers/optimize-backtest-worker.js');
+    const pool = new Piscina({
+      filename: workerPath,
+      minThreads: minThreads,
+      maxThreads: optimalThreads,
+      maxQueue: maxQueue,
+      idleTimeout: 30000, // Keep workers alive for 30 seconds
+      // Resource limits to prevent OOM
+      resourceLimits: {
+        maxOldGenerationSizeMb: 1024, // 1GB per worker max
+        maxYoungGenerationSizeMb: 256, // 256MB for young generation
+      },
+    });
+
+    let completedTasks = 0;
+    let bestScore = -Infinity;
+
+    try {
+      // Create tasks for all parameter combinations
+      const tasks: Promise<OptimizationResult>[] = parameterCombinations.map((params, index) => {
+        const workerTask: WorkerTask = {
+          config,
+          params,
+          workerIndex: index
+        };
+        
+        return pool.run(workerTask).then((result: OptimizationResult) => {
+          completedTasks++;
+          const progress = (completedTasks / parameterCombinations.length * 100).toFixed(1);
+          
+          // Track best score for progress reporting
+          if (result.score > bestScore) {
+            bestScore = result.score;
+            console.log(`🏆 [${progress}%] New best! Score: ${result.score.toFixed(4)}, Return: ${result.performance.totalReturn.toFixed(2)}% (Worker ${index})`);
+          } else {
+            console.log(`⏳ [${progress}%] Completed: score=${result.score.toFixed(4)}, return=${result.performance.totalReturn.toFixed(2)}% (Worker ${index})`);
+          }
+
+          // Call progress callback if provided
+          if (progressCallback) {
+            progressCallback(completedTasks, parameterCombinations.length, bestScore);
+          }
+
+          return result;
+        }).catch((error: Error) => {
+          completedTasks++;
+          console.warn(`⚠️ Worker ${index} failed:`, error.message);
+          throw error;
+        });
+      });
+
+      // Wait for all tasks to complete
+      console.log(`\n🔄 Processing ${parameterCombinations.length} parameter combinations...`);
+      const results = await Promise.allSettled(tasks);
+      
+      // Extract successful results
+      const successfulResults = results
+        .filter((r): r is PromiseFulfilledResult<OptimizationResult> => r.status === 'fulfilled')
+        .map(r => r.value);
+      
+      // Count successful vs failed tasks
+      const successful = successfulResults.length;
+      const failed = results.length - successful;
+      
+      console.log(`\n📊 Parallel execution completed:`);
+      console.log(`   ✅ Successful: ${successful}/${results.length}`);
+      console.log(`   ❌ Failed: ${failed}`);
+      console.log(`   📈 Worker utilization: ${(pool.utilization * 100).toFixed(1)}%`);
+      console.log(`   ⏱️  Average run time: ${pool.runTime.average?.toFixed(0)}ms`);
+      console.log(`   📉 Min/Max run time: ${pool.runTime.min?.toFixed(0)}ms / ${pool.runTime.max?.toFixed(0)}ms`);
+      console.log(`   ⌛ Average wait time: ${pool.waitTime.average?.toFixed(0)}ms`);
+      console.log(`   🎯 Completed tasks: ${pool.completed}`);
+      
+      // Performance insights
+      const avgTimePerTask = pool.runTime.average || 0;
+      const totalTimeParallel = (pool.duration || 0);
+      const estimatedSequentialTime = avgTimePerTask * parameterCombinations.length;
+      const speedupRatio = estimatedSequentialTime > 0 ? estimatedSequentialTime / totalTimeParallel : 1;
+      
+      if (speedupRatio > 1.5) {
+        console.log(`   🚀 Performance: ${speedupRatio.toFixed(1)}x faster than sequential!`);
+      }
+
+      // Find the best result from all successful results
+      if (successfulResults.length === 0) {
+        throw new Error('No valid parameter combinations found');
+      }
+
+      const bestResult = successfulResults.reduce((best, current) => 
+        current.score > best.score ? current : best
+      );
+
+      console.log('✅ Parallel optimization completed!');
+      console.log(`🏆 Best score: ${bestResult.score.toFixed(4)}`);
+      console.log(`📈 Best return: ${bestResult.performance.totalReturn.toFixed(2)}%`);
+
+      return bestResult;
+
+    } finally {
+      // Always clean up the worker pool
+      await pool.destroy();
+    }
+  }
+
+  /**
    * Validate specific parameters
    */
   async validateParameters(
@@ -213,6 +366,8 @@ program
   .option('--validate', 'Validate optimized parameters on longer period')
   .option('--baseline', 'Compare against current manual parameters')
   .option('-o, --output <format>', 'Output format: json, html, or both', 'both')
+  .option('--parallel', 'Enable parallel processing with worker threads (faster, default)')
+  .option('--sequential', 'Force sequential processing (slower, for debugging)')
   .action(async (options) => {
     const spinner = ora('Initializing ML parameter optimization...').start();
     
@@ -247,7 +402,11 @@ program
         momentumFilter: false // Will be optimized
       };
 
-      spinner.text = `🔍 Optimizing ML parameters over ${days} days (${maxEvaluations} evaluations)...`;
+      // Determine processing mode (parallel by default, unless sequential is explicitly requested)
+      const useParallel = !options.sequential;
+      const processingMode = useParallel ? 'parallel' : 'sequential';
+      
+      spinner.text = `🔍 Optimizing ML parameters over ${days} days (${maxEvaluations} evaluations, ${processingMode} mode)...`;
 
       // Initialize optimizer
       const optimizer = new MLParameterOptimizer();
@@ -275,10 +434,13 @@ program
       }
 
       // Run optimization
-      spinner.text = `🚀 Running parameter optimization (${maxEvaluations} evaluations)...`;
-      const optimizationResult = await optimizer.optimizeParameters(config, maxEvaluations);
+      spinner.text = `🚀 Running ${processingMode} parameter optimization (${maxEvaluations} evaluations)...`;
+      
+      const optimizationResult = useParallel 
+        ? await optimizer.optimizeParametersParallel(config, maxEvaluations)
+        : await optimizer.optimizeParameters(config, maxEvaluations);
 
-      spinner.succeed('🎉 Parameter optimization completed!');
+      spinner.succeed(`🎉 ${processingMode.charAt(0).toUpperCase() + processingMode.slice(1)} optimization completed!`);
 
       // Display results
       console.log('\n🏆 OPTIMIZATION RESULTS');
